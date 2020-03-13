@@ -22,3 +22,7 @@ The process that students currently follow for each lesson:
 - Create solutions for each lesson challenge in the curriculum repo
 - Submit solutions to the curriculum web app
 - Start a new lesson when all lesson challenge solutions have been approved by a mentor in the web app
+
+## Sections/Chapters
+
+- [Preface](./preface.md)
