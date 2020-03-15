@@ -26,3 +26,5 @@ The process that students currently follow for each lesson:
 ## Sections/Chapters
 
 - [Preface](./preface.md)
+- Lessons:
+  - [JS 0 - Foundations](lesson-js00-foundations.md)
