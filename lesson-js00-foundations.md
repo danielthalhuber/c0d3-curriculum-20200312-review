@@ -54,3 +54,17 @@ Are arrow functions really the most important concept in JavaScript?
 > 2. Write a function called sumOrTen that takes in 2 numbers. It should return 10 if both numbers are bigger than 10; otherwise it should just add them.
 
 Consider the change: ~~otherwise it should just add them~~ => otherwise it should return their sum.
+
+## Lesson Challenges
+
+### Solving Challenges
+
+> Note: Except for step 4 (open and editing the file), all the commands should be run in the terminal
+
+Step 3 is performed with a web browser. Consider changing the wording of this note to something like:
+
+> Note: except for steps 3 and 4, ...
+
+Or:
+
+> Note: the majority of these commands should be run in the terminal
