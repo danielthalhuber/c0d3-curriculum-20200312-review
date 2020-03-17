@@ -35,3 +35,18 @@ Consider adding "in":
 Since we're adding a `script` element (opening and closing tags with enclosed content), we should say _element_ instead of _tag_:
 
 > This is called **dynamic** behavior. To get started, we'll add a `<script>` **~~tag~~ element**, which tells the browser to treat the text inside as JavaScript and run the code.
+
+## Getting HTML Elements
+
+Grammar, plural "browsers":
+
+> `document.querySelector` is another common javascript method (or function) supported by most browser**s**.
+
+Grammar recommendations:
+
+- Add article "the", i.e. "we ran **the** `document.querySelector` method"
+- Add comma and the article "an", i.e. "in this case, **an** `input` element"
+- Remove redundant "in", i.e. "we passed ~~in~~ `'input'`"
+- Move final period from before to after final closing parentheses
+
+> In the example above, we ran **the** `document.querySelector` method (or function) and passed ~~in~~ `'input'` as the argument. This method searches through all the elements on the page and returns the first element that matches the specified selectors (in this case **an** 'input' element ~~.~~)**.**

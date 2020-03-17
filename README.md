@@ -1,4 +1,4 @@
-# C0D3 Curriculum Notes
+# C0D3 Curriculum Review
 
 ## Overview
 
