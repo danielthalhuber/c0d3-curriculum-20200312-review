@@ -27,5 +27,5 @@ The process that students currently follow for each lesson:
 
 - [Preface](./preface.md)
 - Lessons:
-  - [JS 0 - Foundations](lesson-js00-foundations.md)
-  - [JS 1 - HTML & Functions](lesson-js01-html-and-functions.md)
+  - [JS 0 - Foundations](./lessons/js00-foundations/README.md)
+  - [JS 1 - HTML & Functions](./lessons/js01-html-and-functions/README.md)
