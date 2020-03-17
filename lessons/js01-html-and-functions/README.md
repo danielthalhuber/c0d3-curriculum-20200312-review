@@ -29,3 +29,9 @@ What does it mean to "match each **tag** instruction with its corresponding **el
 Consider adding "in":
 
 > (Note that we're getting you started on a later exercise, **in** which you will write HTML instructions for Challenge 1 from the previous lesson.)
+
+## Browser JavaScript
+
+Since we're adding a `script` element (opening and closing tags with enclosed content), we should say _element_ instead of _tag_:
+
+> This is called **dynamic** behavior. To get started, we'll add a `<script>` **~~tag~~ element**, which tells the browser to treat the text inside as JavaScript and run the code.
