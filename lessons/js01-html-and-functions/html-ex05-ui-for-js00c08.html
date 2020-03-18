@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS 1 - Exercise: Create a UI for JS 0 Challenge 1</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      main {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+      }
+      main > div {
+        padding: 1rem;
+      }
+      .description {
+        flex-basis: 40%;
+        background: #f7f7f7;
+        color: lightslategrey;
+      }
+      .app {
+        flex-basis: 60%;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="description">
+        <h2>Process:</h2>
+        <ul>
+          <li>Add two input elements with type number</li>
+          <li>Add a button with class and text "generate"</li>
+          <li>Add a button with class and text "submit"</li>
+          <li>
+            Add a script element:
+            <ul>
+              <li>Create variables to that reference the inputs and buttons</li>
+              <li>Create a state variable to hold the generated function</li>
+              <li>
+                Add a click event handler to the generate button that assigns a
+                function value to the generate state
+              </li>
+              <li>
+                Add a click event handler to the submit button that alerts the
+                return value of the generate function
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="app">
+        <input type="number" />
+        <input type="number" />
+        <button class="generate">generate</button>
+        <button class="submit">submit</button>
+      </div>
+    </main>
+    <script>
+      const state = {
+        func: () => undefined,
+      };
+      const inputs = [...document.querySelectorAll('input')];
+      const buttonGenerate = document.querySelector('button.generate');
+      const buttonSubmit = document.querySelector('button.submit');
+
+      buttonGenerate.onclick = () => {
+        const sum = inputs.reduce((ac, { value: val }) => ac + Number(val), 0);
+        state.func = () => sum;
+      };
+
+      buttonSubmit.onclick = () => state.func() && alert(state.func());
+    </script>
+  </body>
+</html>

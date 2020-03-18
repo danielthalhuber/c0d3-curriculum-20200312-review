@@ -1,6 +1,8 @@
 # Lesson: JS1 - HTML & Functions
 
-## How to Follow Along
+## HTML
+
+### How to Follow Along
 
 Consider changing quote to strong/bold:
 
@@ -20,7 +22,7 @@ It might be useful to reframe (or possibly summarize) the description of tags an
 - Some elements are only composed of an opening tag
 - Most elements have closing tags as well as content enclosed between the opening and closing tags
 
-## HTML Example
+### HTML Example
 
 > Create a new HTML file, call it `challenge1.html`, open it in your browser, and try to match each **tag** instruction with its corresponding **element**!
 
@@ -30,13 +32,13 @@ Consider adding "in":
 
 > (Note that we're getting you started on a later exercise, **in** which you will write HTML instructions for Challenge 1 from the previous lesson.)
 
-## Browser JavaScript
+### Browser JavaScript
 
 Since we're adding a `script` element (opening and closing tags with enclosed content), we should say _element_ instead of _tag_:
 
 > This is called **dynamic** behavior. To get started, we'll add a `<script>` **~~tag~~ element**, which tells the browser to treat the text inside as JavaScript and run the code.
 
-## Getting HTML Elements
+### Getting HTML Elements
 
 Grammar, plural "browsers":
 
@@ -51,12 +53,18 @@ Grammar recommendations:
 
 > In the example above, we ran **the** `document.querySelector` method (or function) and passed ~~in~~ `'input'` as the argument. This method searches through all the elements on the page and returns the first element that matches the specified selectors (in this case **an** 'input' element ~~.~~)**.**
 
-## Element Properties
+### Element Properties
 
-### Value
+#### Value
 
 In this subsection, we return to `challenge1.html` and leverage the class attributes added in a previous example. The student might not have made these changes to their `challenge1.html` file.
 
 In such cases it would be useful to remind the student to add the classes before proceeding with this section. Alternatively, the student could be instructed to do this work in the previous section.
 
-## Exercises
+### Exercises
+
+1. [Create an HTML page](./html-ex01-create-an-html-page.html)
+2. [Create a UI for JS0 Challenge 1](./html-ex02-ui-for-js00c01.html)
+3. [Create a UI for JS0 Challenge 3](./html-ex03-ui-for-js00c03.html)
+4. [Create a UI for JS0 Challenge 7](./html-ex04-ui-for-js00c07.html)
+5. [Create a UI for JS0 Challenge 8](./html-ex05-ui-for-js00c08.html)
