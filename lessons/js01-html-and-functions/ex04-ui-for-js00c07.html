@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS 1 - Exercise: Create a UI for JS 0 Challenge 1</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      main {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+      }
+      main > div {
+        padding: 1rem;
+      }
+      .description {
+        flex-basis: 40%;
+        background: #f7f7f7;
+        color: lightslategrey;
+      }
+      .app {
+        flex-basis: 60%;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="description">
+        <h2>Process:</h2>
+        <ul>
+          <li>Add two input elements of type number</li>
+          <li>Add a button with text "sum is greater than 10?"</li>
+          <li>
+            Add a script element:
+            <ul>
+              <li>Create variables for the inputs and button</li>
+              <li>
+                Attach a click event handler to the button that alerts true if
+                the sum of the input values is greater than 10, and false
+                otherwise
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="app">
+        <input type="number" />
+        <input type="number" />
+        <button>sum is greater than 10?</button>
+      </div>
+    </main>
+    <script>
+      const inputs = [...document.querySelectorAll('input')];
+      const button = document.querySelector('button');
+
+      button.onclick = () =>
+        alert(inputs.reduce((ac, { value: val }) => Number(val) + ac, 0) > 5);
+    </script>
+  </body>
+</html>
