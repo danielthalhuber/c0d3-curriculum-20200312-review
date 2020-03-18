@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>onclick Event Handler Demo</title>
+  </head>
+  <body>
+    <button>House Lannister</button>
+    <script>
+      const button = document.querySelector('button');
+      const clickHandler = () => {
+        let count = 0;
+        while (count < 2) {
+          count += 1;
+          alert('Winter is coming');
+        }
+      };
+
+      button.onclick = clickHandler;
+    </script>
+  </body>
+</html>
