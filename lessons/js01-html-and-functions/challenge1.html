@@ -9,13 +9,20 @@
     <h1>Welcome!</h1>
     <h2>JS1</h2>
     <h5>Challenge 1</h5>
-    <input type="file" />
-    <input type="text" />
-    <button>Submit</button>
+    <input class="input1" type="text" />
+    <input class="input2" type="text" />
+    <button class="submit1">Submit</button>
     <hr />
     <script>
-      alert('hello');
-      alert('hello again');
+      /* alert('hello');
+      alert('hello again'); */
+      const inputButton = document.querySelector('.submit1');
+      const firstInput = document.querySelector('.input1');
+
+      inputButton.onclick = () => {
+        const val = Number(firstInput.value) || 0;
+        firstInput.value = val > 10;
+      };
     </script>
   </body>
 </html>

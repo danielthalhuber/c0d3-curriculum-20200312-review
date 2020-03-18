@@ -50,3 +50,11 @@ Grammar recommendations:
 - Move final period from before to after final closing parentheses
 
 > In the example above, we ran **the** `document.querySelector` method (or function) and passed ~~in~~ `'input'` as the argument. This method searches through all the elements on the page and returns the first element that matches the specified selectors (in this case **an** 'input' element ~~.~~)**.**
+
+## Element Properties
+
+### Value
+
+In this subsection, we return to `challenge1.html` and leverage the class attributes added in a previous example. The student might not have made these changes to their `challenge1.html` file.
+
+In such cases it would be useful to remind the student to add the classes before proceeding with this section. Alternatively, the student could be instructed to do this work in the previous section.
