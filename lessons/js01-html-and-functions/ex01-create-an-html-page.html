@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS 1 - Exercise: Create an HTML Page</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      main {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+      }
+      main > div {
+        padding: 1rem;
+      }
+      .description {
+        flex-basis: 40%;
+        background: #f7f7f7;
+        color: lightslategrey;
+      }
+      .app {
+        flex-basis: 60%;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="description">
+        <h2>Process:</h2>
+        <ul>
+          <li>Add an input element with type "number"</li>
+          <li>Add a button element with title "click me"</li>
+          <li>Add a script element</li>
+          <li>
+            In the script:
+            <ul>
+              <li>
+                Create variables to reference the input and button elements
+              </li>
+              <li>
+                Attach an onclick method to the button that changes the input
+                value to 0 if the value is initially divisible by 2
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="app">
+        <input type="number" />
+        <button>click me</button>
+      </div>
+    </main>
+    <script>
+      const input = document.querySelector('input');
+      const button = document.querySelector('button');
+
+      button.onclick = () => {
+        const inputVal = Number(input.value);
+        if (!Number.isNaN(inputVal) && inputVal % 2 === 0) input.value = 0;
+      };
+    </script>
+  </body>
+</html>
