@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS 1 - Exercise: Create a UI for JS 0 Challenge 1</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      main {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+      }
+      main > div {
+        padding: 1rem;
+      }
+      .description {
+        flex-basis: 40%;
+        background: #f7f7f7;
+        color: lightslategrey;
+      }
+      .app {
+        flex-basis: 60%;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="description">
+        <h2>Process:</h2>
+        <ul>
+          <li>Add an input element with type number</li>
+          <li>Add a button with text "evaluate"</li>
+          <li>
+            Add a script element:
+            <ul>
+              <li>Add variables to reference the input and button elements</li>
+              <li>
+                Attach a click event handler to the button that alerts with the
+                value "Big" if the value of the input is greater than 5
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="app">
+        <input type="number" />
+        <button>evaluate</button>
+      </div>
+    </main>
+    <script>
+      const input = document.querySelector('input');
+      const button = document.querySelector('button');
+
+      button.onclick = () =>
+        Number(input.value) > 5 ? alert('Big') : undefined;
+    </script>
+  </body>
+</html>
