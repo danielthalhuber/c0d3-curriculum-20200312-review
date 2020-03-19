@@ -334,3 +334,17 @@ const sumToMe = (me = 0, counter = 1, result = 0) => {
 sumToMe(5); // returns 15: 1 + 2 + 3 + 4 + 5
 sumToMe(3); // returns 6: 1 + 2 + 3
 ```
+
+### Exercises
+
+1. Write a function called `love` that calls `console.log('The things I do for love')` 99 times ([solution](recursion-ex01-love.js)).
+2. Write a function called `countTo98` that calls `console.log` once for every number from 0 to 98 ([solution](recursion-ex02-countTo98.js)).
+3. Write a function called `countToMe` that `console.log`s every number from 8 to the input number ([solution](recursion-ex03-count-to-me.js)).
+4. Write a function called `fizzbuzz` that calls `console.log` for every number from 1 to the input number.
+   - The value logged to the console should be:
+     - If the number is divisible by 3, log the value `'fizz'`
+     - If the number is divisible by 5, log the value `'buzz'`
+     - If the number is divisible by 3 and 5, log the value `'fizzbuzz'`
+     - Otherwise log the number
+   - [solution](recursion-ex04-fizzbuzz.js)
+5. Write a function called `numberedHello` that takes a number parameter and returns a string that repeats `'hello'` as many times as the given number ([solution](./recursion-ex05-numbered-hello.js))
