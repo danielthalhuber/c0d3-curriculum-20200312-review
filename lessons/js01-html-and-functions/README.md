@@ -275,3 +275,24 @@ res = arya() + sansa(); // 6: what is res?
   - `arya()` returns 9
   - `sansa()` returns 10
 - So `res` is assigned the value 19
+
+### Real Life Use Case
+
+Expanded version of the example given in the book (to push the limits of one liner ridiculousness)
+
+```js
+const withLog1 = (msg, fn) => {
+  return (...args) => {
+    console.log(msg, ...args);
+    return fn(...args);
+  };
+};
+
+const withLog2 = (m, f) => (...a) => !console.log(m, ...a) && fn(...a);
+
+const add = (a, b) => a + b;
+
+withLog1('sum of two numbers', add)(1, 2);
+
+withLog2('sum of two numbers', add)(1, 3);
+```
