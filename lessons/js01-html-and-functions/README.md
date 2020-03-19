@@ -296,3 +296,41 @@ withLog1('sum of two numbers', add)(1, 2);
 
 withLog2('sum of two numbers', add)(1, 3);
 ```
+
+## Recursion
+
+The name `addTo3` seems misleading. Maybe the point is that you need to read the function logic/procedure instead of making assumptions based on its name. Then again, `cumulativeSumTo3` is a little cumbersome.
+
+```js
+const addTo3 = (counter = 1, result = 0) => {
+  if (counter > 3) return result;
+
+  return addTo3(counter + 1, result + counter);
+};
+
+res = addTo3(2); // res has the value 5: 2 + 3
+res = addTo3(); // res has the value 6: 1 + 2 + 3
+```
+
+### Writing a Recursive Function
+
+Process for writing a recursive function:
+
+1. **Parameters**: determine which variables are needed, and include them as function parameters with default values
+2. **Base Case**: write an `if` statement that executes when the function is done iterating
+3. **Recursive Case**: write logic to `return` the next iteration
+
+Example: write a function called `sumToMe` that takes in a number and returns the sum of all numbers from 0 to that number.
+
+```js
+const sumToMe = (me = 0, counter = 1, result = 0) => {
+  // base case
+  if (counter > me) return result;
+
+  // recursive case
+  return sumToMe(me, counter + 1, result + counter);
+};
+
+sumToMe(5); // returns 15: 1 + 2 + 3 + 4 + 5
+sumToMe(3); // returns 6: 1 + 2 + 3
+```
