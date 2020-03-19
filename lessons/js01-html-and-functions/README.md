@@ -79,3 +79,199 @@ Recommended process for solving problems in interviews:
 3. **Explain the process**: describe any requirements that you need, and how they will be used to produce the desired result.
 4. **Write the code**: follow the process you described and translate it into code.
 5. **Test**: go through the code, step by step, using the examples previously identified, and verify that your solution works as expected.
+
+## Closure
+
+Nice simple definition of a closure:
+
+> An inner function always has access to the variables and parameters of its outer function, even after the outer function has returned.
+
+### Example 1
+
+Nice example that illustrates the concept of closure created by a function:
+
+```js
+const solution = () => {
+  let counter = 0;
+
+  return () => {
+    counter = counter + 1;
+    if (counter < 3) {
+      return 0;
+    }
+
+    return counter;
+  };
+};
+
+const arya = solution();
+let res = arya(); // 1: what is res?
+const sansa = solution();
+
+res = arya() + sansa(); // 2: what is res?
+res = arya() + sansa(); // 3: what is res?
+res = arya() + sansa(); // 4: what is res?
+res = arya() + sansa(); // 5: what is res?
+res = arya() + sansa(); // 6: what is res?
+```
+
+#### Answer
+
+1: what is res?
+
+- `solution()` is assigned to `arya`
+- `solution()`:
+
+  - Creates a new execution context containing the local variable `counter`
+  - > Note: `counter` is local (belongs to this new context) because `let` declares variables with function/block scope, so `counter` does not exist outside the function's local execution context
+  - Returns a function in a closure containing the local variable `counter`
+
+- `arya()` is assigned to `res`
+- `arya()`:
+  - Increments `counter` from 0 to 1
+  - Returns 0 since `counter < 3`
+- So `res` is assigned the value 0
+
+2: what is res?
+
+- `solution()` is assigned to `sansa`
+- `solution()`:
+  - Creates a new execution context containing the local variable `counter`
+  - > Note: `counter` is local (belongs to this new context) because `let` declares variables with function/block scope, so `counter` does not exist outside the function's local execution context
+  - Returns a function in a closure containing the local variable `counter`
+- `arya()`:
+  - Increments `counter` from 1 to 2
+  - Returns 0 since `counter < 3`
+- `sansa()`:
+  - Increments `counter` from 0 to 1
+  - Returns 0 since `counter < 3`
+- So `res` is assigned the value 0
+
+3: what is res?
+
+- `arya()`:
+  - Increments `counter` from 2 to 3
+  - Returns 3 since `!(counter < 3`
+- `sansa()`:
+  - Increments `counter` from 1 to 2
+  - Returns 0 since `counter < 3`
+- So `res` is assigned the value 3
+
+4: what is res?
+
+- `arya()`:
+  - Increments `counter` from 3 to 4
+  - Returns 4 since `!(counter < 3`
+- `sansa()`:
+  - Increments `counter` from 2 to 3
+  - Returns 3 since `!(counter < 3)`
+- So `res` is assigned the value 7
+
+5: what is res?
+
+- Following the pattern described above:
+  - `arya()` returns 5
+  - `sansa()` returns 4
+- So `res` is assigned the value 9
+
+6: what is res?
+
+- Following the pattern described above:
+  - `arya()` returns 6
+  - `sansa()` returns 5
+- So `res` is assigned the value 11
+
+### Example 2
+
+A slight variation on the example above demonstrates the difference in scope between `var` and `let`. Suppose we declare `counter` using `var` or no keyword at all. How would this change the result?
+
+```js
+const solution = () => {
+  counter = 0; // or var counter = 0;
+
+  return () => {
+    counter = counter + 1;
+    if (counter < 3) {
+      return 0;
+    }
+
+    return counter;
+  };
+};
+
+const arya = solution();
+let res = arya(); // 1: what is res?
+const sansa = solution();
+
+res = arya() + sansa(); // 2: what is res?
+res = arya() + sansa(); // 3: what is res?
+res = arya() + sansa(); // 4: what is res?
+res = arya() + sansa(); // 5: what is res?
+res = arya() + sansa(); // 6: what is res?
+```
+
+#### Answer
+
+1: what is res?
+
+- `solution()` is assigned to `arya`
+- `solution()`:
+
+  - Creates a new execution context and declares a global variable `counter`
+  - > Note: `counter` is global (belongs to the surrounding script context) because `var` declares variables with global scope, so `counter` is available to the new function's local execution context because it exists in the surrounding/parent execution context
+  - Returns a function in a closure containing the global variable `counter`
+
+- `arya()` is assigned to `res`
+- `arya()`:
+  - Increments `counter` from 0 to 1
+  - Returns 0 since `counter < 3`
+- So `res` is assigned the value 0
+
+2: what is res?
+
+- `solution()` is assigned to `sansa`
+- `solution()`:
+  - Creates a new execution context and _assigns a value of 0 to_ the global variable `counter`
+  - > Note: since `counter` already exists in the global execution context, `counter = 0` effectively decrements `counter` from 1 to 0
+  - Returns a function in a closure containing the global variable `counter`
+- `arya()`:
+  - Increments `counter` from 0 to 1 (again)
+  - Returns 0 since `counter < 3`
+- `sansa()`:
+  - Increments `counter` from 1 to 2
+  - Returns 0 since `counter < 3`
+- So `res` is assigned the value 0
+
+3: what is res?
+
+- `arya()`:
+  - Increments `counter` from 2 to 3
+  - Returns 3 since `!(counter < 3`
+- `sansa()`:
+  - Increments `counter` from 3 to 4
+  - Returns 4 since `!(counter < 3)`
+- So `res` is assigned the value 7
+
+4: what is res?
+
+- `arya()`:
+  - Increments `counter` from 4 to 5
+  - Returns 5 since `!(counter < 3`
+- `sansa()`:
+  - Increments `counter` from 5 to 6
+  - Returns 6 since `!(counter < 3)`
+- So `res` is assigned the value 11
+
+5: what is res?
+
+- Following the pattern described above:
+  - `arya()` returns 7
+  - `sansa()` returns 8
+- So `res` is assigned the value 15
+
+6: what is res?
+
+- Following the pattern described above:
+  - `arya()` returns 9
+  - `sansa()` returns 10
+- So `res` is assigned the value 19
