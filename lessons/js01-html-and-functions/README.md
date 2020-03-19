@@ -69,3 +69,13 @@ In such cases it would be useful to remind the student to add the classes before
 4. [Create a UI for JS0 Challenge 7](./html-ex04-ui-for-js00c07.html)
 5. [Create a UI for JS0 Challenge 8](./html-ex05-ui-for-js00c08.html)
 6. [Create a UI for JS0 Challenge 9](./html-ex06-ui-for-js00c09.html)
+
+## Interviewing
+
+Recommended process for solving problems in interviews:
+
+1. **Examples**: provide 3 examples that describe the output or behavior produced using specific inputs, including boundary cases (negative numbers, 0, large numbers, empty strings, etc.).
+2. **Signatures**: describe the [signature](https://developer.mozilla.org/en-US/docs/Glossary/Signature/Function)s of any functions involved in the solution.
+3. **Explain the process**: describe any requirements that you need, and how they will be used to produce the desired result.
+4. **Write the code**: follow the process you described and translate it into code.
+5. **Test**: go through the code, step by step, using the examples previously identified, and verify that your solution works as expected.
