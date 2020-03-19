@@ -68,3 +68,4 @@ In such cases it would be useful to remind the student to add the classes before
 3. [Create a UI for JS0 Challenge 3](./html-ex03-ui-for-js00c03.html)
 4. [Create a UI for JS0 Challenge 7](./html-ex04-ui-for-js00c07.html)
 5. [Create a UI for JS0 Challenge 8](./html-ex05-ui-for-js00c08.html)
+6. [Create a UI for JS0 Challenge 9](./html-ex06-ui-for-js00c09.html)

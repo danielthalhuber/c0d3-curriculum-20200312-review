@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS 1 - Exercise: Create a UI for JS 0 Challenge 1</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      main {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+      }
+      main > div {
+        padding: 1rem;
+      }
+      .description {
+        flex-basis: 40%;
+        background: #f7f7f7;
+        color: lightslategrey;
+      }
+      .app {
+        flex-basis: 60%;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="description">
+        <h2>Process:</h2>
+        <ul>
+          <li>Add two inputs of type number</li>
+          <li>Add a button with text "generate"</li>
+          <li>Add another input of type number</li>
+          <li>Add a button with text "submit"</li>
+          <li>
+            Add a script element with:
+            <ul>
+              <li>Define a state function variable</li>
+              <li>Define a variables to refer to the inputs</li>
+              <li>Define a variables to refer to the buttons</li>
+              <li>Assign the solution function from js00c09 to a variable</li>
+              <li>
+                Define a click event handler for the generate button that:
+                <ul>
+                  <li>
+                    Calls the solution function with the values from the first
+                    two inputs
+                  </li>
+                  <li>Assigns the result to the state function</li>
+                </ul>
+              </li>
+              <li>
+                Define a click event handler for the submit button that:
+                <ul>
+                  <li>
+                    Calls the state function with the value from the third input
+                  </li>
+                  <li>Alerts the result</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="app">
+        <input type="number" />
+        <input type="number" />
+        <button>generate</button>
+        <hr />
+        <input type="number" />
+        <button>submit</button>
+      </div>
+    </main>
+    <script>
+      const state = {
+        func: () => undefined,
+      };
+      const [in1, in2, in3] = [...document.querySelectorAll('input')];
+      const [generate, submit] = [...document.querySelectorAll('button')];
+      const threeSum = (first, second) => third => first + second + third;
+
+      generate.onclick = () => {
+        state.func = threeSum(
+          ...[in1, in2].slice(0, 3).map(({ value }) => Number(value))
+        );
+      };
+
+      submit.onclick = () => alert(state.func(Number(in3.value)));
+    </script>
+  </body>
+</html>
