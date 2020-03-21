@@ -351,3 +351,49 @@ sumToMe(3); // returns 6: 1 + 2 + 3
 6. Write a function called `sumEvens` that adds up all the even numbers from 2 to the given number ([solution](recursion-ex06-sum-evens.js))
 7. Write a function called `tryNumRange` that takes in a number and a function and calls the function with every number from 1 to the input number. If any of these return true, return true; if they all return false, return false ([solution](./recursion-ex07-try-num-range.js))
 8. Write a function named `fun1` that calls a given function a given number of times ([solution](./recursion-ex08-fun1.js))
+
+## Strings and Letters
+
+- Access a character in a string using square bracket notation with a zero-based index, e.g. `'string'[3] === 'i'`
+- The length of a string is stored in its `length` property, e.g. `'str'.length === 3`
+
+### Example
+
+> Note: example uses two different names for the function: `solution` and `logString`
+
+Goal:
+
+- Write a function called `logString` that takes in a string and calls `console.log` with each character in the string.
+
+Examples:
+
+- `logString()` should log nothing
+- `logString(' ')` should log a single space
+- `logString('abc')` should log the characters a, b, c
+
+Signature:
+
+- Parameters:
+  - `str`, public, string with characters to log
+  - `i`, private, number corresponding to the current iteration
+- Returns: `undefined`
+- Side effects: logs to the console
+
+Explanation:
+
+- Starting with `i = 1`
+- Base case: if `str` is falsey or `i > str.length`, return
+- Recursive case:
+  - Call `console.log(str[i - 1])`
+  - Return `logSting`, incrementing `i` by 1
+
+Code:
+
+```js
+const logString = (str, i = 1) => {
+  if (!str || i > str.length) return;
+
+  console.log(str[i - 1]);
+  return logString(str, i + 1);
+};
+```
