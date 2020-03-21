@@ -348,3 +348,4 @@ sumToMe(3); // returns 6: 1 + 2 + 3
      - Otherwise log the number
    - [solution](recursion-ex04-fizzbuzz.js)
 5. Write a function called `numberedHello` that takes a number parameter and returns a string that repeats `'hello'` as many times as the given number ([solution](./recursion-ex05-numbered-hello.js))
+6. Write a function called `sumEvens that adds up all the even numbers from 2 to the given number ([solution](recursion-ex06-sum-evens.js))
