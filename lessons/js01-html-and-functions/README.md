@@ -350,3 +350,4 @@ sumToMe(3); // returns 6: 1 + 2 + 3
 5. Write a function called `numberedHello` that takes a number parameter and returns a string that repeats `'hello'` as many times as the given number ([solution](./recursion-ex05-numbered-hello.js))
 6. Write a function called `sumEvens` that adds up all the even numbers from 2 to the given number ([solution](recursion-ex06-sum-evens.js))
 7. Write a function called `tryNumRange` that takes in a number and a function and calls the function with every number from 1 to the input number. If any of these return true, return true; if they all return false, return false ([solution](./recursion-ex07-try-num-range.js))
+8. Write a function named `fun1` that calls a given function a given number of times ([solution](./recursion-ex08-fun1.js))
