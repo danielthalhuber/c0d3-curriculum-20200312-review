@@ -397,3 +397,7 @@ const logString = (str, i = 1) => {
   return logString(str, i + 1);
 };
 ```
+
+### Exercises
+
+1. Write a function called `logNonMatching` that logs every character in a string, except for one specified character ([solution](strings-ex01-log-non-matching.js))
