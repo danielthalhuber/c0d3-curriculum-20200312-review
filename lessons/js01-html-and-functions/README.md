@@ -404,3 +404,4 @@ const logString = (str, i = 1) => {
 2. Write a function called `logFirstX` that logs a given number of characters from the beginning of a string ([solution](strings-ex02-log-first-x.js))
 3. Write a function called lastX that _returns_ (not `console.log`) a chunk of a given size from the _end_ of a string ([solution](./strings-ex03-log-last-x.js))
 4. Write a function called `logOddOnly` that prints out only the characters at odd indices from a string ([solution](strings-ex04-log-odd-only.js))
+5. Write a function called `removeLetter` that returns a string without any instances of a given letter ([solution](strings-ex05-remove-letter.js))
