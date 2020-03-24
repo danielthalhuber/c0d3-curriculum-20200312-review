@@ -405,3 +405,4 @@ const logString = (str, i = 1) => {
 3. Write a function called lastX that _returns_ (not `console.log`) a chunk of a given size from the _end_ of a string ([solution](./strings-ex03-log-last-x.js))
 4. Write a function called `logOddOnly` that prints out only the characters at odd indices from a string ([solution](strings-ex04-log-odd-only.js))
 5. Write a function called `removeLetter` that returns a string without any instances of a given letter ([solution](strings-ex05-remove-letter.js))
+6. Write a function called `secretCodeGenerator` that takes in 3 arguments, a string, a letter, and a string, and returns a string where all the matching letters are replaced by the last input string ([solution](strings-ex06-secret-code-generator.js))
