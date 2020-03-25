@@ -406,3 +406,9 @@ const logString = (str, i = 1) => {
 4. Write a function called `logOddOnly` that prints out only the characters at odd indices from a string ([solution](strings-ex04-log-odd-only.js))
 5. Write a function called `removeLetter` that returns a string without any instances of a given letter ([solution](strings-ex05-remove-letter.js))
 6. Write a function called `secretCodeGenerator` that takes in 3 arguments, a string, a letter, and a string, and returns a string where all the matching letters are replaced by the last input string ([solution](strings-ex06-secret-code-generator.js))
+
+## Async
+
+### Exercises
+
+1. Write a function called `wait20` that waits 20 seconds and then calls `console.log("one")` ([solution](async-ex01-wait20.js))
