@@ -413,3 +413,4 @@ const logString = (str, i = 1) => {
 
 1. Write a function called `wait20` that waits 20 seconds and then calls `console.log("one")` ([solution](async-ex01-wait20.js))
 2. Write a function called `oneAndTwo` that waits 20 seconds and then calls `console.log("one")`, then waits another 10 seconds and then calls `console.log("two")` ([solution](async-ex02-one-and-two.js))
+3. Write a function named `letterPerSecond` that takes in a string, and calls `console.log` for every letter in the string, 1 second after each call (aka 1 letter per second) ([solution](async-ex03-letter-per-second.js))
