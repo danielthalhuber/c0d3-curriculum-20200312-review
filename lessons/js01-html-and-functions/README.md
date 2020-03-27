@@ -412,3 +412,4 @@ const logString = (str, i = 1) => {
 ### Exercises
 
 1. Write a function called `wait20` that waits 20 seconds and then calls `console.log("one")` ([solution](async-ex01-wait20.js))
+2. Write a function called `oneAndTwo` that waits 20 seconds and then calls `console.log("one")`, then waits another 10 seconds and then calls `console.log("two")` ([solution](async-ex02-one-and-two.js))
