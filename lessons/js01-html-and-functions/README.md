@@ -414,3 +414,21 @@ const logString = (str, i = 1) => {
 1. Write a function called `wait20` that waits 20 seconds and then calls `console.log("one")` ([solution](async-ex01-wait20.js))
 2. Write a function called `oneAndTwo` that waits 20 seconds and then calls `console.log("one")`, then waits another 10 seconds and then calls `console.log("two")` ([solution](async-ex02-one-and-two.js))
 3. Write a function named `letterPerSecond` that takes in a string, and calls `console.log` for every letter in the string, 1 second after each call (aka 1 letter per second) ([solution](async-ex03-letter-per-second.js))
+4. What's wrong with the following solution for the previous exercise (1 letter per second)?
+
+   ```js
+   const solution(str, c=0) => {
+     if (c === str.length) {
+       return
+     }
+     setTimeout(() => {
+       console.log(str[s])
+     }, 1000)
+     return solution(str, c + 1)
+   }
+   ```
+
+   - Solution:
+     - Improper arrow function syntax (line 1)
+     - `s` is not defined (line 6)
+     - Returning `solution` recursively, outside of the `setTimeout` call causes `solution` to be called for each character in `str`, at a rate faster than one second per character (more like milliseconds per character). This results in the `setTimeout` calls to be initiated, as well as their callbacks to be executed, within milliseconds of each other. The characters will be logged almost all at once instead of once per second.
