@@ -59,7 +59,7 @@ Write an arrow function called solution that...
    - Signature:
 
      - Parameters:
-       - `num`, public, number
+       - `num`: public, number
      - Returns: number
 
    - Explanation: return the Boolean expression `num > 5`
@@ -78,8 +78,8 @@ Write an arrow function called solution that...
    - Signature:
 
      - Parameters:
-       - `num1`, public, number
-       - `num2`, public, number
+       - `num1`: public, number
+       - `num2`: public, number
      - Returns: number
 
    - Explanation: return `num1` if it's larger, otherwise return `num2`
@@ -98,9 +98,9 @@ Write an arrow function called solution that...
    - Signature:
 
      - Parameters:
-       - `num1`, public, number
-       - `num2`, public, number
-       - `num3`, public, number
+       - `num1`: public, number
+       - `num2`: public, number
+       - `num3`: public, number
      - Returns: number
 
    - Explanation:
@@ -122,8 +122,8 @@ Write an arrow function called solution that...
    - Signature:
 
      - Parameters:
-       - `num1`, public, number
-       - `num2`, public, number
+       - `num1`: public, number
+       - `num2`: public, number
      - Returns: boolean
 
    - Explanation: return the boolean expression `num1 > num2`
@@ -142,8 +142,8 @@ Write an arrow function called solution that...
    - Signature:
 
      - Parameters:
-       - `num1`, public, number
-       - `num2`, public, number
+       - `num1`: public, number
+       - `num2`: public, number
      - Returns: boolean
 
    - Explanation: return the boolean expression `num1 + num2 > 10`
@@ -162,8 +162,8 @@ Write an arrow function called solution that...
    - Signature:
 
      - Parameters:
-       - `num1`, public, number
-       - `num2`, public, number
+       - `num1`: public, number
+       - `num2`: public, number
      - Returns: number
 
    - Explanation: return a function that returns the expression `num1 + num2` when called
@@ -184,13 +184,16 @@ Write an arrow function called solution that...
    - Signature:
 
      - Parameters:
-       - `x`, public, number
-       - `r`, public, number
-     - Returns: number
+       - `num1`: public, number
+       - `num2`: public, number
+     - Returns:
+       - Function with signature:
+         - Parameter: `num3`: public, number
+         - Returns: number
 
-   - Explanation: make it good
-   - [Code](02.js)
-   - [Test](02.test.js)
+   - Explanation: return a function which accepts a parameter `num3`, and returns a new function that returns the expression `num1 + num2 + num3`
+   - [Code](09.js)
+   - [Test](09.test.js)
 
 10. takes in 2 functions and returns the sum of the returned values of the 2 functions
 
@@ -209,8 +212,8 @@ Write an arrow function called solution that...
     - Signature:
 
       - Parameters:
-        - `x`, public, number
-        - `r`, public, number
+        - `x`: public, number
+        - `r`: public, number
       - Returns: number
 
     - Explanation: make it good
