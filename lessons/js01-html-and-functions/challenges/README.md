@@ -166,7 +166,7 @@ Write a function called solution that...
      - Parameters:
        - `num`: public, number
        - `i`: private, number
-     - Returns: Boolean
+     - Returns: boolean
    - Explanation:
      - Starting with `i = 2`
      - Base: if `num` is less than 2, or `num` is greater than 2 while being divisible by `i`, then return `false`
@@ -175,3 +175,27 @@ Write a function called solution that...
        - Otherwise, return a call to `solution`, incrementing `i` by 1
    - [Code](06.js)
    - [Test](06.test.js)
+
+7. takes in 2 parameters, a string and a letter, and returns true if the character exists in the string, false if the character does not exist in the string.
+
+   - Example:
+
+     ```js
+     result = solution('abc', 'a'); // true
+     result = solution('abc', 'd'); // false
+     ```
+
+   - Signature:
+     - Parameters:
+       - `inp`: public, string
+       - `letter`: public, string
+       - `i`: private, number
+     - Returns: boolean
+   - Explanation:
+     - Starting with `i = 0`
+     - Base: if `i` is greater than or equal to the length of `inp`, return `false`
+     - Recursive:
+       - Return `true` if the character at index `i` of `inp` is equal to `letter`
+       - Otherwise return a call to `solution`, incrementing `i` by 1
+   - [Code](07.js)
+   - [Test](07.test.js)
