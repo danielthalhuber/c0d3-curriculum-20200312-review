@@ -65,3 +65,24 @@ Write a function called solution that...
      - Otherwise increments `i` by 1 and then returns the results of calling `fun`
    - [Code](02.js)
    - [Test](02.test.js)
+
+3. takes in 2 parameters, a number and string and returns the string repeated input parameter number of times
+
+   - Example:
+
+     ```js
+     result = solution(3, 'abc'); // "abcabcabc"
+     result = solution(0, 'hello'); // ""
+     ```
+
+   - Signature:
+     - Parameters:
+       - `num`: public, number
+       - `str`: public, string
+       - `result`: private, string
+     - Returns: string
+   - Explanation: starting with `result = ''`
+     - Base: if `num` is less than 1, return `result`
+     - Recursive: return a call to `solution`, reducing `num` by one, and appending `str` to `result`
+   - [Code](03.js)
+   - [Test](03.test.js)
