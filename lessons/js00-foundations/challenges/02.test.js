@@ -1,4 +1,4 @@
-const solution = require('../2').solution;
+const solution = require('./02').solution;
 
 describe('sum of 3 numbers', () => {
   it('should add 3 same numbers correctly', () => {
