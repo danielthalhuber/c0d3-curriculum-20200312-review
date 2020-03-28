@@ -122,13 +122,13 @@ Write an arrow function called solution that...
    - Signature:
 
      - Parameters:
-       - `x`, public, number
-       - `r`, public, number
-     - Returns: number
+       - `num1`, public, number
+       - `num2`, public, number
+     - Returns: boolean
 
-   - Explanation: make it good
-   - [Code](02.js)
-   - [Test](02.test.js)
+   - Explanation: return the boolean statement `num1 > num2`
+   - [Code](06.js)
+   - [Test](06.test.js)
 
 7. takes in 2 numbers and returns true if the sum of the 2 numbers is greater than 10. Otherwise returns false
 
