@@ -56,10 +56,11 @@ Write an arrow function called solution that...
      solution(4); // Should return false
      ```
 
-     - Signature:
-       - Parameters:
-         - `num`, public, number
-       - Returns: number
+   - Signature:
+
+     - Parameters:
+       - `num`, public, number
+     - Returns: number
 
    - Explanation: return the Boolean expression `num > 5`
    - [Code](03.js)
@@ -74,15 +75,16 @@ Write an arrow function called solution that...
      solution(4, 1); // Should return 4
      ```
 
-     - Signature:
-       - Parameters:
-         - `x`, public, number
-         - `r`, public, number
-       - Returns: number
+   - Signature:
 
-   - Explanation: make it good
-   - [Code](02.js)
-   - [Test](02.test.js)
+     - Parameters:
+       - `num1`, public, number
+       - `num2`, public, number
+     - Returns: number
+
+   - Explanation: return `num1` if it's larger, otherwise return `num2`
+   - [Code](04.js)
+   - [Test](04.test.js)
 
 5. takes in 3 numbers and return the largest number.
 
@@ -93,11 +95,12 @@ Write an arrow function called solution that...
      solution(4, 5, 1); // Should return 5
      ```
 
-     - Signature:
-       - Parameters:
-         - `x`, public, number
-         - `r`, public, number
-       - Returns: number
+   - Signature:
+
+     - Parameters:
+       - `x`, public, number
+       - `r`, public, number
+     - Returns: number
 
    - Explanation: make it good
    - [Code](02.js)
@@ -112,11 +115,12 @@ Write an arrow function called solution that...
      solution(4, 1); // Should return true
      ```
 
-     - Signature:
-       - Parameters:
-         - `x`, public, number
-         - `r`, public, number
-       - Returns: number
+   - Signature:
+
+     - Parameters:
+       - `x`, public, number
+       - `r`, public, number
+     - Returns: number
 
    - Explanation: make it good
    - [Code](02.js)
@@ -131,11 +135,12 @@ Write an arrow function called solution that...
      solution(4, 1); // Should return false
      ```
 
-     - Signature:
-       - Parameters:
-         - `x`, public, number
-         - `r`, public, number
-       - Returns: number
+   - Signature:
+
+     - Parameters:
+       - `x`, public, number
+       - `r`, public, number
+     - Returns: number
 
    - Explanation: make it good
    - [Code](02.js)
@@ -150,11 +155,12 @@ Write an arrow function called solution that...
      result = resf(); // result is 11
      ```
 
-     - Signature:
-       - Parameters:
-         - `x`, public, number
-         - `r`, public, number
-       - Returns: number
+   - Signature:
+
+     - Parameters:
+       - `x`, public, number
+       - `r`, public, number
+     - Returns: number
 
    - Explanation: make it good
    - [Code](02.js)
@@ -171,11 +177,12 @@ Write an arrow function called solution that...
      result = resf(2); // result is 5 because 1 + 2 + 2
      ```
 
-     - Signature:
-       - Parameters:
-         - `x`, public, number
-         - `r`, public, number
-       - Returns: number
+   - Signature:
+
+     - Parameters:
+       - `x`, public, number
+       - `r`, public, number
+     - Returns: number
 
    - Explanation: make it good
    - [Code](02.js)
