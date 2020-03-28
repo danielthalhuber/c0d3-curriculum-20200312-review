@@ -57,6 +57,8 @@ Consider the change: ~~otherwise it should just add them~~ => otherwise it shoul
 
 ## Lesson Challenges
 
+- [Solutions](./challenges/README.md)
+
 ### Solving Challenges
 
 > Note: Except for step 4 (open and editing the file), all the commands should be run in the terminal
