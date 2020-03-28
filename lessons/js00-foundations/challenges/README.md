@@ -58,13 +58,12 @@ Write an arrow function called solution that...
 
      - Signature:
        - Parameters:
-         - `x`, public, number
-         - `r`, public, number
+         - `num`, public, number
        - Returns: number
 
-   - Explanation: make it good
-   - Code
-   - Test
+   - Explanation: return the Boolean expression `num > 5`
+   - [Code](03.js)
+   - [Test](03.test.js)
 
 4. takes in 2 numbers and returns the larger number.
 
@@ -82,8 +81,8 @@ Write an arrow function called solution that...
        - Returns: number
 
    - Explanation: make it good
-   - Code
-   - Test
+   - [Code](02.js)
+   - [Test](02.test.js)
 
 5. takes in 3 numbers and return the largest number.
 
@@ -101,8 +100,8 @@ Write an arrow function called solution that...
        - Returns: number
 
    - Explanation: make it good
-   - Code
-   - Test
+   - [Code](02.js)
+   - [Test](02.test.js)
 
 6. takes in 2 numbers and returns true if the first input parameter is greater than the second. Otherwise returns false
 
@@ -120,8 +119,8 @@ Write an arrow function called solution that...
        - Returns: number
 
    - Explanation: make it good
-   - Code
-   - Test
+   - [Code](02.js)
+   - [Test](02.test.js)
 
 7. takes in 2 numbers and returns true if the sum of the 2 numbers is greater than 10. Otherwise returns false
 
@@ -139,8 +138,8 @@ Write an arrow function called solution that...
        - Returns: number
 
    - Explanation: make it good
-   - Code
-   - Test
+   - [Code](02.js)
+   - [Test](02.test.js)
 
 8. takes in 2 numbers and returns a function. When the returned function is called, return the sum of the 2 input parameters.
 
@@ -158,8 +157,8 @@ Write an arrow function called solution that...
        - Returns: number
 
    - Explanation: make it good
-   - Code
-   - Test
+   - [Code](02.js)
+   - [Test](02.test.js)
 
 9. takes in 2 numbers and returns a function. The returned function takes in a number and will return the sum of all 3 numbers when called
 
@@ -179,8 +178,8 @@ Write an arrow function called solution that...
        - Returns: number
 
    - Explanation: make it good
-   - Code
-   - Test
+   - [Code](02.js)
+   - [Test](02.test.js)
 
 10. takes in 2 functions and returns the sum of the returned values of the 2 functions
 
@@ -196,13 +195,13 @@ Write an arrow function called solution that...
       result = solution(fdemo1, fdemo2); // result is 11 because fdemo1() + fdemo2()
       ```
 
-
     - Signature:
+
       - Parameters:
         - `x`, public, number
         - `r`, public, number
       - Returns: number
 
     - Explanation: make it good
-    - Code
-    - Test
+    - [Code](02.js)
+    - [Test](02.test.js)
