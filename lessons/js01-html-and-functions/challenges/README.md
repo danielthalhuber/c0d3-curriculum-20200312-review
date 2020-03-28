@@ -150,3 +150,28 @@ Write a function called solution that...
        - Return a call to solution, decrementing `num` by 1
    - [Code](05.js)
    - [Test](05.test.js)
+
+6. takes in a number and returns true if it's prime, false otherwise.
+
+   - Example:
+
+     ```js
+     result = solution(2); // true
+     result = solution(1); // false
+     result = solution(8); // false
+     result = solution(13); // true
+     ```
+
+   - Signature:
+     - Parameters:
+       - `num`: public, number
+       - `i`: private, number
+     - Returns: Boolean
+   - Explanation:
+     - Starting with `i = 2`
+     - Base: if `num` is less than 2, or `num` is greater than 2 while being divisible by `i`, then return `false`
+     - Recursive:
+       - Return `truu` if `i` is greater than or equal to the square root of `num`
+       - Otherwise, return a call to `solution`, incrementing `i` by 1
+   - [Code](06.js)
+   - [Test](06.test.js)
