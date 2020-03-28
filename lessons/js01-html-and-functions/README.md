@@ -432,3 +432,7 @@ const logString = (str, i = 1) => {
      - Improper arrow function syntax (line 1)
      - `s` is not defined (line 6)
      - Returning `solution` recursively, outside of the `setTimeout` call causes `solution` to be called for each character in `str`, at a rate faster than one second per character (more like milliseconds per character). This results in the `setTimeout` calls to be initiated, as well as their callbacks to be executed, within milliseconds of each other. The characters will be logged almost all at once instead of once per second.
+
+## Lesson Challenges
+
+- [Solutions](challenges/README.md)
