@@ -81,8 +81,42 @@ Write a function called solution that...
        - `str`: public, string
        - `result`: private, string
      - Returns: string
-   - Explanation: starting with `result = ''`
+   - Explanation:
+     - Starting with `result = ''`
      - Base: if `num` is less than 1, return `result`
      - Recursive: return a call to `solution`, reducing `num` by one, and appending `str` to `result`
    - [Code](03.js)
    - [Test](03.test.js)
+
+4. takes in a function. The function will be called with increasing indices (starting from 0) until the function returns false
+
+   - Example:
+
+     ```js
+     solution(e => {
+       // this function will be run 7 times with e: 0,1,2,3,4,5,6
+       return e < 6;
+     });
+
+     solution(e => {
+       // this function will be run 1 time with e: 0
+       return false;
+     });
+
+     counter = solution(e => {
+       // this function will be run 3 times with e: 0,1,2
+       return e < 3;
+     });
+     ```
+
+   - Signature:
+     - Parameters:
+       - `fun`: public, function
+       - `i`: private, number
+     - Returns: undetermined
+   - Explanation:
+     - Starting with `i = 0`
+     - Base: if the result of calling the `fun(i)` returns a falsey value, then return `null`
+     - Recursive: return a call to `solution`, incrementing `i` by 1
+   - [Code](04.js)
+   - [Test](04.test.js)
