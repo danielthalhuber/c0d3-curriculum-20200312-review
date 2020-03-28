@@ -199,3 +199,28 @@ Write a function called solution that...
        - Otherwise return a call to `solution`, incrementing `i` by 1
    - [Code](07.js)
    - [Test](07.test.js)
+
+8. takes in 2 parameters, a string and a letter, and returns the number of times the character shows up in the string
+
+   - Example:
+
+     ```js
+     result = solution('abc', 'a'); // 1
+     result = solution('bccbccb', 'b'); // 3
+     ```
+
+   - Signature:
+     - Parameters:
+       - `str`: public, string
+       - `char`: public, string
+       - `count`: private, number
+       - `i`: private, number
+     - Returns: number
+   - Explanation:
+     - Starting with `count` and `i` at 0
+     - Base: if `i` is greater than or equal to the length of `str`, return `count`
+     - Recursive: return a call to `solution` with:
+       - `count` incremented by 1 if the value at index `i` of `str` equals `char`
+       - `i` incremented by 1
+   - [Code](08.js)
+   - [Test](08.test.js)
