@@ -13,7 +13,7 @@ describe('max 3', () => {
     const result = solution(-2, 9);
     expect(result).toEqual(9);
   });
-  it('should find the max where max is first parametr', () => {
+  it('should find the max where max is first parameter', () => {
     const result = solution(3, 2);
     expect(result).toEqual(3);
   });
