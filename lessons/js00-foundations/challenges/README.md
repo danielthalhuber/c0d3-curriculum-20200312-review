@@ -9,6 +9,9 @@ Write an arrow function called solution that...
    solution(4, 1); // Should return 5
    ```
 
+   - [solution](01.js)
+   - [test](01.test.js)
+
 2. takes in 3 numbers and returns the sum of the 3 input parameters
 
    ```js
