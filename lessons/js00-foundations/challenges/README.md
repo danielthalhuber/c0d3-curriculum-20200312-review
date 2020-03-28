@@ -98,13 +98,17 @@ Write an arrow function called solution that...
    - Signature:
 
      - Parameters:
-       - `x`, public, number
-       - `r`, public, number
+       - `num1`, public, number
+       - `num2`, public, number
+       - `num3`, public, number
      - Returns: number
 
-   - Explanation: make it good
-   - [Code](02.js)
-   - [Test](02.test.js)
+   - Explanation:
+     - return `num1` if it's larger than `num2` and `num3`, otherwise
+     - return `num2` if it's larger than `num1` and `num3`, otherwise
+     - return `num3`
+   - [Code](05.js)
+   - [Test](05.test.js)
 
 6. takes in 2 numbers and returns true if the first input parameter is greater than the second. Otherwise returns false
 
