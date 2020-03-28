@@ -1,0 +1,14 @@
+{
+  "name": "c0d3-js01-challenges",
+  "version": "1.0.0",
+  "description": "Write a function called solution that...",
+  "main": "01.js",
+  "scripts": {
+    "test": "node ./node_modules/jest/bin/jest.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^25.2.3"
+  }
+}
