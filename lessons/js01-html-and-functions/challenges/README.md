@@ -120,3 +120,33 @@ Write a function called solution that...
      - Recursive: return a call to `solution`, incrementing `i` by 1
    - [Code](04.js)
    - [Test](04.test.js)
+
+5. takes in 2 parameters, a number X and a function, and calls the function X number of times and then returns null.
+
+   - Example:
+
+     ```js
+     let counter = 0;
+     solution(2, () => {
+       counter += 1;
+     }); // counter will be 2
+
+     counter = 0;
+     solution(3, () => {
+       counter += 1;
+     }); // counter will be 3
+     ```
+
+   - Signature:
+     - Parameters:
+       - `num`: public, number
+       - `fun`: public, function
+       - `i`: private, number
+     - Returns: undetermined
+   - Explanation:
+     - Base: if `num` is less than 1, return `null`
+     - Recursive:
+       - Call `fun`
+       - Return a call to solution, decrementing `num` by 1
+   - [Code](05.js)
+   - [Test](05.test.js)
