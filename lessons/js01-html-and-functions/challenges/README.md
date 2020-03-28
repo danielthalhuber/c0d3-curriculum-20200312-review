@@ -294,3 +294,27 @@ Write a function called solution that...
         - Sets `i` to the remainder of `i + 1` divided by the length of `str`
     - [Code](10.js)
     - [Test](10.test.js)
+
+11. takes in 2 parameters, a number and a function, and returns a function. When the returned function is called, the input function will execute after input number milliseconds.
+
+- Example:
+
+  ```js
+  fun = solution(1800, e => {
+    console.log('hello');
+  });
+  fun(); // 'hello' will be printed out 1800ms after this function is called
+  fun(); // 'hello' will be printed out 1800ms after this function is called
+  ```
+
+- Signature:
+  - Parameters:
+    - `a`: public, number
+    - `fun`: public, function
+  - Returns: function with signature:
+    - Parameters: none
+    - Returns: number (timeout/interval id)
+    - Side effect: calls `setTimeout`
+- Explanation: return a function that calls `setTimeout` with callback `fun` and duration `a`
+- [Code](11.js)
+- [Test](11.test.js)
