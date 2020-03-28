@@ -126,7 +126,7 @@ Write an arrow function called solution that...
        - `num2`, public, number
      - Returns: boolean
 
-   - Explanation: return the boolean statement `num1 > num2`
+   - Explanation: return the boolean expression `num1 > num2`
    - [Code](06.js)
    - [Test](06.test.js)
 
@@ -142,13 +142,13 @@ Write an arrow function called solution that...
    - Signature:
 
      - Parameters:
-       - `x`, public, number
-       - `r`, public, number
+       - `num1`, public, number
+       - `num2`, public, number
      - Returns: number
 
-   - Explanation: make it good
-   - [Code](02.js)
-   - [Test](02.test.js)
+   - Explanation: return the boolean expression `num1 + num2 > 10`
+   - [Code](07.js)
+   - [Test](07.test.js)
 
 8. takes in 2 numbers and returns a function. When the returned function is called, return the sum of the 2 input parameters.
 
