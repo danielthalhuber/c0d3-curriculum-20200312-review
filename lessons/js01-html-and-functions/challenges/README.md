@@ -254,3 +254,43 @@ Write a function called solution that...
      - Recursive: return a call to `solution`, appending the value of `fun(i)` to `result`, and incrementing `i` by 1
    - [Code](09.js)
    - [Test](09.test.js)
+
+10. takes in 2 parameters, a string and a function, and returns a function such that:
+
+    > - When the returned function is called for the first time, the input function will be called with the first character of the string.
+    > - When the returned function is called for the second time, the input function will be called with the second character of the string.
+    > - After the input function is called with the last character of the string, calling the returned function will (repeat #1, then #2, etc.).
+
+    - Example:
+
+      ```js
+      tracker = '';
+      fun = solution('hel2', e => {
+        tracker = tracker + e;
+      });
+      fun(); // tracker -> 'h'
+      fun(); // tracker -> 'he'
+      fun(); // tracker -> 'hel'
+      fun(); // tracker -> 'hel2'
+      fun(); // tracker -> 'hel2h'
+      fun(); // tracker -> 'hel2he'
+      ```
+
+    - Signature:
+      - Parameters:
+        - `str`: public, string
+        - `fun`: public, function
+        - `i`: private, number
+      - Returns: function with signature:
+        - Parameters: none
+        - Returns: `undefined`
+        - Side effects:
+          - Calls `fun`
+          - Mutates `i`
+    - Explanation:
+      - Starting with `i = 0`
+      - Return a function that:
+        - Calls `fun(i)`
+        - Sets `i` to the remainder of `i + 1` divided by the length of `str`
+    - [Code](10.js)
+    - [Test](10.test.js)
