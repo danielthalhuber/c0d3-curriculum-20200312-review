@@ -224,3 +224,33 @@ Write a function called solution that...
        - `i` incremented by 1
    - [Code](08.js)
    - [Test](08.test.js)
+
+9. takes in 2 parameters, a string and a function, and returns combined result of the function being called with every character in the string.
+
+   - Example:
+
+     ```js
+     fun = e => {
+       return '9';
+     };
+     result = solution('hello', fun); // "99999"
+
+     fun = e => {
+       return e + '123';
+     };
+     result = solution('blah', fun); // "b123l123a123h123"
+     ```
+
+   - Signature:
+     - Parameters:
+       - `str`: public, string
+       - `fun`: public, function
+       - `result`: private, string
+       - `i`: private, number
+     - Returns: string
+   - Explanation:
+     - Starting with `result = ''` and `i = 0`
+     - Base: if `i` is greater than or equal to the length of `str`, then return `result`
+     - Recursive: return a call to `solution`, appending the value of `fun(i)` to `result`, and incrementing `i` by 1
+   - [Code](09.js)
+   - [Test](09.test.js)
