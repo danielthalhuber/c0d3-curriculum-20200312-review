@@ -212,10 +212,10 @@ Write an arrow function called solution that...
     - Signature:
 
       - Parameters:
-        - `x`: public, number
-        - `r`: public, number
-      - Returns: number
+        - `func1`: public, function
+        - `func2`: public, function
+      - Returns: undetermined
 
-    - Explanation: make it good
-    - [Code](02.js)
-    - [Test](02.test.js)
+    - Explanation: return the value of the expression `func1() + func2()`
+    - [Code](10.js)
+    - [Test](10.test.js)
