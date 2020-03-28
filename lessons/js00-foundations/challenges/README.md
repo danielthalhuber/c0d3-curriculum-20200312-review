@@ -35,13 +35,13 @@ Write an arrow function called solution that...
 
    - Signature:
 
-   - Parameters:
+     - Parameters:
 
-     - `num1`: public, number
-     - `num2`: public, number
-     - `num3`: public, number
+       - `num1`: public, number
+       - `num2`: public, number
+       - `num3`: public, number
 
-   - Returns: number
+     - Returns: number
 
    - Explanation: return the sum of the three given numbers
    - [Code](02.js)
@@ -56,6 +56,16 @@ Write an arrow function called solution that...
      solution(4); // Should return false
      ```
 
+     - Signature:
+       - Parameters:
+         - `x`, public, number
+         - `r`, public, number
+       - Returns: number
+
+   - Explanation: make it good
+   - Code
+   - Test
+
 4. takes in 2 numbers and returns the larger number.
 
    - Example:
@@ -64,6 +74,16 @@ Write an arrow function called solution that...
      solution(5, 9); // Should return 9
      solution(4, 1); // Should return 4
      ```
+
+     - Signature:
+       - Parameters:
+         - `x`, public, number
+         - `r`, public, number
+       - Returns: number
+
+   - Explanation: make it good
+   - Code
+   - Test
 
 5. takes in 3 numbers and return the largest number.
 
@@ -74,6 +94,16 @@ Write an arrow function called solution that...
      solution(4, 5, 1); // Should return 5
      ```
 
+     - Signature:
+       - Parameters:
+         - `x`, public, number
+         - `r`, public, number
+       - Returns: number
+
+   - Explanation: make it good
+   - Code
+   - Test
+
 6. takes in 2 numbers and returns true if the first input parameter is greater than the second. Otherwise returns false
 
    - Example:
@@ -82,6 +112,16 @@ Write an arrow function called solution that...
      solution(5, 9); // Should return false
      solution(4, 1); // Should return true
      ```
+
+     - Signature:
+       - Parameters:
+         - `x`, public, number
+         - `r`, public, number
+       - Returns: number
+
+   - Explanation: make it good
+   - Code
+   - Test
 
 7. takes in 2 numbers and returns true if the sum of the 2 numbers is greater than 10. Otherwise returns false
 
@@ -92,6 +132,16 @@ Write an arrow function called solution that...
      solution(4, 1); // Should return false
      ```
 
+     - Signature:
+       - Parameters:
+         - `x`, public, number
+         - `r`, public, number
+       - Returns: number
+
+   - Explanation: make it good
+   - Code
+   - Test
+
 8. takes in 2 numbers and returns a function. When the returned function is called, return the sum of the 2 input parameters.
 
    - Example:
@@ -100,6 +150,16 @@ Write an arrow function called solution that...
      resf = solution(5, 6); // a is a function
      result = resf(); // result is 11
      ```
+
+     - Signature:
+       - Parameters:
+         - `x`, public, number
+         - `r`, public, number
+       - Returns: number
+
+   - Explanation: make it good
+   - Code
+   - Test
 
 9. takes in 2 numbers and returns a function. The returned function takes in a number and will return the sum of all 3 numbers when called
 
@@ -111,6 +171,16 @@ Write an arrow function called solution that...
      result = resf(5); // result is 8 because 1 + 2 + 5
      result = resf(2); // result is 5 because 1 + 2 + 2
      ```
+
+     - Signature:
+       - Parameters:
+         - `x`, public, number
+         - `r`, public, number
+       - Returns: number
+
+   - Explanation: make it good
+   - Code
+   - Test
 
 10. takes in 2 functions and returns the sum of the returned values of the 2 functions
 
@@ -125,3 +195,14 @@ Write an arrow function called solution that...
       };
       result = solution(fdemo1, fdemo2); // result is 11 because fdemo1() + fdemo2()
       ```
+
+
+    - Signature:
+      - Parameters:
+        - `x`, public, number
+        - `r`, public, number
+      - Returns: number
+
+    - Explanation: make it good
+    - Code
+    - Test
