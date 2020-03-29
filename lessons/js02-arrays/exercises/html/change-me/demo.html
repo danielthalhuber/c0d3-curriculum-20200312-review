@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Me: Demo</title>
+  </head>
+  <body>
+    <h1 class="display">Change Me</h1>
+    <input class="newText" type="text" />
+    <button class="change">Submit</button>
+    <script>
+      const displayElement = document.querySelector('.display');
+      const inputElement = document.querySelector('.newText');
+      const buttonElement = document.querySelector('.change');
+      buttonElement.onclick = () => {
+        const newValue = inputElement.value;
+        displayElement.innerText = newValue;
+      };
+    </script>
+  </body>
+</html>
