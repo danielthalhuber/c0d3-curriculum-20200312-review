@@ -63,12 +63,12 @@ In such cases it would be useful to remind the student to add the classes before
 
 ### Exercises
 
-1. [Create an HTML page](./html-ex01-create-an-html-page.html)
-2. [Create a UI for JS0 Challenge 1](./html-ex02-ui-for-js00c01.html)
-3. [Create a UI for JS0 Challenge 3](./html-ex03-ui-for-js00c03.html)
-4. [Create a UI for JS0 Challenge 7](./html-ex04-ui-for-js00c07.html)
-5. [Create a UI for JS0 Challenge 8](./html-ex05-ui-for-js00c08.html)
-6. [Create a UI for JS0 Challenge 9](./html-ex06-ui-for-js00c09.html)
+1. [Create an HTML page](exercises/html/01-create-an-page.html)
+2. [Create a UI for JS0 Challenge 1](exercises/html/02-ui-for-js00c01.html)
+3. [Create a UI for JS0 Challenge 3](exercises/html/03-ui-for-js00c03.html)
+4. [Create a UI for JS0 Challenge 7](exercises/html/04-ui-for-js00c07.html)
+5. [Create a UI for JS0 Challenge 8](exercises/html/05-ui-for-js00c08.html)
+6. [Create a UI for JS0 Challenge 9](exercises/html/06-ui-for-js00c09.html)
 
 ## Interviewing
 
@@ -337,20 +337,20 @@ sumToMe(3); // returns 6: 1 + 2 + 3
 
 ### Exercises
 
-1. Write a function called `love` that calls `console.log('The things I do for love')` 99 times ([solution](recursion-ex01-love.js)).
-2. Write a function called `countTo98` that calls `console.log` once for every number from 0 to 98 ([solution](recursion-ex02-countTo98.js)).
-3. Write a function called `countToMe` that `console.log`s every number from 8 to the input number ([solution](recursion-ex03-count-to-me.js)).
+1. Write a function called `love` that calls `console.log('The things I do for love')` 99 times ([solution](exercises/recursion/01-love.js)).
+2. Write a function called `countTo98` that calls `console.log` once for every number from 0 to 98 ([solution](exercises/recursion/02-countTo98.js)).
+3. Write a function called `countToMe` that `console.log`s every number from 8 to the input number ([solution](exercises/recursion/03-count-to-me.js)).
 4. Write a function called `fizzbuzz` that calls `console.log` for every number from 1 to the input number.
    - The value logged to the console should be:
      - If the number is divisible by 3, log the value `'fizz'`
      - If the number is divisible by 5, log the value `'buzz'`
      - If the number is divisible by 3 and 5, log the value `'fizzbuzz'`
      - Otherwise log the number
-   - [solution](recursion-ex04-fizzbuzz.js)
-5. Write a function called `numberedHello` that takes a number parameter and returns a string that repeats `'hello'` as many times as the given number ([solution](./recursion-ex05-numbered-hello.js))
-6. Write a function called `sumEvens` that adds up all the even numbers from 2 to the given number ([solution](recursion-ex06-sum-evens.js))
-7. Write a function called `tryNumRange` that takes in a number and a function and calls the function with every number from 1 to the input number. If any of these return true, return true; if they all return false, return false ([solution](./recursion-ex07-try-num-range.js))
-8. Write a function named `fun1` that calls a given function a given number of times ([solution](./recursion-ex08-fun1.js))
+   - [solution](exercises/recursion/04-fizzbuzz.js)
+5. Write a function called `numberedHello` that takes a number parameter and returns a string that repeats `'hello'` as many times as the given number ([solution](exercises/recursion/05-numbered-hello.js))
+6. Write a function called `sumEvens` that adds up all the even numbers from 2 to the given number ([solution](exercises/recursion/06-sum-evens.js))
+7. Write a function called `tryNumRange` that takes in a number and a function and calls the function with every number from 1 to the input number. If any of these return true, return true; if they all return false, return false ([solution](exercises/recursion/07-try-num-range.js))
+8. Write a function named `fun1` that calls a given function a given number of times ([solution](./exercises/recursion/08-fun1.js))
 
 ## Strings and Letters
 
@@ -400,20 +400,20 @@ const logString = (str, i = 1) => {
 
 ### Exercises
 
-1. Write a function called `logNonMatching` that logs every character in a string, except for one specified character ([solution](strings-ex01-log-non-matching.js))
-2. Write a function called `logFirstX` that logs a given number of characters from the beginning of a string ([solution](strings-ex02-log-first-x.js))
-3. Write a function called lastX that _returns_ (not `console.log`) a chunk of a given size from the _end_ of a string ([solution](./strings-ex03-log-last-x.js))
-4. Write a function called `logOddOnly` that prints out only the characters at odd indices from a string ([solution](strings-ex04-log-odd-only.js))
-5. Write a function called `removeLetter` that returns a string without any instances of a given letter ([solution](strings-ex05-remove-letter.js))
-6. Write a function called `secretCodeGenerator` that takes in 3 arguments, a string, a letter, and a string, and returns a string where all the matching letters are replaced by the last input string ([solution](strings-ex06-secret-code-generator.js))
+1. Write a function called `logNonMatching` that logs every character in a string, except for one specified character ([solution](exercises/strings/01-log-non-matching.js))
+2. Write a function called `logFirstX` that logs a given number of characters from the beginning of a string ([solution](exercises/strings/02-log-first-x.js))
+3. Write a function called lastX that _returns_ (not `console.log`) a chunk of a given size from the _end_ of a string ([solution](exercises/strings/03-log-last-x.js))
+4. Write a function called `logOddOnly` that prints out only the characters at odd indices from a string ([solution](exercises/strings/04-log-odd-only.js))
+5. Write a function called `removeLetter` that returns a string without any instances of a given letter ([solution](exercises/strings/05-remove-letter.js))
+6. Write a function called `secretCodeGenerator` that takes in 3 arguments, a string, a letter, and a string, and returns a string where all the matching letters are replaced by the last input string ([solution](exercises/strings/06-secret-code-generator.js))
 
 ## Async
 
 ### Exercises
 
-1. Write a function called `wait20` that waits 20 seconds and then calls `console.log("one")` ([solution](async-ex01-wait20.js))
-2. Write a function called `oneAndTwo` that waits 20 seconds and then calls `console.log("one")`, then waits another 10 seconds and then calls `console.log("two")` ([solution](async-ex02-one-and-two.js))
-3. Write a function named `letterPerSecond` that takes in a string, and calls `console.log` for every letter in the string, 1 second after each call (aka 1 letter per second) ([solution](async-ex03-letter-per-second.js))
+1. Write a function called `wait20` that waits 20 seconds and then calls `console.log("one")` ([solution](exercises/async/01-wait20.js))
+2. Write a function called `oneAndTwo` that waits 20 seconds and then calls `console.log("one")`, then waits another 10 seconds and then calls `console.log("two")` ([solution](exercises/async/02-one-and-two.js))
+3. Write a function named `letterPerSecond` that takes in a string, and calls `console.log` for every letter in the string, 1 second after each call (aka 1 letter per second) ([solution](exercises/async/03-letter-per-second.js))
 4. What's wrong with the following solution for the previous exercise (1 letter per second)?
 
    ```js
