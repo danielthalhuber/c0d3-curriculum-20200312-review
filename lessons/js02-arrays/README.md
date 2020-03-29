@@ -15,3 +15,10 @@ I will modify this structure slightly so that the package has the following stru
   - `solution-name.test.js`: file containing test code for an exercise
 
 [Solutions](preflight/README.md)
+
+## Overview
+
+This lesson has two parts:
+
+- HTML
+- Arrays
