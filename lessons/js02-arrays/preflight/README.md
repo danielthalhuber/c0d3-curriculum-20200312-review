@@ -72,7 +72,7 @@
 
    - Goal:
 
-     - Write a function called reverso that takes in a string, and returns a new string with the input string reversed.
+     - Write a function called `reverso` that takes in a string, and returns a new string with the input string reversed.
 
    - Example:
 
@@ -96,3 +96,32 @@
        - Append the value `str[str.length - i]` to `result`
    - [Code](reverso.js)
    - [Test](reverso.test.js)
+
+3. `- Write a function called`delayAndCall`that takes in 2 arguments, a number and a function, and returns a function.`
+
+   - Goal:
+
+     - Write a function called `delayAndCall` that takes in 2 arguments, a number and a function, and returns a function.
+     - When the returned function is called, the input function will execute after input number milliseconds.
+
+   - Example:
+
+     ```js
+     const fun = delayAndCall(1000, () => {
+       console.log('I am groot');
+     });
+     fun(); // after 1 second, 'I am groot' will be logged
+     fun(); // after 1 second, 'I am groot' will be logged
+     ```
+
+   - Signature:
+     - Parameters:
+       - `delay`: public, number
+       - `fun`: public, function
+     - Returns: function with signature:
+       - Parameters: none
+       - Returns: undetermined
+       - Side effects: undetermined
+   - Explanation: return a function that when called, calls `setTimeout` with the parameters `fun` and `delay`.
+   - [Code](delay-and-call.js)
+   - [Test](delay-and-call.test.js)
