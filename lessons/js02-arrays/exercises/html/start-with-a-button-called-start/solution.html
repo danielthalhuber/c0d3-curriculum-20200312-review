@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Start with a Start Button: Solution</title>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      const div = document.querySelector('div');
+      const showStart = () => {
+        // input button UI
+        const showInput = () => {
+          div.innerHTML = `
+            <input type="text" />
+            <button>Cancel</button>
+          `;
+
+          div.querySelector('button').addEventListener('click', showStart);
+        };
+
+        // start button UI
+        div.innerHTML = `
+          <button>Start</start>
+        `;
+
+        div.querySelector('button').addEventListener('click', showInput);
+      };
+
+      showStart();
+    </script>
+  </body>
+</html>

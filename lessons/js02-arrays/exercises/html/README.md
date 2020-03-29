@@ -1,7 +1,7 @@
 # JS2 - Arrays: HTML Exercises
 
 1. [Change Me](change-me/README.md)
-2. Start with a Button Called Start
+2. [Start with a Button Called Start](start-with-a-button-called-start/README.md)
 3. Build a Closure UI
 4. Hello String Generator UI
 5. String Breaker

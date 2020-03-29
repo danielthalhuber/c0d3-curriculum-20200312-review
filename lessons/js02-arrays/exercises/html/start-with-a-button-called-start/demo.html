@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Start with a Button Called Start: Demo</title>
+  </head>
+  <body>
+    <div class="container"></div>
+
+    <script>
+      const containerElement = document.querySelector('.container');
+
+      const startApp = () => {
+        containerElement.innerHTML = `
+      <button class="start">Start</button>
+      `;
+        const startButton = document.querySelector('.start');
+
+        startButton.onclick = () => {
+          containerElement.innerHTML = `
+      <input type="text" />
+      <button class="cancel">Cancel</button>
+      `;
+          const cancelButton = document.querySelector('.cancel');
+          cancelButton.onclick = startApp;
+        };
+      };
+
+      startApp();
+    </script>
+  </body>
+</html>
