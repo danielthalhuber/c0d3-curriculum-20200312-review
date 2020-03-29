@@ -125,3 +125,39 @@
    - Explanation: return a function that when called, calls `setTimeout` with the parameters `fun` and `delay`.
    - [Code](delay-and-call.js)
    - [Test](delay-and-call.test.js)
+
+4. `primeMachine`
+
+   - Goal:
+
+     - Write a function called primeMachine that takes in a number and returns a function.
+     - Each time the returned function is called, return the next prime number (starting from the input number).
+     - _(For a new coder, this can be a hard problem. This problem was asked during an onsite interview, so it is okay if you can't come up with the answer yourself. This problem involves creating other functions to help you get the correct solution.)_
+
+   - Example:
+
+     ```js
+     const getPrime = primeMachine(10);
+     getPrime(); // 11
+     getPrime(); // 13
+     getPrime(); // 15
+     getPrime(); // 19
+     ```
+
+   - Signature:
+     - Parameters:
+       - `n`: public, number
+     - Returns: function with signature:
+       - Parameters: none
+       - Returns: number
+   - Explanation:
+     - Assume/create/import helper function `isPrime` (returns `true` when single parameter is a prime number) that can be called by the returned function as it checks each number greater that `n`
+     - Starting with the specified value of `n`
+     - Create a function named `nextPrime` that:
+       - Increments `n` by one
+       - Returns:
+         - `n` if `isPrime(n)` is `true`
+         - Otherwise returns a call to `nextPrime`
+     - Return `nextPrime`
+   - [Code](code)
+   - [Test](test)
