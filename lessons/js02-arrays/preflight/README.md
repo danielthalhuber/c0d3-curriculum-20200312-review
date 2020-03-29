@@ -67,3 +67,32 @@
          - Incrementing `count` by 1 if the values at index `i` of `str1` and `str2` are not equal
    - [Code](less-3-diff.js)
    - [Test](less-3-diff.test.js)
+
+2. `reverso`
+
+   - Goal:
+
+     - Write a function called reverso that takes in a string, and returns a new string with the input string reversed.
+
+   - Example:
+
+     ```js
+     reverso('abc'); // returns 'cba'
+     reverso(' aaaa'); // returns 'aaa '
+     reverso('aba'); // returns 'aba'
+     ```
+
+   - Signature:
+     - Parameters:
+       - `str`: public, string
+       - `i`: private, number
+       - `result`: private, string
+     - Returns: string
+   - Explanation:
+     - Start with `i = 1`
+     - Base: if `i > str.length`, return `result`
+     - Recursive: return a call to `reverso` and:
+       - Increment `i` by 1
+       - Append the value `str[str.length - i]` to `result`
+   - [Code](reverso.js)
+   - [Test](reverso.test.js)
