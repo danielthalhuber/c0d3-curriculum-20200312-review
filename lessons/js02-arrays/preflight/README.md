@@ -97,7 +97,7 @@
    - [Code](reverso.js)
    - [Test](reverso.test.js)
 
-3. `- Write a function called`delayAndCall`that takes in 2 arguments, a number and a function, and returns a function.`
+3. `delayAndCall`
 
    - Goal:
 
