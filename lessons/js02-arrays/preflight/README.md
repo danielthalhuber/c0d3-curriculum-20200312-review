@@ -159,5 +159,5 @@
          - `n` if `isPrime(n)` is `true`
          - Otherwise returns a call to `nextPrime`
      - Return `nextPrime`
-   - [Code](code)
-   - [Test](test)
+   - [Code](prime-machine.js)
+   - [Test](prime-machine.test.js)
