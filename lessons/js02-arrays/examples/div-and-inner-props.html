@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS2 Example: Div/innerHTML/innerText</title>
+  </head>
+  <body>
+    <p>Static HTML</p>
+    <div class="static">
+      <input type="text" class="username" />
+      <input type="password" class="password" />
+      <button onclick="alert('nothing!!!')">Log in</button>
+    </div>
+    <hr />
+    <p>JavaScript using <code>innerHTML</code></p>
+    <div class="js-inner-html"></div>
+    <script>
+      const container = document.querySelector('.js-inner-html');
+      container.innerHTML = `
+        <input type="text" class="username" />
+        <input type="password" class="password" />
+        <button >Log in</button>
+      `;
+      const button = container.querySelector('button');
+      button.onclick = e => {
+        const username = container.querySelector('input.username').value;
+        const password = container.querySelector('input.password').value;
+
+        alert(`username: ${username}\npassword: ${password}`);
+
+        container.innerHTML = `
+          <input type="text" class="username" />
+          <input type="password" class="password" />
+          <button onclick="alert('nothing!!!')">Log in, again!</button>
+        `;
+
+        container.previousElementSibling.innerHTML =
+          'Mutated by <code>innerHTML</code>!';
+      };
+    </script>
+    <hr />
+    <p>JavaScript using <code>innerText</code></p>
+    <div class="js-inner-text"></div>
+    <script>
+      const container2 = document.querySelector('.js-inner-text');
+      container2.innerHTML = `
+        <input type="text" class="username" />
+        <input type="password" class="password" />
+        <button>Log in</button>
+      `;
+      const button2 = container2.querySelector('button');
+      button2.onclick = e => {
+        const username = container2.querySelector('input.username').value;
+        const password = container2.querySelector('input.password').value;
+
+        alert(`username: ${username}\npassword: ${password}`);
+
+        container2.previousElementSibling.innerText = 'Mutated by innerText!';
+      };
+    </script>
+  </body>
+</html>

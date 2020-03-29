@@ -22,3 +22,10 @@ This lesson has two parts:
 
 - HTML
 - Arrays
+
+## HTML/JS
+
+- Refer to the [example file](examples/div-and-inner-props.html)
+- Recommended changes:
+  - Use `Node.textContent` over `HTMLElement.innerText` for efficiency (see [MDN article](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent))
+  - When referring to methods of `HTMLElement` and `Node`, it might be helpful to mention that these are part of the web/browser API, not JavaScript
