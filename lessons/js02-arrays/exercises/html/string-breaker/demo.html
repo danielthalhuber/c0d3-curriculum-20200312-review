@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String Breaker: Demo</title>
+  </head>
+  <body>
+    <input class="strInput" />
+    <button class="generate">Generate</button>
+    <div class="container"></div>
+
+    <script>
+      const strInput = document.querySelector('.strInput');
+      const generateButton = document.querySelector('.generate');
+      const container = document.querySelector('.container');
+
+      const genStr = (str, i = 0, result = '') => {
+        if (i === str.length) return result;
+        return genStr(str, i + 1, result + `<h1>${str[i]}</h1>`);
+      };
+
+      generateButton.onclick = () => {
+        const result = genStr(strInput.value);
+        container.innerHTML = result;
+      };
+    </script>
+  </body>
+</html>
