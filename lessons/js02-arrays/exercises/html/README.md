@@ -2,7 +2,7 @@
 
 1. [Change Me](change-me/README.md)
 2. [Start with a Button Called Start](start-with-a-button-called-start/README.md)
-3. Build a Closure UI
+3. [Build a Closure UI](closure-ui/README.md)
 4. Hello String Generator UI
 5. String Breaker
 6. House of Primes

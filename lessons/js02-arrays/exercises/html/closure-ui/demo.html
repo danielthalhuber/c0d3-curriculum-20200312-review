@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Closure UI: Demo</title>
+  </head>
+  <body>
+    <div class="container"></div>
+    <h1 class="display"></h1>
+
+    <script>
+      const containerElement = document.querySelector('.container');
+      const displayElement = document.querySelector('.display');
+
+      const solution = a => {
+        return b => {
+          return a + b;
+        };
+      };
+
+      const startApp = () => {
+        displayElement.innerText = '';
+        containerElement.innerHTML = `
+      <input class="startingInput" type="number"/>
+      <button class="start">Start</button>
+      `;
+        const startButton = document.querySelector('.start');
+        const startingInput = document.querySelector('.startingInput');
+
+        startButton.onclick = () => {
+          const startValue = +startingInput.value;
+          const add1 = solution(startValue);
+          displayElement.innerText = `${startValue} + `;
+
+          containerElement.innerHTML = `
+      <input class="secondInput" type="number" />
+      <button class="add">Add</button>
+      <button class="cancel">GoBack</button>
+      `;
+
+          const addButton = document.querySelector('.add');
+          addButton.onclick = () => {
+            const secondInput = document.querySelector('.secondInput');
+            const secondValue = +secondInput.value;
+            const result = add1(secondValue);
+            displayElement.innerText = `${startValue} + ${secondValue} = ${result}`;
+
+            secondInput.value = '';
+          };
+
+          const cancelButton = document.querySelector('.cancel');
+          cancelButton.onclick = startApp;
+        };
+      };
+
+      startApp();
+    </script>
+  </body>
+</html>

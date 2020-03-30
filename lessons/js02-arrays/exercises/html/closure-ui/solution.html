@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Closure UI: Solution</title>
+  </head>
+  <body>
+    <input type="number" />
+    <div class="buttons"></div>
+    <h1></h1>
+    <script>
+      const input = document.querySelector('input');
+      const buttonsDiv = document.querySelector('div.buttons');
+      const h1 = document.querySelector('h1');
+
+      const startClosure = () => {
+        // the UI for newly created closure
+        const showClosure = num1 => {
+          // render the UI elements
+          input.value = '';
+          h1.textContent = `${num1} +`;
+          buttonsDiv.innerHTML = `
+            <button class="add">Add</button>
+            <button class="reset">Reset</button>
+          `;
+
+          // add event listeners
+          buttonsDiv
+            .querySelector('button.add')
+            .addEventListener('click', () => {
+              const num2 = +input.value;
+              num1 = +num1;
+              h1.textContent = `${num1} + ${num2} = ${num1 + num2}`;
+            });
+
+          buttonsDiv
+            .querySelector('button.reset')
+            .addEventListener('click', startClosure);
+        };
+
+        // the UI to start a new closure
+
+        // render UI elements
+        input.value = '';
+        h1.textContent = '';
+        buttonsDiv.innerHTML = `<button>Start</button>`;
+
+        // add event listener
+        buttonsDiv
+          .querySelector('button')
+          .addEventListener('click', () => showClosure(input.value));
+      };
+
+      startClosure();
+    </script>
+  </body>
+</html>
