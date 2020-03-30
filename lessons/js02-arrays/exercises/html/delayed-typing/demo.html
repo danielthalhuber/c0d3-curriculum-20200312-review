@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delayed Typing: Demo</title>
+  </head>
+  <body>
+    <input class="strInput" />
+    <button class="start">Start</button>
+    <h1 class="display"></h1>
+
+    <script>
+      const strInput = document.querySelector('.strInput');
+      const startButton = document.querySelector('.start');
+      const display = document.querySelector('.display');
+
+      const solution = (str, i = 0, result = '') => {
+        if (i === str.length) return;
+        setTimeout(() => {
+          result = `${result}${str[i]}`;
+          display.innerText = result;
+          solution(str, i + 1, result);
+        }, 200);
+      };
+
+      startButton.onclick = () => {
+        solution(strInput.value);
+        strInput.value = '';
+      };
+    </script>
+  </body>
+</html>
