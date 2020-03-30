@@ -171,7 +171,7 @@ Write a function called solution that...
      - Starting with `i = 2`
      - Base: if `num` is less than 2, or `num` is greater than 2 while being divisible by `i`, then return `false`
      - Recursive:
-       - Return `truu` if `i` is greater than or equal to the square root of `num`
+       - Return `true` if `i` is greater than or equal to the square root of `num`
        - Otherwise, return a call to `solution`, incrementing `i` by 1
    - [Code](06.js)
    - [Test](06.test.js)
