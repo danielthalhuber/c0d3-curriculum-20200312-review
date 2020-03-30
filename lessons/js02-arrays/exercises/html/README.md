@@ -6,7 +6,7 @@
 4. [Hello String Generator UI](hello-string-generator/README.md)
 5. [String Breaker](string-breaker/README.md)
 6. [House of Primes](house-of-primes/README.md)
-7. House of Primes H1
+7. [House of Primes H1](house-of-primes-h1/README.md)
 8. Delayed Typing Under
 9. Delayed Typing Over
 10. Stopwatch with Start Button
