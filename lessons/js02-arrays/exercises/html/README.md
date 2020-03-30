@@ -5,7 +5,7 @@
 3. [Build a Closure UI](closure-ui/README.md)
 4. [Hello String Generator UI](hello-string-generator/README.md)
 5. [String Breaker](string-breaker/README.md)
-6. House of Primes
+6. [House of Primes](house-of-primes/README.md)
 7. House of Primes H1
 8. Delayed Typing Under
 9. Delayed Typing Over

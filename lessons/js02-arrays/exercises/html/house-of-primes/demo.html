@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>House of Primes: Demo</title>
+  </head>
+  <body>
+    <input class="finalNum" type="number" />
+    <button class="start">Start</button>
+    <h1 class="display"></h1>
+
+    <script>
+      const numInput = document.querySelector('.finalNum');
+      const startButton = document.querySelector('.start');
+      const display = document.querySelector('.display');
+
+      const isPrime = (num, i = 2) => {
+        if (num < 2) return false;
+        if (i === num) return true;
+        if (num % i === 0) return false;
+        return isPrime(num, i + 1);
+      };
+
+      const displayStr = (num, i = 2, result = '') => {
+        if (i > num) return result;
+        if (isPrime(i)) {
+          result = `${result}${i}... `;
+        }
+        return displayStr(num, i + 1, result);
+      };
+
+      startButton.onclick = () => {
+        const value = +numInput.value;
+        if (value < 2) {
+          return alert('Please Enter a value greater than 2');
+        }
+
+        display.innerText = displayStr(value);
+      };
+    </script>
+  </body>
+</html>
