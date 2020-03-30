@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello String Generator: Solution</title>
+  </head>
+  <body>
+    <input type="number" />
+    <button>Generate</button>
+    <h1></h1>
+    <script>
+      // helper function
+      const repeat = (str = '', num = 0, i = 1, result = '') => {
+        return i > num ? result : repeat(str, num, i + 1, result + str);
+      };
+
+      // ui elements
+      const input = document.querySelector('input');
+      const button = document.querySelector('button');
+      const h1 = document.querySelector('h1');
+
+      // events
+      button.addEventListener('click', () => {
+        h1.textContent = repeat('Hello', +input.value);
+      });
+    </script>
+  </body>
+</html>
