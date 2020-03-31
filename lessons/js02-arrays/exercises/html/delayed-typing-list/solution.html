@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delayed Typing: Solution</title>
+  </head>
+  <body>
+    <input type="text" />
+    <button>Start</button>
+    <div></div>
+    <script>
+      // helper functions
+
+      const delayedTextContentItem = (str = '', id, i = 0) => {
+        if (i >= str.length) return;
+
+        setTimeout(() => {
+          document.querySelector(`#${id}`).textContent += str[i];
+          delayedTextContentItem(str, id, i + 1);
+        }, 200);
+      };
+
+      // ui elements
+
+      const input = document.querySelector('input');
+      const button = document.querySelector('button');
+      const div = document.querySelector('div');
+
+      // events
+
+      button.addEventListener('click', () => {
+        const nextId = `item-${(div.querySelectorAll('h1') || []).length}`;
+        div.innerHTML = `<h1 id="${nextId}"></h1>${div.innerHTML}`;
+        delayedTextContentItem(input.value, nextId);
+        input.value = '';
+      });
+    </script>
+  </body>
+</html>
