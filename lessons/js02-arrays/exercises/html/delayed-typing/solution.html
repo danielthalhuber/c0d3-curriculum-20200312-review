@@ -31,7 +31,7 @@
 
       button.addEventListener('click', () => {
         div.innerHTML = '<h1></h1>';
-        timeout = delayedTextContent(input.value, div.querySelector('h1'));
+        delayedTextContent(input.value, div.querySelector('h1'));
         input.value = '';
       });
     </script>
