@@ -20,7 +20,7 @@ Create an input box and a button. When the button is clicked, display each key t
 
    - Create a helper function called `delayedTextContent`
 
-     - Goal: create a function that takes in a string and an element, and then updates the textContent of the given element with the given string, one character at a time, at intervals of 200 ms.
+     - Goal: create a function that takes in a string and an element, and then updates the `textContent` of the given element with the given string, one character at a time, at intervals of 200 ms.
 
      - Example:
 
@@ -58,7 +58,7 @@ Create an input box and a button. When the button is clicked, display each key t
          - `el`: public, HTML element
          - `i`: private, number
 
-       - Returns: undefined
+       - Returns: `undefined`
 
      - Explanation:
 
