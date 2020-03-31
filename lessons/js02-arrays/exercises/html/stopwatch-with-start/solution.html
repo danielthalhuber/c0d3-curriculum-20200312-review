@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stopwatch with Start Button: Solution</title>
+  </head>
+  <body>
+    <h1></h1>
+    <button>Start</button>
+    <script>
+      // helpers
+
+      const padNum = (num = 0, digits = 1, result = `${num}`) => {
+        if (result.length >= digits) return result;
+
+        return padNum(num, digits, '0' + result);
+      };
+
+      const formatMsTime = msTime => {
+        const mins = Math.floor(msTime / (1000 * 60));
+        const secs = Math.floor((msTime - mins * 60 * 1000) / 1000);
+        const hunSecs = Math.floor(((msTime - mins * 60 * 1000) % 1000) / 10);
+
+        return `${padNum(mins, 2)}:${padNum(secs, 2)}:${padNum(hunSecs, 2)}`;
+      };
+
+      // state
+
+      let startTime = null;
+      let elapsedTime = 0;
+      const h1 = document.querySelector('h1');
+      const button = document.querySelector('button');
+
+      // actions
+
+      const updateElapsedTime = () => {
+        elapsedTime = Date.now() - startTime;
+        h1.textContent = formatMsTime(elapsedTime);
+      };
+
+      const startTimer = () => {
+        if (startTime) return;
+        startTime = Date.now();
+        setInterval(updateElapsedTime, 10);
+      };
+
+      // events
+
+      button.addEventListener('click', startTimer);
+
+      // initialization
+
+      h1.textContent = formatMsTime(elapsedTime);
+    </script>
+  </body>
+</html>
