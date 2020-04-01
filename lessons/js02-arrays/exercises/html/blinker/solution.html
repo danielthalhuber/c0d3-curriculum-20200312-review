@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blinker: Solution</title>
+  </head>
+  <body>
+    <input type="text" />
+    <input type="number" min="1" max="500" />
+    <h1></h1>
+    <script>
+      // state
+
+      let text = 'Blink';
+      let bps = 1;
+      const textInput = document.querySelector('input[type="text"]');
+      const bpsInput = document.querySelector('input[type="number"]');
+      const h1 = document.querySelector('h1');
+
+      // actions
+
+      const blink = () => {
+        text = textInput.value;
+        bps = +bpsInput.value;
+        h1.textContent = h1.textContent ? '' : text;
+        setTimeout(blink, Math.floor(1000 / (2 * bps)));
+      };
+
+      // initialize
+      blink();
+    </script>
+  </body>
+</html>

@@ -11,7 +11,7 @@
 9. [Delayed Typing List](delayed-typing-list/README.md)
 10. [Stopwatch with Start Button](stopwatch-with-start/README.md)
 11. [Stopwatch with Start, Pause, and Stop Buttons](stopwatch-with-start-pause-and-stop/README.md)
-12. Blinker
+12. [Blinker](blinker/README.md)
 13. Countdown from Input
 14. Chat Input
 15. Letter Filter

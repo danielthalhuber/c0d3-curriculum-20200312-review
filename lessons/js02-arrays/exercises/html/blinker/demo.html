@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blinker: Demo</title>
+  </head>
+  <body>
+    <input class="txtInput" type="text" />
+    <input class="perSecond" type="number" /> Times per second
+
+    <div class="display"></div>
+
+    <script>
+      const display = document.querySelector('.display');
+      const txtInput = document.querySelector('.txtInput');
+      const perSecond = document.querySelector('.perSecond');
+
+      const defaultTime = 3;
+      const defaultText = 'Welcome to challenge 9!';
+
+      let shouldHide = false;
+
+      const runApp = () => {
+        txt = txtInput.value || defaultText;
+        if (shouldHide) {
+          txt = '';
+        }
+        display.innerText = txt;
+        shouldHide = !shouldHide;
+
+        const time = +perSecond.value || defaultTime;
+        setTimeout(runApp, 1000 / time);
+      };
+
+      runApp();
+    </script>
+  </body>
+</html>
