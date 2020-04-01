@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stopwatch with Start, Pause, and Stop Buttons: Demo</title>
+  </head>
+  <body>
+    <h1 class="display">00:00</h1>
+    <button class="start">Start</button>
+    <button class="pause">Pause</button>
+    <button class="stop">Stop</button>
+
+    <script>
+      const display = document.querySelector('.display');
+      const startButton = document.querySelector('.start');
+      const pauseButton = document.querySelector('.pause');
+      const stopButton = document.querySelector('.stop');
+
+      let isRunning = false;
+      let isPaused = false;
+      let counter = 0;
+
+      const runCounter = () => {
+        if (!isRunning || isPaused) return;
+
+        setTimeout(() => {
+          counter = counter + 1;
+          const seconds = Math.floor(counter / 100);
+          const hunSeconds = counter % 100;
+
+          let frontZeroSeconds = '';
+          if (seconds < 10) {
+            frontZeroSeconds = '0';
+          }
+
+          let frontZeroHunSeconds = '';
+          if (hunSeconds < 10) {
+            frontZeroHunSeconds = '0';
+          }
+
+          display.innerText = `${frontZeroSeconds}${seconds}:${frontZeroHunSeconds}${hunSeconds}`;
+          runCounter();
+        }, 10);
+      };
+
+      startButton.onclick = () => {
+        if (isPaused) {
+          return runCounter();
+        }
+        counter = 0;
+        if (isRunning) {
+          // Already running.
+          //     If we don't return, then we will start adding
+          //     more and more setTimeouts.
+          return;
+        }
+        isRunning = true;
+        runCounter();
+      };
+
+      pauseButton.onclick = () => {
+        if (isPaused) {
+          isPaused = false;
+          // currently paused, need to start
+          runCounter();
+          pauseButton.innerText = 'Pause';
+          return;
+        }
+
+        pauseButton.innerText = 'Unpause';
+        isPaused = true;
+      };
+
+      stopButton.onclick = () => {
+        isRunning = false;
+      };
+    </script>
+  </body>
+</html>
