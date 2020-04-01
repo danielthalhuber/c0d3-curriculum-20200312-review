@@ -32,7 +32,6 @@
       let enabled = false;
       let paused = false;
       let intervalStartTime = 0;
-      let intervalEndTime = 0;
       let elapsedTime = 0;
       const h1 = document.querySelector('h1');
       const startButton = document.querySelector('button.start');
@@ -42,13 +41,13 @@
       // actions
 
       const restartInterval = () => {
-        intervalEndTime = Date.now();
+        intervalStartTime = Date.now();
       };
 
       const recordInterval = () => {
-        intervalStartTime = intervalEndTime + 1;
-        intervalEndTime = Date.now();
-        elapsedTime += intervalEndTime - intervalStartTime;
+        const prevIntervalStartTime = intervalStartTime;
+        restartInterval();
+        elapsedTime += intervalStartTime - prevIntervalStartTime;
       };
 
       const updateElapsedTime = (restart = true) => {

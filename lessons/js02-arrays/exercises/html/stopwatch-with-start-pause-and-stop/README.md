@@ -99,8 +99,7 @@ Create a stopwatch UI with a time display and start, pause, and stop buttons.
 
      - `enabled`: mutable, boolean indicating whether the timer is active (started) or not
      - `paused`: mutable, boolean indicating whether the timer is paused or not
-     - `intervalStartTime`, mutable, datetime in ms when recording interval starts
-     - `intervalEndTime`, mutable, datetime in ms when recording interval ends
+     - `intervalStartTime`, mutable, datetime in ms when recording interval ends
      - `elapsedTime`, mutable, total number of ms recorded
      - `h1`, immutable, HTML element to display `elapsedTime`
      - `startButton`, immutable, HTML element to start the timer
@@ -113,16 +112,16 @@ Create a stopwatch UI with a time display and start, pause, and stop buttons.
 
        - Goal: create a function that restarts the recording interval
        - Signature: no parameters, returns `undefined`, side-effect: updates state variable
-       - Explanation: set `intervalEndTime` to the current time in ms
+       - Explanation: set `intervalStartTime` to the current time in ms
 
      - `recordInterval`
 
        - Goal: create a function that records the time in ms that has elapsed in the current interval
        - Signature: no parameters, returns `undefined`, side-effect: updates state variables
        - Explanation:
-         - Set the interval start time to the end time + 1
-         - Set the interval end time to the current time
-         - Increment elapsed time by the difference between end and start times
+         - Declare `prevIntervalStartTime` and assign it the value of `intervalStartTime`
+         - Restart the interval
+         - Increment elapsed time by the difference `intervalStartTime` and `intervalStartTime`
 
      - `updateElapsedTime`
 
