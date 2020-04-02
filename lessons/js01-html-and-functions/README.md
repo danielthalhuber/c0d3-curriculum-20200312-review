@@ -4,17 +4,17 @@
 
 ### How to Follow Along
 
-- [ ] Consider changing quote to strong/bold:
+- [x] Consider changing quote to strong/bold:
 
   > When you open the file (double click or right click → open with browser), you should see a Welcome! heading and an input box. The large Welcome! text and the input box that the browser displays from the `h1` and `input` ~~`elements`~~ **elements**.
 
-- [ ] Grammar, add the article "An":
+- [x] Grammar, add the article "An":
 
   > HTML element is everything from the opening tag to the closing tag:
 
   > An HTML element is everything from the opening tag to the closing tag:
 
-- [ ] It might be useful to reframe (or possibly summarize) the description of tags and elements from a top-down perspective:
+- [x] It might be useful to reframe (or possibly summarize) the description of tags and elements from a top-down perspective:
 
   - Elements are the parts that make up the HTML document
   - Elements are composed of tags and enclosed content
@@ -24,11 +24,11 @@
 
 ### HTML Example
 
-- [ ] What does it mean to "match each **tag** instruction with its corresponding **element**"? There's nothing to do here but type the code into the file and view it in a browser. It might make more sense to describe the activity as something like, "add the following code to the file, save the file, and view it in your browser".
+- [x] What does it mean to "match each **tag** instruction with its corresponding **element**"? There's nothing to do here but type the code into the file and view it in a browser. It might make more sense to describe the activity as something like, "add the following code to the file, save the file, and view it in your browser".
 
   > Create a new HTML file, call it `challenge1.html`, open it in your browser, and try to match each **tag** instruction with its corresponding **element**!
 
-- [ ] Consider adding "in":
+- [x] Consider adding "in":
 
   > (Note that we're getting you started on a later exercise, **in** which you will write HTML instructions for Challenge 1 from the previous lesson.)
 
@@ -40,11 +40,11 @@
 
 ### Getting HTML Elements
 
-- [ ] Grammar, plural "browsers":
+- [x] Grammar, plural "browsers":
 
   > `document.querySelector` is another common javascript method (or function) supported by most browser**s**.
 
-- [ ] Grammar recommendations:
+- [x] Grammar recommendations:
 
   - Add article "the", i.e. "we ran **the** `document.querySelector` method"
   - Add comma and the article "an", i.e. "in this case, **an** `input` element"
@@ -57,7 +57,7 @@
 
 #### Value
 
-- [ ] In this subsection, we return to `challenge1.html` and leverage the class attributes added in a previous example. The student might not have made these changes to their `challenge1.html` file. In such cases it would be useful to remind the student to add the classes before proceeding with this section. Alternatively, the student could be instructed to do this work in the previous section.
+- [x] In this subsection, we return to `challenge1.html` and leverage the class attributes added in a previous example. The student might not have made these changes to their `challenge1.html` file. In such cases it would be useful to remind the student to add the classes before proceeding with this section. Alternatively, the student could be instructed to do this work in the previous section.
 
 ### Exercises
 
@@ -357,7 +357,7 @@ sumToMe(3); // returns 6: 1 + 2 + 3
 
 ### Example
 
-- [ ] example uses two different names for the function: `solution` and `logString`
+- [x] example uses two different names for the function: `solution` and `logString`
 
 Goal:
 
