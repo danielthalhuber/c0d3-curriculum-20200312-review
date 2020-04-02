@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown from Input: Demo</title>
+  </head>
+  <body>
+    <h1>Countdown</h1>
+    <input class="countInput" type="number" />
+    <button class="countStart">Start</button>
+    <h1 class="countResult"></h1>
+    <script>
+      const displayCount = num => {
+        if (num < 0) {
+          return;
+        }
+        setTimeout(() => {
+          countResult.innerText = num;
+          displayCount(num - 1);
+        }, 1000);
+      };
+      const countInput = document.querySelector('.countInput');
+      const countStart = document.querySelector('.countStart');
+      const countResult = document.querySelector('.countResult');
+      countStart.onclick = () => {
+        displayCount(+countInput.value);
+      };
+    </script>
+  </body>
+</html>

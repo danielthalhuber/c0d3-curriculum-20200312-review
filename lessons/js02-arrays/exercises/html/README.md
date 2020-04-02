@@ -12,7 +12,7 @@
 10. [Stopwatch with Start Button](stopwatch-with-start/README.md)
 11. [Stopwatch with Start, Pause, and Stop Buttons](stopwatch-with-start-pause-and-stop/README.md)
 12. [Blinker](blinker/README.md)
-13. Countdown from Input
+13. [Countdown from Input](countdown-from-input/README.md)
 14. Chat Input
 15. Letter Filter
 16. Increase 1

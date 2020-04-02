@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown from Input: Solution</title>
+  </head>
+  <body>
+    <h1>Countdown</h1>
+    <input type="number" />
+    <button>Start</button>
+    <h1 class="display"></h1>
+    <script>
+      // state
+
+      let timeoutId = -1;
+      const input = document.querySelector('input');
+      const startButton = document.querySelector('button');
+      const display = document.querySelector('h1.display');
+
+      // actions
+
+      const countdown = (num = 0) => {
+        if (num < 0) return;
+
+        display.textContent = num;
+        timeoutId = setTimeout(() => countdown(num - 1), 1000);
+      };
+
+      const startCountdown = () => {
+        clearTimeout(timeoutId);
+        countdown(+input.value);
+      };
+
+      // events
+
+      startButton.addEventListener('click', startCountdown);
+    </script>
+  </body>
+</html>
