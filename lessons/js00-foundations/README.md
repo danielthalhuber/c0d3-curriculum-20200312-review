@@ -40,9 +40,11 @@
 
 ### More Arrow Functions
 
-- [ ] Why are arrow functions the most important concept in JavaScript?
+- [x] Why are arrow functions the most important concept in JavaScript?
 
   > Arrow functions are the most important concept in JavaScript, so here are more examples.
+
+  - This should be: functions are the most important concept in JavaScript
 
 - [x] `undefined` is a primitive value, not a reserved keyword (see [ECMA-262](https://tc39.es/ecma262/#sec-keywords-and-reserved-words)).
 
