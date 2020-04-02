@@ -14,10 +14,6 @@ const solution = (num = 0) => {
   };
 };
 
-// for the love of one-liners:
-const solution2 = (num = 0) => () => ++num;
-
 module.exports = {
   solution,
-  solution2,
 };

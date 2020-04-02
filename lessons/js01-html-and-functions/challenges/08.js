@@ -10,7 +10,8 @@
 const solution = (str, char, count = 0, i = 0) => {
   if (i >= str.length) return count;
 
-  return solution(str, char, count + 1 * (str[i] === char), i + 1);
+  count += str[i] === char ? 1 : 0;
+  return solution(str, char, count, i + 1);
 };
 
 module.exports = {

@@ -8,7 +8,8 @@
  */
 
 const solution = (num, i = 2) => {
-  if (num < 2 || (num > 2 && num % i === 0)) return false;
+  if (num < 2) return false;
+  if (num > 2 && num % i === 0) return false;
 
   return i >= num ** 0.5 || solution(num, i + 1);
 };

@@ -11,9 +11,9 @@
  * @returns {function}
  */
 
-const solution = (num = 0, fun = () => {}, i = 1) => {
+const solution = (num = 0, fun = () => {}, i = 0) => {
   return () => {
-    if (i > num) return null;
+    if (i >= num) return null;
 
     i += 1;
     return fun();
