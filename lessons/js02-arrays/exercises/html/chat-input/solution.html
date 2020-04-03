@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Input: Solution</title>
+  </head>
+  <body>
+    <input type="text" />
+    <button>Save</button>
+    <h1 class="msgLog"></h1>
+    <script>
+      // state
+
+      let timeoutId = -1;
+      const input = document.querySelector('input');
+      const button = document.querySelector('button');
+      const msgLog = document.querySelector('h1.msgLog');
+
+      // actions
+
+      const addMsg = () => {
+        const newMsg = input.value;
+        if (!newMsg) return;
+
+        input.value = '';
+        msgLog.innerHTML += `<p>${newMsg}</p>`;
+      };
+
+      // events
+
+      button.addEventListener('click', addMsg);
+    </script>
+  </body>
+</html>

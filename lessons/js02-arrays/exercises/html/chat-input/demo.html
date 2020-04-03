@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Input: Demo</title>
+  </head>
+  <body>
+    <input class="strInput" />
+    <button class="save">Save</button>
+    <div class="container"></div>
+
+    <script>
+      const strInput = document.querySelector('.strInput');
+      const saveButton = document.querySelector('.save');
+      const container = document.querySelector('.container');
+
+      saveButton.onclick = () => {
+        container.innerHTML = `${container.innerHTML} <h1>${strInput.value}</h1>`;
+        strInput.value = '';
+      };
+    </script>
+  </body>
+</html>
