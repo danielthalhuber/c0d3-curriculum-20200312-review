@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toggle: Demo</title>
+  </head>
+  <body>
+    <button class="toggle">Toggle</button>
+    <div class="container"></div>
+
+    <script>
+      const toggle = document.querySelector('.toggle');
+      const container = document.querySelector('.container');
+
+      let isOn = false;
+      toggle.onclick = () => {
+        isOn = !isOn;
+        if (isOn) {
+          return (container.innerHTML = `<h1>HELLO WORLD</h1>`);
+        }
+        return (container.innerHTML = '');
+      };
+    </script>
+  </body>
+</html>
