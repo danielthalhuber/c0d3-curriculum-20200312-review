@@ -14,6 +14,6 @@
 12. [Blinker](blinker/README.md)
 13. [Countdown from Input](countdown-from-input/README.md)
 14. [Chat Input](chat-input/README.md)
-15. Letter Filter
+15. [Letter Filter](letter-filter/README.md)
 16. Increase 1
 17. Toggle

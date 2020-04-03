@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filter Letter: Solution</title>
+  </head>
+  <body>
+    <h1></h1>
+    <div class="form"></div>
+    <h2></h2>
+    <script>
+      // state
+
+      const header = document.querySelector('h1');
+      const form = document.querySelector('div.form');
+      const filteredResult = document.querySelector('h2');
+
+      // actions
+
+      const filterText = (str = '', char = '', i = 0, result = '') => {
+        if (i >= str.length) return result;
+
+        const filteredChar = str[i] !== char[0] ? str[i] : '';
+        return filterText(str, char, i + 1, result + filteredChar);
+      };
+
+      const renderFilterView = (renderStart, filterChar) => {
+        header.textContent = `Filtering out: ${filterChar}`;
+        form.innerHTML = `
+          <input type="text" />
+          <button class="filter">Filter</button>
+          <button class="back">Back</button>
+        `;
+
+        document
+          .querySelector('button.filter')
+          .addEventListener('click', () => {
+            const input = document.querySelector('input');
+            filteredResult.textContent = filterText(input.value, filterChar);
+            input.value = '';
+          });
+
+        document
+          .querySelector('button.back')
+          .addEventListener('click', renderStart);
+      };
+
+      const renderStartView = () => {
+        header.textContent = 'Type a letter, then click start';
+        form.innerHTML = `
+          <input type="text" />
+          <button>start</button>
+        `;
+        filteredResult.textContent = '';
+
+        document.querySelector('button').addEventListener('click', () => {
+          const char = document.querySelector('input').value[0] || '';
+          renderFilterView(renderStartView, char);
+        });
+      };
+
+      // initialize
+
+      renderStartView();
+    </script>
+  </body>
+</html>

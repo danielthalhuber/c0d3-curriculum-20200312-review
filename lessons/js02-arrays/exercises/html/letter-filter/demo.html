@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Letter Filter: Demo</title>
+  </head>
+  <body>
+    <h1 class="filterDisplay"></h1>
+    <div class="container"></div>
+    <h1 class="display"></h1>
+
+    <script>
+      const containerElement = document.querySelector('.container');
+      const displayElement = document.querySelector('.display');
+      const filterDisplay = document.querySelector('.filterDisplay');
+
+      // Using closure here.
+      const solution = a => {
+        const makeStr = (str, i = 0, result = '') => {
+          if (i === str.length) return result;
+          if (str[i] === a) {
+            return makeStr(str, i + 1, result);
+          }
+          return makeStr(str, i + 1, result + str[i]);
+        };
+        return makeStr;
+      };
+
+      const startApp = () => {
+        filterDisplay.innerText = 'Type a letter, then click start';
+
+        displayElement.innerText = '';
+        containerElement.innerHTML = `
+      <input class="startingInput" />
+      <button class="start">Start</button>
+      `;
+        const startButton = document.querySelector('.start');
+        const startingInput = document.querySelector('.startingInput');
+
+        startButton.onclick = () => {
+          const filterValue = startingInput.value;
+          const applyFilter = solution(filterValue);
+          filterDisplay.innerText = `Filtering out: ${filterValue}`;
+
+          containerElement.innerHTML = `
+      <input class="secondInput" type="text" />
+      <button class="filter">Filter</button>
+      <button class="cancel">GoBack</button>
+      `;
+
+          const filterButton = document.querySelector('.filter');
+          filterButton.onclick = () => {
+            const secondInput = document.querySelector('.secondInput');
+            const secondValue = secondInput.value;
+            const result = applyFilter(secondValue);
+            displayElement.innerText = result;
+
+            secondInput.value = '';
+          };
+
+          const cancelButton = document.querySelector('.cancel');
+          cancelButton.onclick = startApp;
+        };
+      };
+
+      startApp();
+    </script>
+  </body>
+</html>
