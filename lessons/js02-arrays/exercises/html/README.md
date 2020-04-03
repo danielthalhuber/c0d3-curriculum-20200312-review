@@ -15,5 +15,5 @@
 13. [Countdown from Input](countdown-from-input/README.md)
 14. [Chat Input](chat-input/README.md)
 15. [Letter Filter](letter-filter/README.md)
-16. Increase 1
+16. [Increase 1](increase-1/README.md)
 17. Toggle
