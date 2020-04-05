@@ -158,5 +158,119 @@ This lesson has two parts:
 4. Write a function called solution that takes in an array and returns a function. When the function is called, the array input is returned.
 
    ```js
-   const solution = arr => () => arr;
+   const solution = (arr) => () => arr;
    ```
+
+## Non-Primitive
+
+In JavaScript, array is a non-primitive data type. This means that an array variable stores an address to the array data in memory, not the actual array data.
+
+Examples:
+
+1. ```js
+   const a = [1, 2, 3];
+   const b = [1, 2, 3];
+
+   const c = a === b; // what is c?
+
+   // answer
+   false;
+   ```
+
+2. ```js
+   const a = [1, 2, 3] === [1, 2, 3]; // what is a?
+
+   // answer
+   false;
+   ```
+
+### Variable Declarations
+
+Example:
+
+```js
+const musicians = [1, 2, 3, 4]; // Since arrays are non-primitive data,
+// musicians is the address to the array data.
+
+musicians[0] = 'Mozart'; // did musicians change?
+musicians[1] = 'Beethoven'; // did musicians change?
+musicians[2] = 'Liszt'; // did musicians change?
+musicians[3] = 'Chopin'; // did musicians change?
+```
+
+In all cases above, `musicians` continues to point to a location in memory. So while the values/data stored at that location has changed, the variable `musicians` has not changed.
+
+With that in mind: all variables of non-primitive data types should be declared with `const` because their value does not change. If for some reason you wanted to assign a new address to the variable, it would be appropriate to declare the variable with `let` instead of `const`.
+
+### Variable Assignments
+
+Variables of non-primitive data types may exhibit counterintuitive behavior. A failure to understand or anticipate the behavior of non-primitive data types is the source of many bugs.
+
+Examples:
+
+1. ```js
+   const avengers = ['Banner', 'Stark', 'Odinson', 'Rogers'];
+   const team = avengers;
+   avengers[1] = 'Fury';
+   // what is avengers?
+   // what is team?
+
+   // answer
+   // both avengers and team
+   ['Banner', 'Fury', 'Odinson', 'Rogers'];
+   ```
+
+2. ```js
+   const guardians = ['Rocket', 2, 'Drax'];
+   const milano = guardians;
+   milano[milano[1]] = 'Quill';
+   // What is guardians?
+   // What is milano?
+
+   // answer
+   // both guardians and milano
+   ['Rocket', 2, 'Quill'];
+   ```
+
+3. ```js
+   const planets = ['Morag', 'Aakon', 'Xandar'];
+   let worlds = planets;
+   worlds = ['Earth', 'Contraxia', 'Berhart'];
+   // what is worlds?
+   // what is planets?
+
+   // answer
+   // worlds
+   ['Earth', 'Contraxia', 'Berhart'];
+   // planets
+   ['Morag', 'Aakon', 'Xandar'];
+   ```
+
+### Functions
+
+Example:
+
+```js
+const fruitPrices = [100, 150, 200];
+const addTax = (arr, i = 0) => {
+  if (i === arr.length) {
+    return arr;
+  }
+  arr[i] = arr[i] * 1.1;
+  return addTax(arr, i + 1);
+};
+const cost = addTax(fruitPrices); // what is cost?
+// what is fruitPrices?
+
+const isSame = fruitPrices === cost; // what is isSame?
+
+// answer
+// cost and fruitPrices
+[110, 165, 220];
+// isSame
+true;
+```
+
+### Exercises
+
+See [README for non-primitive exercises](exerxises/../exercises/non-primitive/README.md)
