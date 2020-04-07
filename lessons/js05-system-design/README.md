@@ -435,3 +435,97 @@ When the browser needs to make cross domain request, it first sends an OPTIONS r
   - The request will be rejected if the request method is not included in this response header.
 
 ### Exercise and Learn
+
+See [todo exercise](exercises/req-and-res-todo/README.md)
+
+#### Takeaways
+
+The todo exercise covered a few important concepts:
+
+- Client Side Rendering
+
+  - Changes to the HTML are made on the client side with JavaScript
+  - Later in this lesson, Server Side Rendering will be covered
+
+- Session
+
+  - Represents the application state when a user is logged in
+  - Starts with login
+  - Ends at logout or timeout
+
+- Cross Site Request
+
+  - Request made by the browser that originates on a page on a host/site to a resource on a different host/site
+
+#### REST
+
+Recall from the todo exercise, there was a pattern to the URLs used by the HTTP requests:
+
+- POST and GET: `https://js5.c0d3.com/todolist/api/todos`
+- PATCH and DELETE: `https://js5.c0d3.com/todolist/api/todos/:id`
+
+This pattern is part of an industry practice called REST (Representational State Transfer). This pattern makes APIs easier understand and implement. It is not a standard, but a widely adopted best practice.
+
+The examples we covered in the todo exercise covered a subset of the full REST pattern for the todo and user resource.
+
+**Todo Resource**
+
+| Method | Path       | Action                                                                                                       | Body Required |
+| ------ | ---------- | ------------------------------------------------------------------------------------------------------------ | ------------- |
+| GET    | /todos     | Get a list of the todos                                                                                      | No            |
+| GET    | /todos/:id | Get data for the todo with the given id                                                                      | No            |
+| POST   | /todos     | Create a new todo                                                                                            | Yes           |
+| PUT    | /todos/:id | Replace the existing todo with the given id, or create a new todo if a todo does not exist with the given id | Yes           |
+| PATCH  | /todos/:id | Update the specified todo's attributes with the given data                                                   | Yes           |
+| DELETE | /todos/:id | Delete the specified todo                                                                                    | No            |
+
+**User Resource**
+
+| Method | Path       | Action                                                                                                       | Body Required |
+| ------ | ---------- | ------------------------------------------------------------------------------------------------------------ | ------------- |
+| GET    | /users     | Get a list of the users                                                                                      | No            |
+| GET    | /users/:id | Get data for the user with the given id                                                                      | No            |
+| POST   | /users     | Create a new user                                                                                            | Yes           |
+| PUT    | /users/:id | Replace the existing user with the given id, or create a new user if a user does not exist with the given id | Yes           |
+| PATCH  | /users/:id | Update the specified user's attributes with the given data                                                   | Yes           |
+| DELETE | /users/:id | Delete the specified user                                                                                    | No            |
+
+Key points:
+
+- Resource names in REST paths are plural
+- This pattern must be memorized
+
+#### Exercises
+
+1. Write the REST convention for the following resource: Store
+
+   | Method | Path        | Action                                                                                                     | Body Required |
+   | ------ | ----------- | ---------------------------------------------------------------------------------------------------------- | ------------- |
+   | GET    | /stores     | Get a list of stores                                                                                       | No            |
+   | GET    | /stores/:id | Get data for the specified store                                                                           | No            |
+   | POST   | /stores     | Create a new store with the given data                                                                     | Yes           |
+   | PUT    | /stores/:id | Replace the store with the specified id, or create a new store if a store does not exist with the given id | Yes           |
+   | PATCH  | /stores/:id | Update the specified store with the given data                                                             | Yes           |
+   | DELETE | /stores/:id | Delete the specified store                                                                                 | No            |
+
+2. Write the REST convention for the following resource: Robot
+
+   | Method | Path        | Action                                                                                                         | Body Required |
+   | ------ | ----------- | -------------------------------------------------------------------------------------------------------------- | ------------- |
+   | GET    | /robots     | Get a list of robots                                                                                           | No            |
+   | GET    | /robots/:id | Get data for the specified robot                                                                               | No            |
+   | POST   | /robots     | Create a new robot with the given data                                                                         | Yes           |
+   | PUT    | /robots/:id | Replace the existing robot with the given id, or create a new robot if one does not already exist with that id | Yes           |
+   | PATCH  | /robots/:id | Update the specified robot with the give data                                                                  | Yes           |
+   | DELETE | /robots/:id | Delete the specified robot                                                                                     | No            |
+
+3. Write the REST convention for the following resource: Relationship
+
+   | Method | Path        | Action                                                                                                                 | Body Required\  |
+   | ------ | ----------- | ---------------------------------------------------------------------------------------------------------------------- | --------------- |
+   | GET    | /robots     | Get a list of relationships                                                                                            | No              |
+   | GET    | /robots/:id | Get data for the specified relationship                                                                                | No              |
+   | POST   | /robots     | Create a new relationship with the given data                                                                          | Yes             |
+   | PUT    | /robots/:id | Replace the relationship with the given id, or if a relationship with the given id doesn't not exist, create a new one | Yes             |
+   | PATCH  | /robots/:id | Update the specified relationship with the given data                                                                  | Yes             |
+   | DELETE | /robots/:id | Delete the specified relationship                                                                                      | No              |
