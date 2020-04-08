@@ -274,3 +274,177 @@ true;
 ### Exercises
 
 See [README for non-primitive exercises](exercises/non-primitive/README.md)
+
+## Array Functions: Add and Remove
+
+`Array.prototype` methods used to add or remove elements from an array:
+
+- `push(value)`:
+
+  - Appends an element with the given value to the array
+  - Returns the new length of the array
+
+- `unshift(value)`:
+
+  - Prepends an element with the given value to the array
+  - Returns the new length of the array
+
+- `pop()`:
+
+  - Removes the last element from the array
+  - Returns the removed element
+
+- `shift()`:
+
+  - Removes the first element from the array
+  - Returns the removed element
+
+- `splice(start[, deleteCount[, item1[, item2[, ...]]]])`
+
+  - Removes and possibly adds elements from an array
+  - Parameters:
+
+    - `start` specifies the starting index
+    - `deleteCount`
+
+      - if specified indicates the number of elements to remove starting at `start`
+      - if specified and count extends beyond existing elements, then elements from `start` to `length - 1` are removed
+      - if specified with a number less than 1, no elements will be removed
+
+    - `item1, item2, ...` specifies the items to be inserted into the array starting at index `start`
+
+  - Returns: an array of the removed items (one item -> array of one item, no items -> empty array)
+
+### Examples
+
+- `push`
+
+  ```js
+  const apples = ['Fuji', 'Gala'];
+  const trees = apples.push('Pink Lady');
+  // apples is now ["Fuji", "Gala", "Pink Lady"] because push adds to the array
+  // trees is the new length of the array (3)
+
+  const peaches = [4, 8, 12];
+  const plums = peaches;
+  peaches.push(plums);
+  // What is peaches?
+  // What is plums?
+
+  // answer
+  // peaches is [4, 8, 12, [4, 8, 12, ...]]
+  // plums is [4, 8, 12, [4, 8, 12, ...]]
+
+  plums[0] = 47;
+  // what is peaches?
+  // what is plums?
+
+  // answer
+  // peaches [47, 8, 12, [47, 8, 12, ...]]
+  // plums [47, 8, 12, [47, 8, 12, ...]]
+
+  peaches[3][1] = 39;
+  // what is peaches?
+  // what is plums?
+
+  // answer
+  // peaches [47, 39, 12, [47, 39, 12, ...]]
+  // plums [47, 39, 12, [47, 39, 12, ...]]
+
+  let nectarines = [1, 2, 3];
+  nectarines = nectarines.push(6);
+  // what is nectarines?
+
+  // answer
+  // nectarines is 4
+  ```
+
+- `unshift`
+
+  ```js
+  const nuts = ['almond', 'pistachio', 'hazelnut'];
+  const seeds = nuts;
+  nuts.unshift(seeds);
+  // What is nuts?
+
+  // answer:
+  // nuts is [['almond', 'pistachio', 'hazelnut', ...], 'almond', 'pistachio', 'hazelnut']
+
+  // What is seeds?
+
+  // answer:
+  // nuts is [['almond', 'pistachio', 'hazelnut', ...], 'almond', 'pistachio', 'hazelnut']
+
+  let states = ['Pennsylvania', 'New Jersey', 'Georgia'];
+  states = states.unshift('Delaware');
+  // what is states?
+
+  // answer:
+  // states is 4
+  ```
+
+- `pop`
+
+  ```js
+  const states = ['Delaware', 'Missouri', 'Hawaii'];
+  const lastState = states.pop();
+  // lastState is "Hawaii" and states is now ["Delaware", "Missouri"]
+
+  const nuts = ['almond', 'pistachio', 'hazelnut'];
+  const seeds = nuts;
+  const nutella = nuts.pop();
+  // What is nutella?
+  // What is nuts?
+  // What is seeds?
+
+  // answer:
+  // nutella is 'hazelnut'
+  // nuts is ['almond', 'pistachio']
+  // seeds is ['almond', 'pistachio']
+  ```
+
+- `shift`
+
+  ```js
+  const states = ['Delaware', 'Missouri', 'Hawaii'];
+  const firstState = states.shift();
+  // firstState is "Delaware" and states is now ["Missouri", "Hawaii"]
+
+  const nuts = ['almond', 'pistachio', 'hazelnut'];
+  const seeds = nuts;
+  const drupe = nuts.shift();
+  // What is nuts?
+  // What is seeds?
+  // What is drupe?
+
+  // answer:
+  // nuts is ['pistachio', 'hazelnut']
+  // seeds is ['pistachio', 'hazelnut']
+  // drupe is 'almond'
+  ```
+
+- `splice`
+
+  ```js
+  const fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+  fruits.splice(2, 1, 'Lemon', 'Kiwi');
+  // First, 1 element is removed starting at index 2, so fruits becomes
+  //    ["Banana", "Orange", "Mango"]
+  // Next, the rest of the parameters are added in at index 2
+  // Result: ["Banana", "Orange", "Lemon", "Kiwi", "Mango"]
+
+  const fruits2 = ['Banana', 'Orange', 'Apple', 'Mango'];
+  fruits2.splice(2, 2); // what is fruits2?
+
+  // answer
+  // fruits2 is ['Banana', 'Orange']
+
+  fruits2.splice(0, 1, 'Apple', 'Mango', 'Pear'); // what is fruits2?
+
+  // answer
+  // fruits2 is ['Apple', 'Mango', 'Pear', 'Orange']
+  ```
+
+### Exercises
+
+See [README for add and remove function exercises](exercises/add-and-remove/README.md)
