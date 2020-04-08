@@ -114,4 +114,42 @@
    - [Test](first-x-to-zero.test.js)
 
 4. All Prime
+
+   - Goal: write a function called `allPrime` that takes an array and returns `true` if every number in the array is a prime number and `false` otherwise.
+   - Examples:
+
+     ```js
+     // returns true
+     allPrime([2, 3, 5, 7]);
+
+     // returns false
+     allPrime([-1, 0, 1, 2]);
+
+     // returns false
+     allPrime([4, 6, 8, 21]);
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `arr`: public, array of numbers
+       - `i`: private, number corresponding to the current index of `arr`
+
+     - Returns: boolean
+     - Dependencies: helper function `isPrime` that takes a number and returns `true` if the number is prime and `false` otherwise
+
+   - Explanation:
+
+     - Start with `i = 0`
+     - Base:
+
+       - if `arr.length` and `i > arr.length` return `true`
+       - if `!arr.length` or `isPrime(arr[i])` is `false` return `false`
+
+     - Recursive: return a call to `isPrime`, incrementing `i` by 1
+
+   - [Code](all-prime.js)
+   - [Test](all-prime.test.js)
+
 5. Increasing Numbers
