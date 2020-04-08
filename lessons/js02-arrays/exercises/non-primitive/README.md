@@ -153,3 +153,41 @@
    - [Test](all-prime.test.js)
 
 5. Increasing Numbers
+
+   - Goal: write a function called `increasing` that takes an array of numbers and returns `true` if the numbers are in increasing order.
+   - Examples:
+
+   ```js
+   // returns true
+   increasing([-1, 2, 8, 31]);
+
+   // returns false
+   increasing([1, 2, 3, -45]);
+
+   // returns false
+   increasing([-74, 2, 32, 32, 100]);
+   ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `arr`: public, array of numbers to be evaluated
+       - `i`: private, number indicating current index of `arr`
+
+     - Returns: boolean
+
+   - Explanation:
+
+     - Start with `i = 0`
+     - Base:
+
+       - if `i >= arr.length`, return `true`
+       - if `i > 0` and `arr[i] <= arr[i - 1]`, return `false`
+
+     - Recursive:
+
+       - Return a call to `increasing`, incrementing `i` by 1
+
+   - [Code](increasing.js)
+   - [Test](increasing.test.js)
