@@ -40,6 +40,43 @@
    - [Test](selective-zero..test.js)
 
 2. Largest Number
+
+   - Goal: write a function called `largest` that returns the larges number in an array.
+   - Examples:
+
+     ```js
+     // returns 3
+     largest([1, 2, 3]);
+
+     // returns -1
+     largest([-1, -47, -2]);
+
+     // returns 4
+     largest([4, 2, 0]);
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `arr`: public, array of numbers
+       - `i`: private, number indicating current index of `arr`
+       - `max`: private, number indicating current largest known number in `arr`
+
+     - Returns: number
+
+   - Explanation:
+
+     - Start with `i = 0` and `max = arr[0]`
+     - Base: if `i >= arr`, then return `max`
+     - Recursive:
+
+       - Assign `max` the larger of `max` and `arr[i]`
+       - Return a call to `largest`, incrementing `i` by 1
+
+   - [Code](largest.js)
+   - [Test](largest.test.js)
+
 3. First X to Zero
 4. All Prime
 5. Increasing Numbers
