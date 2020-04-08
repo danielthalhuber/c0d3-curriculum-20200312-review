@@ -273,4 +273,4 @@ true;
 
 ### Exercises
 
-See [README for non-primitive exercises](exerxises/../exercises/non-primitive/README.md)
+See [README for non-primitive exercises](exercises/non-primitive/README.md)

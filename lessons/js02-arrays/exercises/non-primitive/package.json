@@ -1,0 +1,14 @@
+{
+  "name": "c0d3-js02-ex-non-primitive",
+  "version": "1.0.0",
+  "description": "1. Selective Zero",
+  "main": "",
+  "scripts": {
+    "test": "node ./node_modules/jest/bin/jest.js --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^25.2.7"
+  }
+}
