@@ -1,6 +1,8 @@
-const copyArray = (arr = [], i = 0, result = []) => {
-  if (!arr.length || result.push(arr[i]) >= arr.length) return result;
-  return copyArray(arr, i + 1, result);
+const copyArray = (arr = [], result = []) => {
+  if (result.length >= arr.length) return result;
+
+  result.push(arr[result.length]);
+  return copyArray(arr, result);
 };
 
 module.exports = {

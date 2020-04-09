@@ -10,4 +10,11 @@ describe('copyArray', () => {
     const arr = [];
     expect(copyArray(arr)).toEqual(arr);
   });
+
+  test('does not modify the original array', () => {
+    const arr = [1, 2, 3];
+    const arrSnapshot = [...arr];
+    copyArray(arr);
+    expect(arr).toEqual(arrSnapshot);
+  });
 });
