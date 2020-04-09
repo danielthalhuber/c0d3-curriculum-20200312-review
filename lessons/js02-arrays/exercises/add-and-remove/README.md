@@ -222,4 +222,43 @@
    - [Code](copy-first.test.js)
 
 7. Run on Each
+
+   - Goal: write a function called `runOnEach` that calls a function on every element in an array, and then returns a new array with the results. The function takes two arguments: the value of the element and its index.
+   - Examples:
+
+     ```js
+     // returns [1, 3, 5]
+     runOnEach([1, 2, 3], (e, i) => e + i);
+
+     // each returns []
+     runOnEach([]);
+     runOnEach([1, 2, 3]);
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `arr`: public, array containing the elements that will be consumed by the function
+       - `fun`: public, function to be called for each element in `arr`
+         - Parameters:
+           - `currVal`: value of the current element of `arr`
+           - `currInd`: index of the current element of `arr`
+       - `i`: private, number representing current index of `arr`
+       - `result`: private, array of return values
+
+     - Returns: array
+
+   - Explanation:
+
+     - Start with `i = 0` and `result = []`
+     - Base: if `i >= arr.length` or `!fun`, return `result`
+     - Recursive:
+
+       - Append the return value of calling `fun` with the value and index of the current element in `arr` to `result`
+       - Return a call to `runOnEach`, incrementing `i` by 1
+
+   - [Code](run-on-each.js)
+   - [Test](run-on-each.test.js)
+
 8. Only Index
