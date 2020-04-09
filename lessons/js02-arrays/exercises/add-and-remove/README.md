@@ -103,6 +103,40 @@
    - [Test](copy-without.test.js)
 
 4. Copy Reverse
+
+   - Goal: write a function called `copyReverse` that takes an array and returns a copy with the elements in reverse order.
+   - Examples:
+
+     ```js
+     // returns [3, 2, 1]
+     copyReverse([1, 2, 3]);
+
+     // returns [1]
+     copyReverse([1]);
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `arr`: public, array to be copied
+       - `i`: private, number indicating current index of `arr`, relative to the last index
+       - `reverse`: private, array copy of `arr` in reverse order
+
+     - Returns: array
+
+   - Explanation:
+
+     - Start with `i = 0` and `reverse = []`
+     - Base: if `i >= arr.length`, then return `reverse`
+     - Recursive:
+
+       - Push the element at index `length - (1 + i)` in `arr` into `reverse`
+       - Call `copyReverse`, incrementing `i`
+
+   - [Code](copy-reverse.js)
+   - [Test](copy-reverse.test.js)
+
 5. Copy Last
 6. Copy First
 7. Run on Each
