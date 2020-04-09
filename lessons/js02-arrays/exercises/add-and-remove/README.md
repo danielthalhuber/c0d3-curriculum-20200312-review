@@ -29,7 +29,7 @@
      - Recursive:
 
        - Push the current element of `arr` into `result`
-       - call `copyArray`, incrementing `i` by 1
+       - Return a call to `copyArray`, incrementing `i` by 1
 
    - [Code](copy-array.js)
    - [Test](copy-array.test.js)
@@ -64,7 +64,7 @@
      - Recursive:
 
        - If the current value of `arr` is equal to `remove`, splice the element and decrement `i` by 1
-       - Call `removeArray`, incrementing `i` by 1
+       - Return a call to `removeArray`, incrementing `i` by 1
 
    - [Code](remove-element.js)
    - [Test](remove-element.test.js)
@@ -97,7 +97,7 @@
      - Recursive:
 
        - If the current value of `arr` is not equal to `exclude`, then push it onto `result`
-       - Call `copyWithout`, incrementing `i`
+       - Return a call to `copyWithout`, incrementing `i`
 
    - [Code](copy-without.js)
    - [Test](copy-without.test.js)
@@ -132,12 +132,53 @@
      - Recursive:
 
        - Push the element at index `length - (1 + i)` in `arr` into `reverse`
-       - Call `copyReverse`, incrementing `i`
+       - Return a call to `copyReverse`, incrementing `i`
 
    - [Code](copy-reverse.js)
    - [Test](copy-reverse.test.js)
 
 5. Copy Last
+
+   - Goal: write a function called `copyLast` that takes an array and a number, and returns copy, excluding the specified number of elements from the beginning of the array.
+   - Examples:
+
+     ```js
+     // returns [3, 4, 5]
+     copyLast([1, 2, 3, 4, 5], 2);
+
+     // all return [1, 2, 3]
+     copyLast([1, 2, 3], -1);
+     copyLast([1, 2, 3], 0);
+     copyLast([1, 2, 3]);
+
+     // all return []
+     copyLast([1, 2, 3], 3);
+     copyLast([1, 2, 3], 4);
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `arr`: public, array to be copied
+       - `exclude`: public, number of elements to exclude from beginning
+       - `i`: private, number corresponding to index of `arr`
+       - `result`: private, array copy of `arr`
+
+     - Returns: array
+
+   - Explanation:
+
+     - Start with `i = 0` and `result = []`
+     - Base: if `i >= arr.length` then return `result`
+     - Recursive:
+
+       - If `i >= exclude`, append the element at `i` to `result`
+       - Return a call to `copyLast`, incrementing `i` by 1
+
+   - [Test](copy-last.js)
+   - [Code](copy-last.test.js)
+
 6. Copy First
 7. Run on Each
 8. Only Index
