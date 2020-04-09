@@ -139,7 +139,7 @@
 
 5. Copy Last
 
-   - Goal: write a function called `copyLast` that takes an array and a number, and returns copy, excluding the specified number of elements from the beginning of the array.
+   - Goal: write a function called `copyLast` that takes an array and a number, and returns a copy, excluding the specified number of elements from the beginning of the array.
    - Examples:
 
      ```js
@@ -161,7 +161,7 @@
      - Parameters:
 
        - `arr`: public, array to be copied
-       - `exclude`: public, number of elements to exclude from beginning
+       - `exclude`: public, number of elements to exclude from the beginning
        - `i`: private, number corresponding to index of `arr`
        - `result`: private, array copy of `arr`
 
@@ -180,5 +180,46 @@
    - [Code](copy-last.test.js)
 
 6. Copy First
+
+   - Goal: write a function called `copyFirst` that takes an array and a number, and returns a copy, excluding the specified number of elements from the end of the array.
+   - Examples:
+
+     ```js
+     // returns [1, 2, 3]
+     copyFirst([1, 2, 3, 4, 5], 2);
+
+     // all return [1, 2, 3]
+     copyFirst([1, 2, 3], -1);
+     copyFirst([1, 2, 3], 0);
+     copyFirst([1, 2, 3]);
+
+     // all return []
+     copyFirst([1, 2, 3], 3);
+     copyFirst([1, 2, 3], 4);
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `arr`: public, array to be copied
+       - `exclude`: public, number of elements to exclude from the end
+       - `i`: private, number corresponding to index of `arr`
+       - `result`: private, array copy of `arr`
+
+     - Returns: array
+
+   - Explanation:
+
+     - Start with `i = 0` and `result = []`
+     - Base: if `i >= arr.length` then return `result`
+     - Recursive:
+
+       - If `i < arr.length - exclude`, append the element at `i` to `result`
+       - Return a call to `copyFirst`, incrementing `i` by 1
+
+   - [Test](copy-first.js)
+   - [Code](copy-first.test.js)
+
 7. Run on Each
 8. Only Index
