@@ -35,6 +35,40 @@
     - [Test](copy-array.test.js)
 
 2.  Remove Element
+
+    - Goal: write a function called `removeElement` that removes every instance of a given element from an array.
+    - Examples:
+
+      ```js
+      const arr = [1, 2, 2, 3, 3, 3];
+      const newArr = removeElement(arr, 2);
+
+      // true, both have the values [1, 3, 3, 3]
+      arr === newArr;
+      ```
+
+    - Signature:
+
+      - Parameters:
+
+        - `arr`: public, array to be evaluated
+        - `remove`: public, value of elements to be removed
+        - `i`: private, number indicating current index of `arr`
+
+      - Returns: array
+
+    - Explanation:
+
+      - Start with `i = 0`
+      - Base: if `i >= arr.length` return `arr`
+      - Recursive:
+
+        - If the current value of `arr` is equal to `remove`, splice the element and decrement `i` by 1
+        - Call `removeArray`, incrementing `i` by 1
+
+    - [Code](remove-element.js)
+    - [Test](remove-element.test.js)
+
 3.  Copy Without
 4.  Copy Reverse
 5.  Copy Last
