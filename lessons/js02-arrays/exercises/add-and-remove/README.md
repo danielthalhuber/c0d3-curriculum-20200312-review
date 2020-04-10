@@ -262,3 +262,50 @@
    - [Test](run-on-each.test.js)
 
 8. Only Index
+
+   - Goal: write a function called `onlyIndex` that takes an array of arrays and returns an array of each array's element at a given index.
+   - Examples:
+
+     ```js
+     // returns [3, 8, 13, 18]
+     onlyIndex(
+       [
+         [1, 2, 3, 4, 5],
+         [6, 7, 8, 9, 10],
+         [11, 12, 13, 14, 15],
+         [16, 17, 18, 19, 20],
+       ],
+       2
+     );
+
+     // each returns []
+     onlyIndex([
+       [1, 2, 3, 4, 5],
+       [6, 7, 8, 9, 10],
+       [11, 12, 13, 14, 15],
+       [16, 17, 18, 19, 20],
+     ]);
+     onlyIndex();
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `arr`: public, array of arrays (all assumed to be the same length)
+       - `c`: public, number for common index of elements to be collected
+       - `r`: private, number representing current index of `arr`
+       - `result`: private, array of values from each array at `c`
+
+     - Returns: array
+
+   - Explanation:
+
+     - Start with `r = 0` and `result = []`
+     - Base: if `r >= arr.length` or `c < 0`, then return `result`
+     - Recursive:
+       - Append the value from `arr[r][c]` to `result`
+       - Return a call to `onlyIndex`, incrementing `r` by 1
+
+   - [Code](only-index.js)
+   - [Test](only-index.test.js)
