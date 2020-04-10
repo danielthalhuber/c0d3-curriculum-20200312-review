@@ -448,3 +448,26 @@ See [README for non-primitive exercises](exercises/non-primitive/README.md)
 ### Exercises
 
 See [README for add and remove function exercises](exercises/add-and-remove/README.md)
+
+## Array Functions: Helpers
+
+### Map
+
+Example
+
+```js
+const melon = (delta, wax) => {
+  return delta + wax + 1;
+};
+
+// what is peppers?
+const peppers = [5, 6, 6].map(melon).map(mellon);
+
+// answer:
+// after the first pass with map, peppers is [6, 8, 9]
+// after the second pass with map, peppers is [7, 10, 12]
+```
+
+#### Exercises
+
+See [README for map exercises](exercises/map/README.md)
