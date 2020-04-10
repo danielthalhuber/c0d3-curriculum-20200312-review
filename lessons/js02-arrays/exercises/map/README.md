@@ -31,6 +31,28 @@ Exercises using `Array.prototype.map`
    - [Test](odd-to-zero.test.js)
 
 2. First Letters
+
+   - Goal: write a function called `firstLetters` that returns the first letter of each string in an array of strings.
+   - Examples:
+
+     ```js
+     // returns: ['a', 'b', 'c', 'd']
+     firstLetters(['add', 'bongo', 'chongo', 'dud']);
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `arr`: array of strings
+
+     - Returns: array
+
+   - Explanation: return the result of calling `map` on `arr` with a callback that returns the character at index 0 of the given string
+
+   - [Code](first-letters.js)
+   - [Test](first-letters.test.js)
+
 3. First X to Zero
 4. Non Prime to Zero
 5. Append
