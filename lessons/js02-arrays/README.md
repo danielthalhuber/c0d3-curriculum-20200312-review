@@ -471,3 +471,59 @@ const peppers = [5, 6, 6].map(melon).map(mellon);
 #### Exercises
 
 See [README for map exercises](exercises/map/README.md)
+
+- Reminder: the spread operator is a convenient way to clone an array
+
+### forEach
+
+Comparison of `Array.prototype.forEach` and `Array.prototype.map`:
+
+- Same parameters
+- Different:
+
+  - Return values:
+
+    - `forEach` returns `undefined`
+    - `map` returns an array
+
+  - Purpose/intent:
+
+    - `forEach` - call a function once for each element:
+
+      - Call the given function for each element in the array
+
+    - `map` - create a copy where each element is transformed by a function:
+
+      - Call the given function for each element in the array
+      - **Add the return values from each function call to a new array**
+      - **Return the new array**
+
+#### Exercise
+
+```js
+const arr = [];
+
+const solution = (data) => {
+  arr.push(data);
+};
+
+// at this point, what is arr?
+
+// answer: arr is []
+
+const arr2 = [1, 2, 3];
+arr2.forEach(() => {
+  arr.push(arr2);
+});
+
+// answer:
+// at this point arr is [arr2, arr2, arr2], or:
+// [[1, 2, 3], [1, 2, 3], [1, 2, 3]]
+
+arr2[2] = 'three';
+// at this point what is arr?
+
+// answer:
+// at this point arr is [arr2, arr2, arr2], or:
+// [[1, 2, 'three'], [1, 2, 'three'], [1, 2, 'three']]
+```
