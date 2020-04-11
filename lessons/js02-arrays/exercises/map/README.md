@@ -111,5 +111,34 @@ Exercises using `Array.prototype.map`
    - [Test](non-prime-to-zero.test.js)
 
 5. Append
+
+   - Goal: write a function called `append` that copies an array of strings while adding a string to every string in it.
+   - Examples:
+
+     ```js
+     // returns ['a!', 'b!', 'c!', 'd!', 'e!']
+     append(['a', 'b', 'c', 'd', 'e'], '!');
+
+     // returns ['a', 'b', 'c', 'd', 'e']
+     append(['a', 'b', 'c', 'd', 'e']);
+
+     // each returns []
+     append([], 'something');
+     append();
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `arr`: array to be copied
+       - `str`: str to be appended to strings in `arr`
+
+     - Returns: array
+
+   - Explanation: return the result of calling `map` on `arr` with a callback that concatenates `str` to the current value
+   - [Code](append.js)
+   - [Test](append.test.js)
+
 6. Run on Each with Map
 7. Clone
