@@ -527,3 +527,43 @@ arr2[2] = 'three';
 // at this point arr is [arr2, arr2, arr2], or:
 // [[1, 2, 'three'], [1, 2, 'three'], [1, 2, 'three']]
 ```
+
+### Filter & Find
+
+#### Filter
+
+`Array.prototype.find` returns a new array whose elements are subset of the elements in a given array. Inclusion in this subset is determined by a function. The function is called on each element, and if the function returns a truthy value, the element is included. If no elements in the given array meet the criteria specified by the function, an empty array is returned.
+
+```js
+const arr = [1, 2, 4];
+const isEven = (n) => n % 2 === 0;
+
+// returns [2, 4]
+arr.filter(isEven);
+
+const isNegative = (n) => n < 0;
+
+// returns []
+arr.filter(isNegative);
+```
+
+#### Find
+
+`Array.prototype.find` returns the first element in the given array meeting a condition specified by a function. The function returns `true` when an element meets the conditions, and `false` otherwise. If no elements in the array meet the conditions, `undefined` is returned.
+
+```js
+const arr = [1, 2, 4];
+const isEven = (n) => n % 2 === 0;
+
+// returns 2
+arr.find(isEven);
+
+const isNegative = (n) => n < 0;
+
+// returns undefined
+arr.find(isNegative);
+```
+
+#### Exercises
+
+See the [Filter & Find Exercise README](exercises/filter-and-find/README.md)
