@@ -84,6 +84,32 @@ Exercises using `Array.prototype.map`
    - [Test](first-x-to-zero-map.test.js)
 
 4. Non Prime to Zero
+
+   - Goal: write a function called `nonPrimeToZero` that copies an array while changing any number that isn't prime to 0.
+   - Examples:
+
+     ```js
+     // returns [0, 2, 3, 0, 5]
+     nonPrimeToZero([1, 2, 3, 4, 5]);
+
+     // returns [3, 7, 13]
+     nonPrimeToZero([3, 7, 13]);
+
+     // each returns []
+     nonPrimeToZero([]);
+     nonPrimeToZero();
+     ```
+
+   - Signature:
+
+     - Parameters: `arr`, an array of numbers
+     - Returns: array
+     - Dependency: helper function `isPrime` that returns `true` if the given number is prime, and false otherwise
+
+   - Explanation: return the result of calling `map` on `arr`, with a callback that returns 0 when `isPrime` returns `false` for the current value, and otherwise returns the current value.
+   - [Code](non-prime-to-zero.js)
+   - [Test](non-prime-to-zero.test.js)
+
 5. Append
 6. Run on Each with Map
 7. Clone
