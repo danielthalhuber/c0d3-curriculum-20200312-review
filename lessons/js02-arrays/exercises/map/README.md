@@ -141,4 +141,31 @@ Exercises using `Array.prototype.map`
    - [Test](append.test.js)
 
 6. Run on Each with Map
+
+   - Goal: write a function called `runOnEach` that calls a function on every element in an array, and then returns a new array with the results. The function takes two arguments: the value of the element and its index.
+   - Examples:
+
+     ```js
+     // returns [1, 3, 5]
+     runOnEach([1, 2, 3], (e, i) => e + i);
+
+     // each returns []
+     runOnEach([]);
+     runOnEach([1, 2, 3]);
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `arr`: array containing the elements that will be consumed by the function
+       - `fun`: function to be called for each element in `arr`
+
+     - Returns: array
+
+   - Explanation: if either argument is falsey, return an empty array, otherwise return the result of calling `map` on `arr` with the callback `fun`
+
+   - [Code](run-on-each-map.js)
+   - [Test](run-on-each-map.test.js)
+
 7. Clone
