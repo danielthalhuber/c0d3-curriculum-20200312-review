@@ -169,3 +169,26 @@ Exercises using `Array.prototype.map`
    - [Test](run-on-each-map.test.js)
 
 7. Clone
+
+   - Goal: write a function called `clone` that makes an exact copy of an array.
+   - Examples:
+
+     ```js
+     // returns [1, 2, 3];
+     clone([1, 2 3]);
+
+     // returns []
+     clone([]);
+
+     // returns undefined
+     clone()
+     ```
+
+   - Signature:
+
+     - Parameters: `arr`: the array to be copied
+     - Returns: array or `undefined`
+
+   - Explanation: return `undefined` if `arr` is falsey, otherwise return the result of calling `map` on `arr` with a callback that returns its first argument.
+   - [Code](clone.js)
+   - [Test](clone.test.js)
