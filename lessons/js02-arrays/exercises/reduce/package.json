@@ -1,0 +1,14 @@
+{
+  "name": "c0d3-js2-ex-reduce",
+  "version": "1.0.0",
+  "description": "1. Sum 2. Largest with Reduce 3. Longest 4. Matches 5. Combine Less 5 6. Larger Than 5",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/jest/bin/jest.js --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^25.3.0"
+  }
+}

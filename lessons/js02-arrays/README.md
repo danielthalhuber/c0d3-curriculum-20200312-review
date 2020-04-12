@@ -567,3 +567,69 @@ arr.find(isNegative);
 #### Exercises
 
 See the [Filter & Find Exercise README](exercises/filter-and-find/README.md)
+
+### Reduce
+
+`Array.prototype.reduce` executes a function (the reducer) on each element of an array resulting in a single output value.
+
+Example:
+
+```js
+// Get the sum of the scores
+const scores = [234, 545, 234, 444, 122, 545, 545];
+const sumScores = (currSum, currScore) => currSum + currScore;
+
+// each returns 2669
+// first case: specify initial value (optional, but generally considered a bad practice)
+// second case: use first element as initial value and skip to next element
+scores.reduce(sumScores, 0);
+scores.reduce(sumScores);
+
+// get the count/frequency of each score
+const countScores = (counts, currScore) => {
+  counts[currScore] = (counts[currScore] || 0) + 1;
+  return counts;
+};
+
+// returns { '122': 1, '234': 2, '444': 1, '545': 3 }
+scores.reduce(countScores, {});
+```
+
+In the example above, the reducers have only one argument. In general, reducers can have 4 parameters:
+
+- Accumulator: initial value or value returned from previous call of the reducer
+- Current value: value of current element being evaluated
+- Current index: index of the current element
+- Source Array: the array that `reduce` was called on
+
+Examples:
+
+```js
+const arr = ['zero', 'one'];
+const reducer = (acc, cv, ci, srcArr) => {
+  return acc + `< cv: ${cv}, ci: ${ci}, srcArr: [${srcArr}] >`;
+};
+
+// returns:
+// '< cv: zero, ci: 0, srcArr: [zero,one] >< cv: one, ci: 1, srcArr: [zero,one] >'
+arr.reduce(reducer, '');
+```
+
+```js
+const cherries = [1, 2, 3];
+const tomatoes = [5, 6, 7].reduce((farm, weight, tax) => {
+  if (weight > 5) farm.push(weight + tax);
+  return farm;
+}, cherries); // what is tomatoes?
+
+// answer:
+// initial value is [1, 2, 3]
+// 5 is not greater than 5, so accumulator is unchanged, returning [1, 2, 3]
+// 6 is greater than 5, so 6 + 1 is pushed into the accumulator, returning [1, 2, 3, 7]
+// 7 is greater than 5, so 7 + 2 is pushed into the accumulator, returning [1, 2, 3, 7, 9]
+// finally tomatoes is assigned the value [1, 2, 3, 7, 9]
+```
+
+#### Exercises
+
+See [Reduce Exercises README](exercises/reduce/README.md)
