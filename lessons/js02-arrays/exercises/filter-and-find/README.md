@@ -59,3 +59,26 @@
    - [Test](primes-only.test.js)
 
 3. First Prime
+
+   - Goal: write a function called `firstPrime` that finds the first prime number in an array.
+   - Examples:
+
+     ```js
+     // returns 2
+     firstPrime([14, 16, 18, 'donkey', 2]);
+
+     // each returns undefined
+     firstPrime([14, 16, 18, 'donkey']);
+     firstPrime();
+     firstPrime('no an array');
+     ```
+
+   - Signature:
+
+     - Parameters: `arr`: the array to be searched
+     - Returns: array or undefined
+     - Dependencies: requires a function called `isPrime` that returns `true` if the given value is a prime number, and `false` otherwise
+
+   - Explanation: if `arr` is not an array assign it the value `[]`, and then return the value returned by calling `find` on `arr` with the function `isPrime`
+   - [Code](first-prime.js)
+   - [Test](first-prime.test.js)
