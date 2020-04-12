@@ -33,4 +33,29 @@
    - [Test](no-more-evens.test.js)
 
 2. Primes Only
+
+   - Goal: write a function called `primesOnly` that copies an array but keeps only the prime numbers.
+   - Examples:
+
+     ```js
+     // returns [2, 3, 5, 7, 11, 13]
+     primesOnly([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]);
+
+     // returns []
+     primesOnly([]);
+
+     // returns undefined
+     primesOnly(2);
+     ```
+
+   - Signature:
+
+     - Parameters: `arr`: the array to be copied
+     - Returns: array or `undefined`
+     - Dependency: `isPrime`: a function that returns `true` if a given number is prime and `false` otherwise
+
+   - Explanation: if `arr` is not an array return `undefined`, otherwise return the result of calling `filter` on `arr` with `isPrime`
+   - [Code](primes-only.js)
+   - [Test](primes-only.test.js)
+
 3. First Prime
