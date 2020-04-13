@@ -70,6 +70,46 @@
    - [Test](sum.test.js)
 
 3. Pad
+
+   - Goal: create a prototype method called `pad` that adds a given string to an array a specified number of times.
+   - Examples:
+
+     ```js
+     // result: arr0 is ['this', 'repeats', 'repeats']
+     const arr0 = ['this'];
+     arr0.pad('repeats', 2);
+
+     // result: arr1 is ['this has not changed']
+     const arr1 = ['this has not changed'];
+     arr1.pad('something', 0);
+     arr1.pad('something');
+
+     // result: arr2 is ['nothing changes']
+     const arr2 = ['nothing changes'];
+     arr2.pad('');
+     arr2.pad();
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `str`: string to append to array
+       - `c`: number of times to append `str`
+
+     - Returns: `undefined`
+
+   - Explanation:
+
+     - Base: if `c < 1` or `string === undefined`, then return;
+     - Recursive:
+
+       - Append `str` to the array
+       - Return a call to `this.pad`, decrementing `c` by 1
+
+   - [Code](pad.js)
+   - [Test](pad.test.js)
+
 4. Fizzbuzz
 5. Remove Evens
 6. Get Iterator
