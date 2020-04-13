@@ -271,9 +271,7 @@ const isSame = fruitPrices === cost; // what is isSame?
 true;
 ```
 
-### Exercises
-
-See [README for non-primitive exercises](exercises/non-primitive/README.md)
+### [Exercises](exercises/non-primitive/README.md)
 
 ## Array Functions: Add and Remove
 
@@ -445,9 +443,7 @@ See [README for non-primitive exercises](exercises/non-primitive/README.md)
   // fruits2 is ['Apple', 'Mango', 'Pear', 'Orange']
   ```
 
-### Exercises
-
-See [README for add and remove function exercises](exercises/add-and-remove/README.md)
+### [Exercises](exercises/add-and-remove/README.md)
 
 ## Array Functions: Helpers
 
@@ -468,9 +464,7 @@ const peppers = [5, 6, 6].map(melon).map(mellon);
 // after the second pass with map, peppers is [7, 10, 12]
 ```
 
-#### Exercises
-
-See [README for map exercises](exercises/map/README.md)
+#### [Exercises](exercises/map/README.md)
 
 - Reminder: the spread operator is a convenient way to clone an array
 
@@ -564,9 +558,7 @@ const isNegative = (n) => n < 0;
 arr.find(isNegative);
 ```
 
-#### Exercises
-
-See the [Filter & Find Exercise README](exercises/filter-and-find/README.md)
+#### [Exercises](exercises/filter-and-find/README.md)
 
 ### Reduce
 
@@ -630,9 +622,7 @@ const tomatoes = [5, 6, 7].reduce((farm, weight, tax) => {
 // finally tomatoes is assigned the value [1, 2, 3, 7, 9]
 ```
 
-#### Exercises
-
-See [Reduce Exercises README](exercises/reduce/README.md)
+#### [Exercises](exercises/reduce/README.md)
 
 #### Map Reduce in Big Data
 
@@ -700,9 +690,7 @@ const juicy2 = [7, 8, 2].papaya();
 // answer: 17
 ```
 
-### Exercises
-
-See [Prototype Exercise README](exercises/prototype/README.md)
+### [Exercises](exercises/prototype/README.md)
 
 ## Async
 
@@ -753,3 +741,5 @@ const friends = ['Tony Stark', 'Vision', 'Ultron'].reduce((a, b) => {
 // Greetings, Vision
 // Greetings, Ultron
 ```
+
+## [Challenges](challenges/README.md)
