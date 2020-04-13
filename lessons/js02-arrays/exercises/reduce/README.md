@@ -160,3 +160,42 @@ Use `Array.prototype.reduce` to solve the following exercises.
    - [Test](combine-less-5.test.js)
 
 6. Larger Than 5
+
+   - Goal: write a function called `largerThan5` copies an array of numbers, including only the numbers that are greater than 5.
+   - Examples:
+
+     ```js
+     // returns [6, 7, 8, 9]
+     largerThan5([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+
+     // each returns []
+     largerThan5([]);
+     largerThan5([1, 2, 3, 4, 5]);
+
+     // returns undefined for non-array values
+     largerThan5('six');
+     largerThan5();
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `arr`: array of numbers to filter
+
+     - Returns: number or `undefined`
+
+   - Explanation:
+
+     - If `arr` is not an array, return `undefined`
+     - Return the result of calling `reduce` on `arr` with:
+
+       - A reducer that:
+
+         - Pushes the current value into the accumulator if the current value is greater than 5
+         - Returns the accumulator
+
+       - Initial value: []
+
+   - [Code](larger-than-5.js)
+   - [Test](larger-than-5.test.js)
