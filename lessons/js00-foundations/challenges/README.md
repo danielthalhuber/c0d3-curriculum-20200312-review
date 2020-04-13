@@ -109,9 +109,12 @@ Use arrow functions for the following challenges.
      - Returns: number
 
    - Explanation:
-     - return `num1` if it's larger than `num2` and `num3`, otherwise
-     - return `num2` if it's larger than `num1` and `num3`, otherwise
-     - return `num3`
+
+     - Declare a function `max` that takes two numbers and returns the largest
+     - Return `num1` if it's larger than `num2` and `num3`, otherwise
+     - Return `num2` if it's larger than `num3`, otherwise
+     - Return `num3`
+
    - [Code](05.js)
    - [Test](05.test.js)
 
