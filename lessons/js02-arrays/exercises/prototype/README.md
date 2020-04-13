@@ -33,12 +33,42 @@
      - Recursive:
 
        - If the current element of `this` is even, push it onto `result`
-       - Return a call to `Array.prototype.getEvens`
+       - Return a call to `Array.prototype.getEvens`, incrementing `i` by 1
 
    - [Code](get-evens.js)
    - [Test](get-evens.test.js)
 
 2. Sum
+
+   - Goal: create a prototype function called `sum` that adds all the elements of an array together.
+   - Examples:
+
+     ```js
+     // returns 6
+     [1, 2, 3].sum();
+
+     // returns 0
+     [].sum();
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `i`: private, number representing current index of the array
+       - `result`: private, number representing sum of values in array
+
+     - Returns: number
+
+   - Explanation:
+
+     - Start with `i = 0` and `result = 0`
+     - Base: if `i >= this.length`, then return `result`
+     - Recursive: return a call to `this.sum`, incrementing `i` and `result` by 1 and `this[i]` respectively
+
+   - [Code](sum.js)
+   - [Test](sum.test.js)
+
 3. Pad
 4. Fizzbuzz
 5. Remove Evens
