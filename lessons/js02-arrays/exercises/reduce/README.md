@@ -131,4 +131,32 @@ Use `Array.prototype.reduce` to solve the following exercises.
    - [Test](matches.test.js)
 
 5. Combine Less 5
+
+   - Goal: write a function called `combineLess5` that returns the concatenation of all the strings in a given array with length less than 5.
+   - Examples:
+
+     ```js
+     // returns 'this is it'
+     combineLess5(['t', 'his', ' is ', 'it', 'donkey']);
+
+     // returns undefined for invalid arguments
+     matches('two');
+     matches();
+     ```
+
+   - Signature:
+
+     - Parameters: `arr`: array of strings to be concatenated
+     - Returns: array or undefined
+
+   - Explanation:
+
+     - If `arr` is not an array, return `undefined`
+     - Return the result of calling `reduce` on `arr` with a reducer that:
+       - Returns the concatenation of the accumulator with the current value if the current value has length less than 5, and otherwise returns the accumulator
+       - Has an initial value of ''
+
+   - [Code](combine-less-5.js)
+   - [Test](combine-less-5.test.js)
+
 6. Larger Than 5
