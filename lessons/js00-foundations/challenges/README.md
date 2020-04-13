@@ -1,10 +1,11 @@
-# JS0 Lesson Challenges
+# JS0 - Foundations: Challenges
 
-Write an arrow function called solution that...
+Use arrow functions for the following challenges.
 
-1. takes in 2 numbers and return the sum of the 2 input parameters
+1. Sum of 2 Numbers
 
-   - Example:
+   - Goal: write a function called solution that takes in 2 numbers and return the sum of the 2 input parameters
+   - Examples:
 
      ```js
      solution(5, 9); // Should return 14
@@ -24,9 +25,10 @@ Write an arrow function called solution that...
    - [Code](01.js)
    - [Test](01.test.js)
 
-2. takes in 3 numbers and returns the sum of the 3 input parameters
+2. Sum of 3 Numbers
 
-   - Example:
+   - Goal: write a function called solution that takes in 3 numbers and returns the sum of the 3 input parameters
+   - Examples:
 
      ```js
      solution(5, 9, 2); // Should return 16
@@ -47,9 +49,10 @@ Write an arrow function called solution that...
    - [Code](02.js)
    - [Test](02.test.js)
 
-3. takes in a number and returns true if the input number is greater than 5. Otherwise returns false
+3. Greater than 5
 
-   - Example:
+   - Goal: write a function called solution that takes in a number and returns true if the input number is greater than 5. Otherwise returns false
+   - Examples:
 
      ```js
      solution(9); // Should return true
@@ -66,9 +69,10 @@ Write an arrow function called solution that...
    - [Code](03.js)
    - [Test](03.test.js)
 
-4. takes in 2 numbers and returns the larger number.
+4. Biggest Number Out of 2
 
-   - Example:
+   - Goal: write a function called solution that takes in 2 numbers and returns the larger number.
+   - Examples:
 
      ```js
      solution(5, 9); // Should return 9
@@ -86,9 +90,10 @@ Write an arrow function called solution that...
    - [Code](04.js)
    - [Test](04.test.js)
 
-5. takes in 3 numbers and return the largest number.
+5. Biggest Number Out of 3
 
-   - Example:
+   - Goal: write a function called solution that takes in 3 numbers and return the largest number.
+   - Examples:
 
      ```js
      solution(5, 9, 14); // Should return 14
@@ -110,9 +115,10 @@ Write an arrow function called solution that...
    - [Code](05.js)
    - [Test](05.test.js)
 
-6. takes in 2 numbers and returns true if the first input parameter is greater than the second. Otherwise returns false
+6. Is First Number Bigger?
 
-   - Example:
+   - Goal: write a function called solution that takes in 2 numbers and returns true if the first input parameter is greater than the second. Otherwise returns false
+   - Examples:
 
      ```js
      solution(5, 9); // Should return false
@@ -130,9 +136,10 @@ Write an arrow function called solution that...
    - [Code](06.js)
    - [Test](06.test.js)
 
-7. takes in 2 numbers and returns true if the sum of the 2 numbers is greater than 10. Otherwise returns false
+7. Is Sum > 10?
 
-   - Example:
+   - Goal: write a function called solution that takes in 2 numbers and returns true if the sum of the 2 numbers is greater than 10. Otherwise returns false
+   - Examples:
 
      ```js
      solution(5, 9); // Should return true
@@ -150,9 +157,10 @@ Write an arrow function called solution that...
    - [Code](07.js)
    - [Test](07.test.js)
 
-8. takes in 2 numbers and returns a function. When the returned function is called, return the sum of the 2 input parameters.
+8. Functional Sum:
 
-   - Example:
+   - Goal: write a function called solution that takes in 2 numbers and returns a function. When the returned function is called, return the sum of the 2 input parameters.
+   - Examples:
 
      ```js
      resf = solution(5, 6); // a is a function
@@ -170,9 +178,11 @@ Write an arrow function called solution that...
    - [Code](08.js)
    - [Test](08.test.js)
 
-9. takes in 2 numbers and returns a function. The returned function takes in a number and will return the sum of all 3 numbers when called
+9. Functional 3 Sum
 
-   - Example:
+   - Goal: write a function called solution that takes in 2 numbers and returns a function. The returned function takes in a number and will return the sum of all 3 numbers when called
+
+   - Examples:
 
      ```js
      resf = solution(1, 2); // a is a function
@@ -195,9 +205,10 @@ Write an arrow function called solution that...
    - [Code](09.js)
    - [Test](09.test.js)
 
-10. takes in 2 functions and returns the sum of the returned values of the 2 functions
+10. Functional Sums
 
-    - Example:
+    - Goal: write a function called solution that takes in 2 functions and returns the sum of the returned values of the 2 functions
+    - Examples:
 
       ```js
       fdemo1 = () => {
