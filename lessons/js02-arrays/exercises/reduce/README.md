@@ -7,20 +7,20 @@ Use `Array.prototype.reduce` to solve the following exercises.
    - Goal: write a function called `sum` that adds up all the elements of an array.
    - Examples:
 
-   ```js
-   // returns 7
-   sum([1, 2, 4]);
+     ```js
+     // returns 7
+     sum([1, 2, 4]);
 
-   // returns 0
-   sum([1, -1]);
+     // returns 0
+     sum([1, -1]);
 
-   // returns 0
-   sum([]);
+     // returns 0
+     sum([]);
 
-   // each returns undefined
-   sum(2);
-   sum();
-   ```
+     // each returns undefined
+     sum(2);
+     sum();
+     ```
 
    - Signature:
 
