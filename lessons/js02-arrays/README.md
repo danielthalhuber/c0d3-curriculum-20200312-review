@@ -663,3 +663,43 @@ Use case:
 
     - Map: 44 min (1.0e4 computers map 2.5e9 to 1.0e4 records)
     - Reduce 2 min (1 computer processes 1.0e4 records)
+
+## Prototype Inheritance
+
+Process for adding a prototype method:
+
+- Add the function as a property of the `prototype` (e.g. `String.prototype`)
+- Assign a function expression (e.g. `String.prototype.someNewMethodName = function() { /* ... */ }`)
+- Access the object on which the method will be called using the keyword `this`
+
+Example:
+
+```js
+Array.prototype.last = function () {
+  return this[this.length - 1];
+};
+
+// returns 3
+[1, 2, 3].last();
+```
+
+```js
+Array.prototype.papaya = function (i = 0, z = 0) {
+  if (i === this.length) return z;
+  return this.papaya(i + 1, this[i] + z);
+};
+
+// what is juicy?
+const juicy = [7, 8, 2].papaya;
+
+// answer: juicy is a function
+
+// what is juicy2?
+const juicy2 = [7, 8, 2].papaya();
+
+// answer: 17
+```
+
+### Exercises
+
+See [Prototype Exercise README](exercises/prototype/README.md)

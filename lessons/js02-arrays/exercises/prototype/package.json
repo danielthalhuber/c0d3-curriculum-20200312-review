@@ -1,0 +1,14 @@
+{
+  "name": "c0d3-js2-ex-prototype",
+  "version": "1.0.0",
+  "description": "1. Get Evens 2. Sum 3. Pad 4. Fizzbuzz 5. Remove Evens 6. Get Iterator",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/jest/bin/jest.js --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^25.3.0"
+  }
+}
