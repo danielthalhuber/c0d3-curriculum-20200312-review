@@ -145,4 +145,46 @@
    - [Test](fizzbuzz.test.js)
 
 5. Remove Evens
+
+   - Goal: create a prototype method called `removeEvens` that removes all even numbers from an array.
+   - Examples:
+
+     ```js
+     // result: arr0 is [1, 3, 5]
+     const arr = [1, 2, 3, 4, 5];
+     arr0.removeEvens();
+
+     // result: arr1 is []
+     const arr1 = [2, 4, 6];
+     arr1.removeEvens();
+
+     // result: arr2 is []
+     const arr2 = [];
+     arr2.removeEvens();
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `i`: private number indicating current index of the array
+
+     - Returns: `undefined`
+
+   - Explanation:
+
+     - Start with `i = 0`
+     - Base: if `i >= this.length`, then stop/return
+     - Recursive:
+
+       - If the current element is even:
+
+         - Splice the element out of the array
+         - Decrement `i` by 1
+
+       - Return a call to `this.removeEvens`, incrementing `i` by 1
+
+   - [Code](remove-evens.js)
+   - [Test](remove-evens.test.js)
+
 6. Get Iterator
