@@ -633,3 +633,33 @@ const tomatoes = [5, 6, 7].reduce((farm, weight, tax) => {
 #### Exercises
 
 See [Reduce Exercises README](exercises/reduce/README.md)
+
+#### Map Reduce in Big Data
+
+Use case:
+
+- Want to count the most common name in a set of 2.5 billion users
+- Suppose one computer can process 100 user records a second
+- If one computer is used, the operation will take 10 months
+
+  > (2,500,000,000 rec) (1 sec / 100 rec) (1 min / 60 sec) (1 hr / 60 min) (1 day / 24 hr) (1 month / 30 days) = 9.65 months
+
+- If we have 10,000 computers, we can split the work across these computers and reduce the operation time to 44 minutes:
+
+  - Map:
+
+    - Assign 250,000 user records to each computer
+    - Each computer processes these records in 42 minutes producing a single record of `[name, count]` for the name with the largest count in the batch of 250,000 records
+
+      > (250,000 rec) (1 sec / 100 rec) (1 min / 60 sec) = 41.7 min
+
+  - Reduce:
+
+    - Finally, one computer can process the 10,000 records in 2 minutes
+
+      > (10,000 rec) (1 sec / 100 rec) (1 min / 60 sec) = 1.67 min
+
+  - Operation time:
+
+    - Map: 44 min (1.0e4 computers map 2.5e9 to 1.0e4 records)
+    - Reduce 2 min (1 computer processes 1.0e4 records)
