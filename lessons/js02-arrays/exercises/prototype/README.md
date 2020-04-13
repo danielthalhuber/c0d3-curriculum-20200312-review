@@ -188,3 +188,40 @@
    - [Test](remove-evens.test.js)
 
 6. Get Iterator
+
+   - Goal: create a prototype method called `getIterator` that returns a function. When the function is called, it returns the next element of the array, looping back to the first element after returning the last element.
+   - Examples:
+
+     ```js
+     const arr = [1, 2, 3];
+     const arrIterator = arr.getIterator();
+
+     // returns 1
+     arrIterator();
+
+     // returns 2
+     arrIterator();
+
+     // returns 3
+     arrIterator();
+
+     // returns 1
+     arrIterator();
+     ```
+
+   - Signature:
+
+     - Parameters: none
+     - Returns: function
+
+   - Explanation:
+
+     - Declare a mutable variable `i = -1` to
+     - Return a function that:
+
+       - Has no parameters and returns a number
+       - Assigns the remainder after dividing `i + 1` by `this.length` to `i`
+       - Returns the current value of `this` (at index `i`)
+
+   - [Code](get-iterator.js)
+   - [Test](get-iterator.test.js)
