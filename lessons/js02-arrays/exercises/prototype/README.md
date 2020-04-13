@@ -111,5 +111,38 @@
    - [Test](pad.test.js)
 
 4. Fizzbuzz
+
+   - Goal: create a prototype method called `fizzbuzz` that changes an array of numbers. All numbers divisible by 3 will be changed to `'fizz'`. All numbers divisible by 5 will be changed to `'buzz'`. All numbers divisible by both 3 and 5 will be converted to `fizzbuzz`. All other numbers will be left untouched.
+   - Examples:
+
+     ```js
+     // result: arr is ['fizz', 'buzz', 'fizzbuzz', 17]
+     const arr = [3, 5, 15, 17];
+     arr.fizzbuzz();
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `i`: private, number indicating current index of the array
+
+     - Returns: undefined
+
+   - Explanation:
+
+     - Start with `i = 0`
+     - Base: if `i >= this.length`, then stop/return
+     - Recursive:
+
+       - Declare mutable variable `word = ''`
+       - If the current element is divisible by 3, append `'fizz'` to `word`
+       - If the current element is divisible by 5, append `'buzz'` to `'word'`
+       - If `word` is truthy, replace the current element with `word`
+       - Return a call to `this.fizzbuzz`, incrementing `i` by 1
+
+   - [Code](fizzbuzz.js)
+   - [Test](fizzbuzz.test.js)
+
 5. Remove Evens
 6. Get Iterator
