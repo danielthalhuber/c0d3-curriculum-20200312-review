@@ -56,12 +56,41 @@ Use `Array.prototype.reduce` to solve the following exercises.
    - Explanation:
 
      - If `arr` is not an array, return `undefined`
-     - Return the result of calling `reduce` on `arr` with a reducer that returns the larges of the accumulator and current value, and an initial value of `Number.NEGATIVE_INFINITY`
+     - Return the result of calling `reduce` on `arr` with a reducer that returns the larges of the accumulator and current value, with an initial value of `Number.NEGATIVE_INFINITY`
 
    - [Code](largest.js)
    - [Test](largest.test.js)
 
 3. Longest
+
+   - Goal: write a function called `longest` that returns the longest string in an array.
+   - Example:
+
+     ```js
+     // returns 'onetwothree'
+     longest(['one', 'onetwothree', 'threetwo']);
+
+     // returns 0
+     longest(['', '', '']);
+
+     // returns undefined for non-array arguments
+     largest();
+     largest('one');
+     ```
+
+   - Signature:
+
+     - Parameters: `arr`: array of strings to evaluate
+     - Return: array or undefined
+
+   - Explanation:
+
+     - If `arr` is not an array, return `undefined`
+     - Return the result of calling `reduce` on `arr` with a reducer that returns the largest of the accumulator and current value (comparing their length properties), with an initial value of -1
+
+   - [Code](longest.js)
+   - [Test](longest.test.js)
+
 4. Matches
 5. Combine Less 5
 6. Larger Than 5
