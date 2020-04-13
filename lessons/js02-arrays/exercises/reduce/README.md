@@ -70,7 +70,7 @@ Use `Array.prototype.reduce` to solve the following exercises.
      // returns 'onetwothree'
      longest(['one', 'onetwothree', 'threetwo']);
 
-     // returns 0
+     // returns ''
      longest(['', '', '']);
 
      // returns undefined for non-array arguments
@@ -92,5 +92,43 @@ Use `Array.prototype.reduce` to solve the following exercises.
    - [Test](longest.test.js)
 
 4. Matches
+
+   - Goal: write a function called `matches` that returns the number of times a given element occurs in an array.
+   - Example:
+
+     ```js
+     // returns 2
+     matches(['one', 'two', 'three', 'one', 'five'], 'one');
+
+     // returns 0
+     matches([1, 2, 3, 'four'], 6);
+     matches(['one']);
+     matches([], 'bonkers');
+
+     // returns undefined for invalid arguments
+     matches([1, 2, 3]);
+     matches('two');
+     matches();
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `arr`: array to be evaluated
+       - `value`: value to count in `arr`
+
+     - Returns: number or undefined
+
+   - Explanation:
+
+     - If `arr` is not an array, then return `undefined`
+     - Return the value returned by calling `reduce` on `arr` with:
+       - a reducer that returns 1 + accumulator if the current value is strictly equal to the given `value`
+       - initial value of 0
+
+   - [Code](matches.js)
+   - [Test](matches.test.js)
+
 5. Combine Less 5
 6. Larger Than 5
