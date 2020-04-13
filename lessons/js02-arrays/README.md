@@ -703,3 +703,53 @@ const juicy2 = [7, 8, 2].papaya();
 ### Exercises
 
 See [Prototype Exercise README](exercises/prototype/README.md)
+
+## Async
+
+Additional exercises:
+
+```js
+const peppers = [5, 6, 6].map((element, index) => {
+  setTimeout(() => {
+    console.log(element);
+    return 100;
+  }, 1000);
+});
+
+// what is peppers?
+
+// answer: peppers is an array (Array.prototype.map returns an array)
+
+const peppers = [5, 6, 6].map((element, index) => {
+  setTimeout(() => {
+    console.log(element);
+    return 100;
+  }, 1000);
+}); // what is peppers?
+
+// answer: peppers is [undefined, undefined, undefined]
+
+// Describe what is logged to the console.
+// Which values are logged and when are they logged?
+
+// answer:
+// after 1 second the values 5, 6, and 6 are logged (almost all at the same time, in that order)
+```
+
+```js
+const friends = ['Tony Stark', 'Vision', 'Ultron'].reduce((a, b) => {
+  setTimeout(() => {
+    console.log('Greetings,', b);
+  }, 2000);
+  return a + b;
+}, ''); // What is friends?
+
+// answer: friends is 'Tony StarkVisionUltron'
+
+// What gets printed out into the console?
+
+// Answer: in 2 seconds the following will be logged:
+// Greetings, Tony Stark
+// Greetings, Vision
+// Greetings, Ultron
+```
