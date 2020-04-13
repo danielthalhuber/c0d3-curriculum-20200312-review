@@ -1,8 +1,11 @@
 {
-  "name": "c0d3-js2-ex-prototype",
+  "name": "c0d3-js02-arrays",
   "version": "1.0.0",
-  "description": "1. Get Evens 2. Sum 3. Pad 4. Fizzbuzz 5. Remove Evens 6. Get Iterator",
+  "description": "## Preflight",
   "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
   "scripts": {
     "test": "node ./node_modules/jest/bin/jest.js --watch"
   },

@@ -11,7 +11,6 @@ describe('primesOnly', () => {
   test('returns a copy with only prime number elements', () => {
     const arr = [1, 2, 3, 4, 5, 6, 'turkey'];
     const expected = [2, 3, 5];
-    console.log(primesOnly(arr));
     expect(primesOnly(arr)).toEqual(expected);
   });
 
