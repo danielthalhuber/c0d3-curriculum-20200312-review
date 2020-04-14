@@ -245,6 +245,48 @@
    - [Test](06.test.js)
 
 7. cForEach
+
+   - Goal: write a function called `solution` that replicates `Array.prototype.forEach`.
+   - Examples:
+
+     ```js
+     // logs:
+     // 5 0 [5, 8, 7]
+     // 8 1 [5, 8, 7]
+     // 7 2 [5, 8, 7]
+     [5, 8, 7].cForEach((e, i, arr) => {
+       console.log(e, i, arr);
+     });
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `cb`: function to be called for each element in the array with:
+
+         - Parameters:
+           - `cv`: value of the current element in the array
+           - `in`: index of the current element in the array
+           - `ar`: the array that `forEach` was called on
+
+       - `thisArg`: `this` value to use when calling `cb`
+       - `i`: 'private' number corresponding to current index of the array
+
+     - Returns: `undefined`
+
+   - Explanation:
+
+     - Start with `i = 0` and `thisArg = this`
+     - Base: if `!cb || i >= this.length`, then stop/return
+     - Recursive:
+
+       - Call `cb.call` and pass it `thisArg`, the current value of the array, the current index of the array, and a reference to the array
+       - Return a call to `cForEach`, incrementing `i` by 1
+
+   - [Code](07.js)
+   - [Test](07.test.js)
+
 8. cMap
 9. cReduce
 10. cFilter
