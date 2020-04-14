@@ -288,6 +288,55 @@
    - [Test](07.test.js)
 
 8. cMap
+
+   - Goal: write a function called `solution` that replicates `Array.prototype.map`.
+   - Examples:
+
+     ```js
+     // logs:
+     // 5 0 [5, 8, 7]
+     // 8 1 [5, 8, 7]
+     // 7 2 [5, 8, 7]
+     // returns: [5, 9, 9]
+     [5, 8, 7].cForEach((e, i, arr) => {
+       console.log(e, i, arr);
+       return e + i;
+     });
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `cb`: function to be called for each element in the array with:
+
+         - Parameters:
+           - `cv`: value of the current element in the array
+           - `in`: index of the current element in the array
+           - `ar`: the array that `forEach` was called on
+
+       - `thisArg`: `this` value to use when calling `cb`
+       - `i`: 'private' number corresponding to current index of the array
+       - `res`: 'private' array of `cb` return values
+
+     - Returns: `undefined`
+
+   - Explanation:
+
+     - Start with `i = 0` and `thisArg = this`
+     - Base: if `!cb || i >= this.length`, then return `res`
+     - Recursive:
+
+       - Append to `res`: the result of calling `cb.call` with the arguments:
+         - `thisArg`
+         - The current value of the array
+         - The current index of the array
+         - A reference to the array
+       - Return a call to `cMap`, incrementing `i` by 1
+
+   - [Code](08.js)
+   - [Test](08.test.js)
+
 9. cReduce
 10. cFilter
 11. cFind
