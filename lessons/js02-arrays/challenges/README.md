@@ -268,7 +268,7 @@
          - Parameters:
            - `cv`: value of the current element in the array
            - `in`: index of the current element in the array
-           - `ar`: the array that `forEach` was called on
+           - `ar`: the array that `cForEach` was called on
 
        - `thisArg`: `this` value to use when calling `cb`
        - `i`: 'private' number corresponding to current index of the array
@@ -313,7 +313,7 @@
          - Parameters:
            - `cv`: value of the current element in the array
            - `in`: index of the current element in the array
-           - `ar`: the array that `forEach` was called on
+           - `ar`: the array that `cMap` was called on
 
        - `thisArg`: `this` value to use when calling `cb`
        - `i`: 'private' number corresponding to current index of the array
@@ -338,5 +338,72 @@
    - [Test](08.test.js)
 
 9. cReduce
+
+   - Goal: write a function called `solution` that replicates `Array.prototype.reduce`.
+   - Examples:
+
+     ```js
+     // logs:
+     // 'hi' 5 0 [5, 8, 7]
+     // 'hi50' 8 1 [5, 8, 7]
+     // 'hi5081' 7 2 [5, 8, 7]
+     // result is 'hi508172'
+     const result = [5, 8, 7].cReduce((acc, e, i, arr) => {
+       console.log(acc, e, i, arr);
+       return acc + e + i;
+     }, 'hi');
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `cb`: function to be called for each element in the array with:
+
+         - Parameters:
+           - `ac`: accumulator value used accumulate callback return values. It is the value returned by the previous call of `cb` or the `iv` argument provided to `cReduce`
+           - `cv`: value of the current element in the array
+           - `in`: index of the current element in the array
+           - `ar`: the array that `cReduce` was called on
+
+       - `iv`:
+
+         - Initial value to be for each call of `cb`.
+         - For the first call of `cb`, if `iv` was not provided to `cReduce`:
+           - If the array is empty, a `TypeError` will be thrown
+           - The first element of the array will be used
+           - The second element of the array will be the first element to be consumed by `cb`
+
+       - `thisArg`: `this` value to use when calling `cb`
+       - `i`: 'private' number corresponding to current index of the array
+
+     - Returns: `undefined`
+
+   - Explanation:
+
+     - Start with `i = 0` and `thisArg = this`
+     - Base:
+
+       - If `!cb` throw a `TypeError` with message `'missing argument 0 when calling function Array.prototype.cReduce'`
+       - If `i === 0 && iv === undefined`:
+
+         - If `this.length === 0` throw a `TypeError` with message `'cReduce of empty array with no initial value'`
+         - Otherwise, return a call to `cReduce` setting the `iv` to the first element of the array, and incrementing `i` by 1
+
+       - If `i >= this.length`, then return `iv`
+
+     - Recursive:
+
+       - Assign to `iv` the value of calling `cb.call` with the arguments:
+         - `thisArg`
+         - `iv`
+         - The current value of the array
+         - The current index of the array
+         - A reference to the array
+       - Return a call to `cReduce`, incrementing `i` by 1
+
+   - [Code](09.js)
+   - [Test](09.test.js)
+
 10. cFilter
 11. cFind
