@@ -1,10 +1,10 @@
 {
-  "name": "c0d3-js01-challenges",
+  "name": "c0d3-js01-html-and-functions",
   "version": "1.0.0",
   "description": "Write a function called solution that...",
   "main": "01.js",
   "scripts": {
-    "test": "node ./node_modules/jest/bin/jest.js"
+    "test": "node ./node_modules/jest/bin/jest.js --watch"
   },
   "author": "",
   "license": "ISC",
