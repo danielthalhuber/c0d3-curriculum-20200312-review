@@ -324,7 +324,11 @@
    - Explanation:
 
      - Start with `i = 0` and `thisArg = this`
-     - Base: if `!cb || i >= this.length`, then return `res`
+     - Base:
+
+       - If `!cb` throw a `TypeError` with message `'missing argument 0 when calling function Array.prototype.cMap'`
+       - If `!cb || i >= this.length`, then return `res`
+
      - Recursive:
 
        - Append to `res`: the result of calling `cb.call` with the arguments:

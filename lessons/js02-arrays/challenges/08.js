@@ -14,7 +14,13 @@ const solution = () => {
    * @returns {*[]}
    */
   Array.prototype.cMap = function (cb, thisArg = this, i = 0, res = []) {
-    if (!cb || i >= this.length) return res;
+    if (!cb) {
+      throw new TypeError(
+        'missing argument 0 when calling function Array.prototype.cMap'
+      );
+    }
+
+    if (i >= this.length) return res;
 
     res.push(cb.call(thisArg, this[i], i, this));
     return this.cMap(cb, thisArg, i + 1, res);
