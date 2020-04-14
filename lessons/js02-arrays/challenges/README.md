@@ -171,6 +171,39 @@
    - [Test](04.test.js)
 
 5. Delayed Function Calls
+
+   - Goal: write a function called solution that takes in an array of functions and a number, and then calls every function in the array after the given number of milliseconds.
+   - Examples:
+
+     ```js
+     const fun = () => console.log('howdy');
+
+     // after 2 seconds 'howdy' will be logged three times
+     solution([fun, fun, fun], 2000);
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `arr`: array of functions to call after delay
+       - `time`: number of milliseconds of delay before calling the functions in `arr`
+       - `i`: 'private' number indicating current index of `arr`
+
+     - Returns: `undefined`
+
+   - Explanation:
+
+     - Start with `i = 0`
+     - Base: if `i >= arr.length`, then return/stop
+     - Recursive:
+
+       - Set a timeout to call the current function
+       - Call `solution`, incrementing `i` by 1
+
+   - [Code](05.js)
+   - [Test](05.test.js)
+
 6. Sequential Delayed Function Calls
 7. cForEach
 8. cMap
