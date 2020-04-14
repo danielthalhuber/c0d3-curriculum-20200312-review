@@ -1,5 +1,8 @@
 # JS2 - Arrays: Challenges
 
+- All solutions must be solved recursively. Higher-order functions like `forEach`, `reduce`, `filter`, `find`, or `map` are not allowed.
+- These methods will permitted after they have been implemented in the following challenges.
+
 1. Array Generator
 
    - Goal: write a function called `solution` that takes a number and returns an array with the length equal to the given number. Each element in the array should have a value equal to its index.
@@ -78,6 +81,42 @@
      - [Test](02.test.js)
 
 3. 2D Array Generator
+
+   - Goal: write a function called `solution` that takes 2 numbers and returns an array with length equal to the first number. Each element in the array is an array with length equal to the second number and all element values equal to 0.
+   - Examples:
+
+     ```js
+     // returns [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
+     solution(5, 2);
+
+     // returns [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+     solution(3, 3);
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `row`: number of arrays in the returned array
+       - `col`: number of elements in the array elements of the returned array
+       - `result`: 'private' array of arrays of equal length, all with zero values
+
+     - Returns: array
+     - Dependencies: function called `last` that returns the last element in an array, used to reduce repetition in the solution soce
+
+   - Explanation:
+
+     - Start with `result = []`
+     - Base: if the length of `result` is `row` and the length of its last element is `col` when `col > 0` , then return `result`
+     - Recursive:
+
+       - If `result` is empty or the last array in `result` has length `col`, then push an empty array into `result`
+       - If the last array in `result` has length less than `col`, then push a 0 into that last array
+       - Return a call to `solution`
+
+   - [Code](03.js)
+   - [Test](03.test.js)
+
 4. Closure Iterator
 5. Delayed Function Calls
 6. Sequential Delayed Function Calls
