@@ -1,7 +1,7 @@
 const solution = require('./10').solution;
 
-describe('2 Functions', function() {
-  it('should return 12', function() {
+describe('2 Functions', function () {
+  it('should return 12', function () {
     const result = solution(
       () => 6,
       () => 6
