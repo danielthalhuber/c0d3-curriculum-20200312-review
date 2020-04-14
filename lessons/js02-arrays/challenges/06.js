@@ -7,7 +7,7 @@
  * @param {number} i - 'private' number corresponding to current index of arr
  */
 
-const solution = (arr = [], time, i = 0) => {
+const solution = (arr = [], time = 0, i = 0) => {
   if (i >= arr.length) return;
 
   setTimeout(() => {
