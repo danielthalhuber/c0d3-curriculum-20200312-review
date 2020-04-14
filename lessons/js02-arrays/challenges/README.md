@@ -118,6 +118,58 @@
    - [Test](03.test.js)
 
 4. Closure Iterator
+
+   - Goal:
+
+     - Write a function called `solution` that takes an array and a function and returns a function.
+     - Each time the returned function is called, it returns the result of calling the given function with an element from the given array.
+     - The first time the it's called with the first element.
+     - Each subsequent call consumes the next element in the array.
+     - After the last element is consumed, the next time the function will be called with the first element of the given array so that the process can continue indefinitely.
+
+   - Examples:
+
+     ```js
+     const resf1 = solution([5, 2, 1, 3], (e) => {
+       return e + 1;
+     });
+     resf1(); // returns 6
+     resf1(); // returns 3
+     resf1(); // returns 2
+     resf1(); // returns 4
+     resf1(); // returns 6
+
+     const resf2 = solution(['hello', 'what', 'a', 'day'], (e) => {
+       if (e.length < 2) return '';
+       return e;
+     });
+     resf2(); // returns "hello"
+     resf2(); // returns "what"
+     resf2(); // returns ""
+     resf2(); // returns "day"
+     resf2(); // returns "hello"
+     resf2(); // returns "what"
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `arr`: array that will provide arguments for the given function
+       - `cb`: function that will be called with the values of `arr`
+
+     - Returns: array
+
+   - Explanation:
+
+     - Declare a mutable variable `i = -1`
+     - Return a function that:
+       - Finds the next index: assigns `i` the remainder of `i + 1` divided by the length of `arr`
+       - Returns the value of calling `cb` with the value of `arr` at `i`.
+
+   - [Code](04.js)
+   - [Test](04.test.js)
+
 5. Delayed Function Calls
 6. Sequential Delayed Function Calls
 7. cForEach
