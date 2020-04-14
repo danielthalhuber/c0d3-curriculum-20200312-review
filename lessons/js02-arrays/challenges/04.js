@@ -15,7 +15,7 @@
  * @returns {function}
  */
 
-const solution = (arr, cb) => {
+const solution = (arr = [], cb = () => false) => {
   let i = -1;
   return (val) => {
     i = (i + 1) % arr.length;
