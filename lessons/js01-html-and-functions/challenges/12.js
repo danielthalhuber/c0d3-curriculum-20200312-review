@@ -6,13 +6,10 @@
  *   again after waiting the returned number of milliseconds.
  * @param {number} a
  * @param {function} fun
- * @returns null
+ * @returns {undefined}
  */
 
-const solution = (a, fun) => {
-  setTimeout(() => setTimeout(fun, fun()), a);
-  return null;
-};
+const solution = (a, fun) => setTimeout(() => setTimeout(fun, fun()), a);
 
 module.exports = {
   solution,

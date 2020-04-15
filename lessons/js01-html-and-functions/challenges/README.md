@@ -441,7 +441,7 @@
         - `a`: public, number
         - `fun`: public, function
 
-      - Returns: `null`
+      - Returns: `undefined`
       - Side effect: calls `setTimeout`
 
     - Explanation:
