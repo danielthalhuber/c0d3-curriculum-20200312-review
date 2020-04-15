@@ -30,6 +30,6 @@ The process that students currently follow for each lesson:
   - [JS0 - Foundations](./lessons/js00-foundations/README.md)
   - [JS1 - HTML & Functions](./lessons/js01-html-and-functions/README.md)
   - [JS2 - Arrays](lessons/js02-arrays/README.md)
-  - JS3 - Objects
+  - [JS3 - Objects](lessons/js03-objects/README.md)
   - JS4 - Front End Engineering
   - [JS5 - System Design & Theory](lessons/js05-system-design/README.md)
