@@ -65,4 +65,24 @@
    - [Test](first-longer-than.test.js)
 
 3. Get Return Values
+
+   - Goal: write a function called `getReturnedValues` that takes an array of functions and returns an array of the values returned by those functions.
+   - Examples:
+
+     ```js
+     // returns [1, 2, 3]
+     getReturnedValues([() => 1, () => 2, () => 3]);
+
+     // each returns []
+     getReturnedValues([]);
+     getReturnedValues();
+     ```
+
+   - Signature:
+     - Parameters: `arr`: array of functions
+     - Returns: array
+   - Explanation: return the result of calling `map` on `arr` with a callback that executes returns the result of calling a given function
+   - Code
+   - Test
+
 4. Zero Square
