@@ -410,4 +410,60 @@
    - [Test](09.test.js)
 
 10. cFilter
+
+    - Goal: write a function called `solution` that replicates `Array.prototype.filter`.
+    - Examples:
+
+      ```js
+      // the following 5 statements will be logged to the console:
+      // 5, 0, original array
+      // 8, 1, original array
+      // 7, 2, original array
+      // 6, 3, original array
+      // 9, 4, original array
+      // result will be [8, 6]
+      const result = [5, 8, 7, 6, 9].cFilter((e, i, arr) => {
+        console.log(e, i, arr);
+        return e % 2 === 0;
+      });
+      ```
+
+    - Signature:
+
+      - Parameters:
+
+        - `cb`: function to be called for each element in the array with:
+
+          - Parameters:
+            - `cv`: value of the current element in the array
+            - `in`: index of the current element in the array
+            - `ar`: the array that `cFilter` was called on
+
+        - `thisArg`: `this` value to use when calling `cb`
+        - `i`: 'private' number corresponding to current index of the array
+        - `res`: 'private' array containing the filtered elements
+
+      - Returns: array
+
+    - Explanation:
+
+      - Start with `i = 0` and `thisArg = this`
+      - Base:
+
+        - If `!cb` throw a `TypeError` with message `'missing argument 0 when calling function Array.prototype.cFilter'`
+        - If `i >= this.length`, then return `res`
+
+      - Recursive:
+
+        - Call `cb.call` with the arguments:
+          - `thisArg`
+          - The current value of the array
+          - The current index of the array
+          - A reference to the array
+        - If the return value is true, push the current value of the array (`this[i]`) into `res`
+        - Return a call to `cFilter`, incrementing `i` by 1
+
+    - [Code](10.js)
+    - [Test](10.test.js)
+
 11. cFind
