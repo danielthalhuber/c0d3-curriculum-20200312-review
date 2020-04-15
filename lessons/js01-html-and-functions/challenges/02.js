@@ -11,11 +11,11 @@
  * @returns {function}
  */
 
-const solution = (num = 0, fun = () => {}, i = 0) => {
+const solution = (num = 0, fun = () => {}) => {
   return () => {
-    if (i >= num) return null;
+    if (num <= 0) return null;
 
-    i += 1;
+    num -= 1;
     return fun();
   };
 };
