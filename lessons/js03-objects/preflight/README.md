@@ -34,5 +34,35 @@
    - [Test](merge-arrays.test.js)
 
 2. First Longer Than
+
+   - Goal: write a function called `firstLongerThan` that finds the first string in an array which is longer than the given number.
+   - Examples:
+
+     ```js
+     // returns 'cc'
+     firstLongerThan(['a', 'b', 'cc', 'dd', 'eee'], 1);
+
+     // each returns undefined
+     firstLongerThan(['a', 'b', 'c'], 1);
+     firstLongerThan([], 1);
+     firstLongerThan();
+     ```
+
+   - Signature:
+
+     - Parameters:
+
+       - `ar`: array of strings to be searched
+       - `longerThan`: length of string which is 1 less than the target
+
+     - Returns: any
+
+   - Explanation:
+
+     - Return the result of calling `find` on `ar` with a function that takes a string and returns true if the string's length is greater than `longerThan`
+
+   - [Code](first-longer-than.js)
+   - [Test](first-longer-than.test.js)
+
 3. Get Return Values
 4. Zero Square
