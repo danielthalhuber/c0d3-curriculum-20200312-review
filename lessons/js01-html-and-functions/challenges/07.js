@@ -10,8 +10,9 @@
 
 const solution = (inp, letter, i = 0) => {
   if (i >= inp.length) return false;
+  if (inp[i] === letter) return true;
 
-  return inp[i] === letter || solution(inp, letter, i + 1);
+  return solution(inp, letter, i + 1);
 };
 
 module.exports = {

@@ -254,10 +254,13 @@
    - Explanation:
 
      - Starting with `i = 0`
-     - Base: if `i` is greater than or equal to the length of `inp`, return `false`
+     - Base:
+
+       - Return `false` if `i` is greater than or equal to the length of `inp`
+       - Return `true` if the character at index `i` of `inp` is equal to `letter`
+
      - Recursive:
 
-       - Return `true` if the character at index `i` of `inp` is equal to `letter`
        - Otherwise return a call to `solution`, incrementing `i` by 1
 
    - [Code](07.js)
