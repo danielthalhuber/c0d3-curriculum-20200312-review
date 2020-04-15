@@ -421,7 +421,7 @@
 
 12. Delay 1 and 2
 
-    - Goal: Write a function called solution that takes in 2 parameters, a number and a function. It should execute the input function (which returns a number) after first input parameter milliseconds. Executing the function again after waiting the returned number of seconds.
+    - Goal: Write a function called solution that takes in 2 parameters, a number and a function. It should execute the input function (which returns a number) after first input parameter milliseconds. The input function should be called again after waiting the returned number of seconds.
 
     - Example:
 
