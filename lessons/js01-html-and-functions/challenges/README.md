@@ -218,11 +218,13 @@
    - Explanation:
 
      - Starting with `i = 2`
-     - Base: if `num` is less than 2, or `num` is greater than 2 while being divisible by `i`, then return `false`
+     - Base:
+
+       - If `num` is less than 2, or `num` is greater than 2 while being divisible by `i`, then return `false`
+       - Return `true` if `i` is greater than or equal to the square root of `num`
 
      - Recursive:
 
-       - Return `true` if `i` is greater than or equal to the square root of `num`
        - Otherwise, return a call to `solution`, incrementing `i` by 1
 
    - [Code](06.js)
