@@ -11,7 +11,7 @@ const solution = () => {
    * @param {*} iv - initial value for each call of cb
    * @param {object} thisArg - value of this to be used by cb
    * @param {number} i - 'private', corresponds to current index of array
-   * @returns {*[]}
+   * @returns {*}
    */
   Array.prototype.cReduce = function (cb, iv, thisArg = this, i = 0) {
     if (!cb) {
