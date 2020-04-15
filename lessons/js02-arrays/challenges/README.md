@@ -467,3 +467,54 @@
     - [Test](10.test.js)
 
 11. cFind
+
+    - Goal: write a function called `solution` that replicates `Array.prototype.find`.
+    - Examples:
+
+      ```js
+      // the following 5 statements will be logged to the console:
+      // 5, 0, original array
+      // 8, 1, original array
+      // result will be 8
+      const result = [5, 8, 7].cFind((e, i, arr) => {
+        console.log(e, i, arr);
+        return e % 2 === 0;
+      });
+      ```
+
+    - Signature:
+
+      - Parameters:
+
+        - `cb`: function to be called for each element in the array with:
+
+          - Parameters:
+            - `cv`: value of the current element in the array
+            - `in`: index of the current element in the array
+            - `ar`: the array that `cFind` was called on
+
+        - `thisArg`: `this` value to use when calling `cb`
+        - `i`: 'private' number corresponding to current index of the array
+
+      - Returns: array
+
+    - Explanation:
+
+      - Start with `i = 0` and `thisArg = this`
+      - Base:
+
+        - If `!cb` throw a `TypeError` with message `'missing argument 0 when calling function Array.prototype.cFind'`
+        - If `i >= this.length`, then return/stop
+        - Call `cb.call` with the arguments:
+          - `thisArg`
+          - The current value of the array
+          - The current index of the array
+          - A reference to the array
+        - If the return value is true, return the current value of the array (`this[i]`)
+
+      - Recursive:
+
+        - Return a call to `cFind`, incrementing `i` by 1
+
+    - [Code](11.js)
+    - [Test](11.test.js)
