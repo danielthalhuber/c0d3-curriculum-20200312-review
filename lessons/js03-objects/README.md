@@ -1,3 +1,3 @@
 # JS3 - Objects
 
-## [Preflight](README.md)
+## [Preflight](preflight/README.md)
