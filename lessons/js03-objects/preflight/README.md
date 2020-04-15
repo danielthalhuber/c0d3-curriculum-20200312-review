@@ -82,7 +82,36 @@
      - Parameters: `arr`: array of functions
      - Returns: array
    - Explanation: return the result of calling `map` on `arr` with a callback that executes returns the result of calling a given function
-   - Code
-   - Test
+   - [Code](get-returned-values.js)
+   - [Test](get-returned-values.test.js)
 
 4. Zero Square
+
+   - Goal: write a function called `zeroSquare` that takes a number and returns a square two dimensional array of zeros with dimensions (array length and array element length each) equal to the given number. The arrays should be filled with zeros.
+   - Examples:
+
+     ```js
+     // returns undefined
+     zeroSquare(-47);
+     zeroSquare(0);
+     zeroSquare();
+
+     // returns [[0]]
+     zeroSquare(1);
+
+     // returns [[0, 0], [0, 0]]
+     zeroSquare(2);
+     ```
+
+   - Signature:
+
+     - Parameters: `n`: number representing the square length
+     - Returns: array or `undefined`
+
+   - Explanation:
+
+     - If `n` is not an integer greater than 0, return/stop
+     - Return the result of calling the array constructor for `n` elements, filling each element with `null` value, and then mapping those `null` values to the result of calling the array constructor for `n` elements and filling that array with 0s
+
+   - [Code](zero-square.js)
+   - [Test](zero-square.test.js)
