@@ -367,7 +367,6 @@
 
         - `str`: public, string
         - `fun`: public, function
-        - `i`: private, number
 
       - Returns: function with signature:
 
@@ -380,7 +379,7 @@
 
     - Explanation:
 
-      - Starting with `i = 0`
+      - Declare a mutable variable `i = 0`
       - Return a function that:
 
         - Calls `fun(i)`

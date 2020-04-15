@@ -17,7 +17,8 @@
  * @returns {function}
  */
 
-const solution = (str, fun, i = 0) => {
+const solution = (str, fun) => {
+  let i = 0;
   return () => {
     fun(str[i]);
     i = (i + 1) % str.length;
