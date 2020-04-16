@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List Part 1: Demo</title>
+  </head>
+  <body>
+    <h1 class="display">TODO LIST</h1>
+    <input class="newText" type="text" />
+    <button class="add">Add</button>
+    <div class="todoList"></div>
+    <script>
+      const list = document.querySelector('.todoList');
+      const inputElement = document.querySelector('.newText');
+      const buttonElement = document.querySelector('.add');
+      const todos = [];
+
+      const render = () => {
+        list.innerHTML = todos.reduce((acc, e) => {
+          return acc + `<h2 class="todo">${e}</h2>`;
+        }, '');
+        const todoElements = document.querySelectorAll('.todo');
+        todoElements.forEach((e, i) => {
+          e.onclick = () => {
+            todos.splice(i, 1);
+            render();
+          };
+        });
+      };
+
+      buttonElement.onclick = () => {
+        const newValue = inputElement.value;
+        todos.unshift(newValue);
+        render();
+      };
+    </script>
+  </body>
+</html>
