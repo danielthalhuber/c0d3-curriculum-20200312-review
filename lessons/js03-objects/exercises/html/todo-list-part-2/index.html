@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List Part 2</title>
+  </head>
+  <body>
+    <h1>Todo List</h1>
+    <div>
+      <input type="text" />
+      <button>Add</button>
+    </div>
+    <div class="todoList"></div>
+    <script>
+      // state
+
+      let todoItems = [];
+      const textInput = document.querySelector('input');
+      const addButton = document.querySelector('button');
+      const todoList = document.querySelector('div.todoList');
+
+      // actions
+
+      const saveTodos = () =>
+        localStorage.setItem('todoItems', JSON.stringify(todoItems));
+
+      const loadTodos = () => {
+        todoItems = JSON.parse(localStorage.getItem('todoItems')) || [];
+      };
+
+      const addTodo = () => {
+        if (textInput.value.trim() === '') return;
+
+        todoItems.push(textInput.value);
+        saveTodos();
+        textInput.value = '';
+      };
+
+      const deleteTodos = (index = -1) => {
+        if (index < 0 || index >= todoItems.length) return;
+
+        todoItems.splice(index, 1);
+        saveTodos();
+      };
+
+      renderTodos = () => {
+        todoList.innerHTML = todoItems.reduce(
+          (ac, cv) => (ac += `<h2>${cv}</h2>`),
+          ''
+        );
+        todoList.querySelectorAll('h2').forEach((todo, i) => {
+          todo.addEventListener('click', () => {
+            deleteTodos(i);
+            renderTodos();
+          });
+        });
+      };
+
+      // events
+
+      addButton.addEventListener('click', () => {
+        addTodo();
+        renderTodos();
+      });
+
+      // initialize
+
+      loadTodos();
+      renderTodos();
+    </script>
+  </body>
+</html>
