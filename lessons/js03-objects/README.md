@@ -92,4 +92,4 @@ A `select` element represents a control that provides a menu of options. The opt
 - [x] Should be a child of Browser Functions (Web API)
 - Recall that this method returns [a static NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList#Live_vs._Static_NodeLists), which is similar to an array of Elements.
 
-### Exercises
+### [Exercises](exercises/html/README.md)
