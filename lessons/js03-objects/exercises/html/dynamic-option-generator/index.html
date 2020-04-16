@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Option Generator</title>
+  </head>
+  <body>
+    <h1>Add Option</h1>
+    <div>
+      <input type="text" />
+      <button>Add</button>
+    </div>
+    <select></select>
+    <script>
+      // state
+
+      const textInput = document.querySelector('input');
+      const addButton = document.querySelector('button');
+      const select = document.querySelector('select');
+
+      // actions
+
+      const addOption = () => {
+        if (textInput.value.trim() === '') return;
+
+        const newOptionText = textInput.value;
+        select.innerHTML += `<option>${newOptionText}</option>`;
+        textInput.value = '';
+      };
+
+      // events
+
+      addButton.addEventListener('click', addOption);
+    </script>
+  </body>
+</html>

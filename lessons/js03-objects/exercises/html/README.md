@@ -1,6 +1,8 @@
 # JS3 - Objects: HTML Exercises
 
-1. Dynamic Option Generator
-2. Todo List
-3. Storybook
-4. Create a Friend Age Notebook
+1. [Dynamic Option Generator](dynamic-option-generator/README.md)
+2. Todo List Part 1
+3. Todo List Part 2
+4. Todo List Part 3
+5. Storybook
+6. Create a Friend Age Notebook
