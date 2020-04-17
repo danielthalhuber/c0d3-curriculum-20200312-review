@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List Part 3: Demo</title>
+  </head>
+  <body>
+    <h1 class="display">TODO LIST</h1>
+    <input class="filterInput" type="text" />
+    <button class="filterButton">Filter</button>
+
+    <input class="newInput" type="text" />
+    <button class="add">Add</button>
+    <div class="todoList"></div>
+    <script>
+      const list = document.querySelector('.todoList');
+      const inputElement = document.querySelector('.newInput');
+      const buttonElement = document.querySelector('.add');
+      const localData = localStorage.getItem('todo') || '[]';
+      const todos = JSON.parse(localData);
+
+      const filterInput = document.querySelector('.filterInput');
+      const filterButton = document.querySelector('.filterButton');
+      filterButton.onclick = () => {
+        const filterValue = filterInput.value;
+        const results = todos.filter((e) => {
+          return e.includes(filterValue);
+        });
+        render(results);
+      };
+
+      const render = (arr = todos) => {
+        const newData = JSON.stringify(todos);
+        localStorage.setItem('todo', newData);
+
+        list.innerHTML = arr.reduce((acc, e) => {
+          return acc + `<h2 class="todo">${e}</h2>`;
+        }, '');
+        const todoElements = document.querySelectorAll('.todo');
+        todoElements.forEach((e, i) => {
+          e.onclick = () => {
+            todos.splice(i, 1);
+            render();
+          };
+        });
+      };
+
+      buttonElement.onclick = () => {
+        const newValue = inputElement.value;
+        todos.unshift(newValue);
+        render();
+      };
+
+      render();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List Part 3</title>
+  </head>
+  <body>
+    <h1>Todo List</h1>
+    <div>
+      <input type="text" class="todo-input" />
+      <button>Add</button>
+    </div>
+    <div>
+      <input
+        type="text"
+        class="filter-input"
+        placeholder="Type here to filter list..."
+      />
+    </div>
+    <div class="todoList"></div>
+    <script>
+      // state
+
+      let todoItems = [];
+      const todoInput = document.querySelector('input.todo-input');
+      const addButton = document.querySelector('button');
+      const filterInput = document.querySelector('input.filter-input');
+      const todoList = document.querySelector('div.todoList');
+
+      // actions
+
+      const saveTodos = () =>
+        localStorage.setItem('todoItems', JSON.stringify(todoItems));
+
+      const loadTodos = () => {
+        todoItems = JSON.parse(localStorage.getItem('todoItems')) || [];
+      };
+
+      const addTodo = () => {
+        if (todoInput.value.trim() === '') return;
+
+        todoItems.push(todoInput.value);
+        saveTodos();
+        todoInput.value = '';
+      };
+
+      const deleteTodos = (index = -1) => {
+        if (index < 0 || index >= todoItems.length) return;
+
+        todoItems.splice(index, 1);
+        saveTodos();
+      };
+
+      const renderTodos = (filterText = '') => {
+        todoList.innerHTML = todoItems
+          .filter((todoText) => todoText.includes(filterText))
+          .reduce((ac, cv) => (ac += `<h2>${cv}</h2>`), '');
+        todoList.querySelectorAll('h2').forEach((todo, i) => {
+          todo.addEventListener('click', () => {
+            deleteTodos(i);
+            renderTodos();
+          });
+        });
+      };
+
+      // events
+
+      addButton.addEventListener('click', () => {
+        addTodo();
+        renderTodos();
+      });
+
+      filterInput.addEventListener('keyup', () =>
+        renderTodos(filterInput.value)
+      );
+
+      // initialize
+
+      loadTodos();
+      renderTodos();
+    </script>
+  </body>
+</html>
