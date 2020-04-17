@@ -44,7 +44,7 @@
         saveTodos();
       };
 
-      renderTodos = () => {
+      const renderTodos = () => {
         todoList.innerHTML = todoItems.reduce(
           (ac, cv) => (ac += `<h2>${cv}</h2>`),
           ''
