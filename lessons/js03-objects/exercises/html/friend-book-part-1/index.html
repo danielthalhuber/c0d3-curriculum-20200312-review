@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Friend Age Notebook Part 1</title>
+  </head>
+  <body>
+    <h1>Friend List</h1>
+    <label>
+      Name:
+      <input class="new-name" />
+    </label>
+    <label>
+      Age:
+      <input class="new-age" />
+    </label>
+    <button>Add</button>
+    <div></div>
+    <script>
+      // state
+
+      const friends = [];
+      const newName = document.querySelector('.new-name');
+      const newAge = document.querySelector('.new-age');
+      const addButton = document.querySelector('button');
+      const friendList = document.querySelector('div');
+
+      // actions
+
+      const addFriend = (name, age) => friends.push([name, age]);
+
+      const renderFriendList = () => {
+        friendList.innerHTML = friends.reduce(
+          (ac, [name, age]) =>
+            `${ac}<div><h2>${name}</h2><h3>${age}</h3></div>`,
+          ''
+        );
+      };
+
+      // events
+
+      addButton.addEventListener('click', () => {
+        const name = newName.value;
+        const age = newAge.value;
+
+        if (!name || !age) {
+          return alert('Name and Age are required!');
+        }
+
+        addFriend(name, age);
+        newName.value = '';
+        newAge.value = '';
+        renderFriendList();
+      });
+
+      // initialize
+
+      renderFriendList();
+    </script>
+  </body>
+</html>
