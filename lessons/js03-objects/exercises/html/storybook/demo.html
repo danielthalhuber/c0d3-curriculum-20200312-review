@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Storybook: Demo</title>
+  </head>
+  <body>
+    <button class="prev">Previous</button>
+    <button class="next">Next</button>
+    <hr />
+    <div class="display"></div>
+    <hr />
+    <textarea class="storyInput" type="text"></textarea>
+    <button class="submit">Submit</button>
+    <div class="storyList"></div>
+
+    <script>
+      const display = document.querySelector('.display');
+      const input = document.querySelector('.storyInput');
+      const storyList = document.querySelector('.storyList');
+
+      let idx = 0;
+      document.querySelector('.next').onclick = () => {
+        idx = idx + 1;
+        if (idx >= data.length) {
+          idx = data.length - 1;
+        }
+        renderDisplay();
+      };
+
+      document.querySelector('.prev').onclick = () => {
+        idx = idx - 1;
+        if (idx <= 0) {
+          idx = 0;
+        }
+        renderDisplay();
+      };
+
+      const dataStr = localStorage.getItem('story') || '[]';
+      let data = JSON.parse(dataStr);
+      if (!data.length) {
+        data = [
+          'I used to think the brain was the most important organ. Then I thought, look what’s telling me that.',
+          'A farmer in the field with his cows counted 196 of them, but when he rounded them up he had 200.',
+          'What is Bruce Lee’s favorite drink? Wataaaaah!',
+          ' If you want to catch a squirrel just climb a tree and act like a nut.',
+          'A magician was walking down the street and turned into a grocery store.',
+        ];
+      }
+
+      const renderDisplay = () => {
+        display.innerText = data[idx];
+      };
+
+      const renderStoryList = () => {
+        localStorage.setItem('story', JSON.stringify(data));
+        storyList.innerHTML = data.reduce((acc, e) => {
+          return (
+            acc +
+            `
+                <h3 class="storyItem">${e}</h3>
+                `
+          );
+        }, '');
+
+        document.querySelectorAll('.storyItem').forEach((e, i) => {
+          e.onclick = () => {
+            data.splice(i, 1);
+            renderStoryList();
+          };
+        });
+      };
+
+      renderDisplay();
+      renderStoryList();
+
+      const submit = document.querySelector('.submit');
+      submit.onclick = () => {
+        const val = input.value;
+        if (val.length < 3) {
+          return alert('input too short');
+        }
+        data.push(val);
+        renderStoryList();
+        input.value = '';
+      };
+    </script>
+  </body>
+</html>

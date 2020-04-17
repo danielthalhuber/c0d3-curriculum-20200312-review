@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Storybook</title>
+  </head>
+  <body>
+    <h1>Storybook</h1>
+    <div class="viewer">
+      <h2>Viewer</h2>
+      <div class="controls">
+        <button class="prev">Previous Page</button>
+        <button class="next">Next Page</button>
+      </div>
+      <br />
+      <div class="page-view"></div>
+    </div>
+    <hr />
+    <div class="editor">
+      <h2>Editor</h2>
+      <textarea placeholder="Type new page text here..."></textarea>
+      <button>Add Page</button>
+      <div></div>
+    </div>
+    <script>
+      // state
+
+      let pages = [];
+      let currentPage = 0;
+      const prevButton = document.querySelector('.prev');
+      const nextButton = document.querySelector('.next');
+      const pageView = document.querySelector('.page-view');
+      const pageInput = document.querySelector('textarea');
+      const addButton = document.querySelector('.editor > button');
+      const pageEditList = document.querySelector('.editor > div');
+
+      // actions
+
+      const paragraphize = (text = '') => {
+        if (text === '') return text;
+
+        return `<p>${text.replace(/\n/g, '</p><p>')}</p>`;
+      };
+
+      const savePageState = () => {
+        localStorage.setItem('pages', JSON.stringify(pages));
+        localStorage.setItem('currentPage', JSON.stringify(currentPage));
+      };
+
+      const loadPageState = () => {
+        const dummyContent = [
+          'Page 1\nLet there be HTML\nAnd on the 2nd day Bob was born',
+          'Page 2\nBob was like, "dude what\'s my name?"\nAnd HTML said, "Bob!"',
+          'Page 3\nBob was like, "dude what\'s HTML?"\nAnd HTML said, "Uh..."',
+        ];
+        pages = JSON.parse(localStorage.getItem('pages')) || dummyContent;
+        currentPage = JSON.parse(localStorage.getItem('currentPage')) || 0;
+      };
+
+      const addPage = () => {
+        if (pageInput.value.trim() === '') return;
+
+        pages.push(pageInput.value);
+        savePageState();
+        pageInput.value = '';
+      };
+
+      const deletePage = (index = -1) => {
+        if (index < 0 || index >= pages.length) return;
+
+        pages.splice(index, 1);
+        savePageState();
+      };
+
+      const renderPageView = () =>
+        (pageView.innerHTML = paragraphize(pages[currentPage]));
+
+      const renderPageEditList = () => {
+        pageEditList.innerHTML = pages.reduce(
+          (ac, cv) => (ac += `<br /><div>${paragraphize(cv)}</div>`),
+          ''
+        );
+        pageEditList.querySelectorAll('div').forEach((page, i) => {
+          page.addEventListener('click', () => {
+            deletePage(i);
+            renderPageEditList();
+          });
+        });
+      };
+
+      // events
+
+      addButton.addEventListener('click', () => {
+        addPage();
+        renderPageEditList();
+      });
+      prevButton.addEventListener('click', () => {
+        currentPage -= currentPage === 0 ? 0 : 1;
+        savePageState();
+        renderPageView();
+      });
+      nextButton.addEventListener('click', () => {
+        currentPage += currentPage < pages.length - 1 ? 1 : 0;
+        savePageState();
+        renderPageView();
+      });
+
+      // initialize
+
+      loadPageState();
+      renderPageView();
+      renderPageEditList();
+    </script>
+  </body>
+</html>
