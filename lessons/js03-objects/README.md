@@ -93,3 +93,171 @@ A `select` element represents a control that provides a menu of options. The opt
 - Recall that this method returns [a static NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList#Live_vs._Static_NodeLists), which is similar to an array of Elements.
 
 ### [Exercises](exercises/html/README.md)
+
+## Objects
+
+- Data structure where items have keys and values
+- Access properties with:
+
+  - `objectName.propertyName`
+  - `objectName['propertyName']`
+  - `objectName[variableWithPropertyNameValue]`
+
+  ```js
+  const student = {
+    first: 'Harry',
+    last: 'Potter',
+    age: 25,
+  };
+
+  const firstName = student['first']; // firstName has the value 'Harry'
+
+  const student2 = student;
+  student2['name'] = 'last';
+  // what is student2?
+  // what is student?
+
+  // answer:
+  // student2 is student is { first: 'Harry', last: 'Potter', age: 25, name: last }
+
+  // The benefit of using [] for getting values is that you can use variables as keys.
+  student2[student2.name] = 'Weasley';
+  // what is student2?
+  // what is student?
+
+  // answer:
+  // student is student2 is { first: 'Harry', last: 'Weasley', age: 25, name: last }
+  ```
+
+- Like arrays, objects are a non-primitive data type:
+
+  ```js
+  const star = { name: 'Tarzan' };
+  const star2 = star;
+  star2['friend'] = star;
+  star2['friend']['lover'] = 'Jane';
+  // what is star2?
+  // what is star?
+
+  // answer:
+  // star is star2 is { name: 'Tarzan', friend: star, lover: 'Jane' }
+
+  star['name'] = 'Sarah';
+  // what is star2?
+  // what is star?
+
+  // answer:
+  // star is star2 is { name: 'Sarah', friend: star, lover: 'Jane' }
+
+  const allStars = [star, star2];
+  allStars[0]['lover'] = allStars[1]['name'];
+  // what is star2?
+  // what is star?
+  // what is allStars?
+
+  // answer:
+  // star is star2 is { name: 'Sarah', friend: star, lover: 'Sarah' }
+  // allStars is [star, star2]
+  ```
+
+- Values can be anything:
+
+  ```js
+  const snacks = {
+    nutella: () => {
+      return 200;
+    },
+    pixyStix: () => {
+      return 9;
+    },
+    lays: () => {
+      return 135;
+    },
+  };
+  let calories = snacks['nutella'](); // what is calories?
+
+  // answer: calories is 200
+
+  calories = snacks['pixyStix'](); // what is calories?
+
+  // answer: calories is 9
+
+  calories = snacks['lays'](); // what is calories?
+
+  // answer: calories is 135
+  ```
+
+- Another example with functions:
+
+  ```js
+  // Problem 1:
+  const magician = {
+    perform: () => {
+      return magician;
+    },
+  };
+  const houdini = magician.perform().perform(); // what is houdini?
+  const same = magician === houdini; // what is same?
+
+  // answer 1:
+  // houdini is magician
+  // same is true
+
+  /*
+    Problem 2: Create a prepareStage object with a then property so the following code
+    will not cause an error.
+  
+    prepareStage.then().then().then();
+  */
+
+  // answer 2:
+  const prepareStage = {
+    then: () => prepareStage,
+  };
+
+  /*
+    alternate answer 2:
+    const prepareStage = {
+      then: function ()
+        return this;
+      },
+    };
+  
+  */
+
+  /*
+    Problem 3: Create the prepareStage object with a then property that
+    console.logs each input: Should log Squirtle, Wartortle, Blastoise
+  
+    prepareStage.then('Squirtle').then('Wartortle').then('Blastoise');
+  */
+
+  // answer 3:
+  const prepareStage = {
+    then: function (arg) {
+      console.log(arg);
+      return this;
+    },
+  };
+
+  /*
+    Problem 4: Create the prepareStage object with a then property that
+     executes its function argument: Should log Abracadabra! 3 times
+  
+    const performMagic = () => {
+      console.log('Abracadabra!');
+    };
+  
+    prepareStage.then(performMagic).then(performMagic).then(performMagic);
+  */
+
+  // answer 4:
+  const prepareStage = {
+    then: function (arg) {
+      arg();
+      return this;
+    },
+  };
+  ```
+
+### [Exercises](exercises/objects/README.md)
