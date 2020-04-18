@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Friend Age Notebook Part 3: Demo</title>
+  </head>
+  <body>
+    <!-- Note: the demo provided in the book is unchanged for this mini-exercise -->
+    <h1 class="display">Friends List</h1>
+    Name: <input class="friendInput" type="text" /> Age:
+    <input class="ageInput" type="text" />
+    <button class="add">Add</button>
+    <div class="friendsList"></div>
+
+    <script>
+      const list = document.querySelector('.friendsList');
+      const nameInput = document.querySelector('.friendInput');
+      const ageInput = document.querySelector('.ageInput');
+      const buttonElement = document.querySelector('.add');
+
+      const friendsData = localStorage.getItem('friends') || '[]';
+      const friends = JSON.parse(friendsData);
+
+      const agesData = localStorage.getItem('ages') || '[]';
+      const ages = JSON.parse(agesData);
+
+      const render = () => {
+        const newFriendsData = JSON.stringify(friends);
+        localStorage.setItem('friends', newFriendsData);
+
+        const newAgesData = JSON.stringify(ages);
+        localStorage.setItem('ages', newAgesData);
+
+        list.innerHTML = friends.reduce((acc, e, i) => {
+          const age = ages[i];
+          return (
+            acc +
+            `
+        <div>
+          <h2 class="friendName">${e}</h2>
+        </div>
+        `
+          );
+        }, '');
+        const nameElements = document.querySelectorAll('.friendName');
+        nameElements.forEach((e, i) => {
+          e.onclick = () => {
+            alert(ages[i]);
+          };
+        });
+      };
+
+      buttonElement.onclick = () => {
+        const nameValue = nameInput.value;
+        friends.unshift(nameValue);
+
+        const ageValue = ageInput.value;
+        ages.unshift(ageValue);
+
+        render();
+      };
+
+      render();
+    </script>
+  </body>
+</html>
