@@ -261,3 +261,22 @@ A `select` element represents a control that provides a menu of options. The opt
   ```
 
 ### [Exercises](exercises/objects/README.md)
+
+## Object Helpers
+
+There are several useful helper functions for working with objects:
+
+- `Object.keys`: takes an object and returns an array of its keys
+- `Object.values`: takes an object and returns an array of its values
+- `Object.entries`: takes an object and returns an array of property/entry arrays, each containing a key and value
+- `Object.prototype.hasOwnProperty`: takes a string and returns true if the object has a key equal to the string
+- `delete` operator: removes a property from an object
+
+  ```js
+  const obj = { one: 1, two: 2 };
+
+  // result: object will become { two: 2 }
+  delete obj.one;
+  ```
+
+### [Exercises](exercises/helpers/README.md)
