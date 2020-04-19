@@ -1,7 +1,7 @@
 const { commas } = require('.');
 
 describe('commas', () => {
-  describe('returns a comma separated list of values when', () => {
+  describe('returns a comma separated list of values', () => {
     [
       [{ 1: 1, 2: 2, 3: '3' }, '3', 'only one value is a string'],
       [{ 1: 1, 2: 'two', 3: '3' }, 'two,3', 'multiple values are strings'],
