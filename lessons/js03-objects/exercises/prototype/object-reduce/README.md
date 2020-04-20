@@ -43,14 +43,16 @@ console.log(result);
 
   - `iv`: initial value for the accumulator
 
-- Returns: `undefined`
+- Returns: undetermined
 
 ## Explanation
 
 - Add the property `reduce` to `Object.prototype`
 - Assign it a regular function expression that accepts the `reducer` and `iv` parameters
-- Call `Object.entries` on `this` (the object)
-- Return the value returned by calling `reduce` on the resulting array with:
+- If the `reducer` is not provided, return/stop
+- Call `Object.entries` on `this` (the object) and assign the result to `entries`
+- If the `iv` parameter was not provided (or `undefined`), shift the first value off of `entries` and assign it to `iv`
+- Return the value returned by calling `reduce` on the `entries` array:
 
   - Reducer that calls the given `reducer` with the key and value from the entry along with an accumulator, index and a reference to the original object
   - Initial value `iv`

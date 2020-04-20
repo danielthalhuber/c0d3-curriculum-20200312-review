@@ -11,10 +11,10 @@ const monkeyPatchObjectReduce = () => {
   Object.prototype.reduce = function (reducer, iv) {
     if (typeof reducer !== 'function') return;
 
-    return Object.entries(this).reduce(
-      (ac, [k, v], i) => reducer(ac, k, v, i, this),
-      iv
-    );
+    const entries = Object.entries(this);
+    if (iv === undefined) iv = entries.shift();
+
+    return entries.reduce((ac, [k, v], i) => reducer(ac, k, v, i, this), iv);
   };
 };
 

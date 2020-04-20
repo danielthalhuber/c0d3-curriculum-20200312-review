@@ -55,4 +55,11 @@ describe('Object.reduce', () => {
   test('returns the expected, reduced value', () => {
     expect(result).toEqual(expected);
   });
+
+  test('uses 1st entry ([key, value]) if no initial value is provided', () => {
+    const obj = { first: 1, second: 2 };
+    const reducer = jest.fn();
+    obj.reduce(reducer);
+    expect(reducer.mock.calls[0][0]).toEqual(['first', 1]);
+  });
 });
