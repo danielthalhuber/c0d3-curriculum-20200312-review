@@ -96,12 +96,12 @@ A `select` element represents a control that provides a menu of options. The opt
 
 ## Objects
 
-- Data structure where items have keys and values
-- Access properties with:
+- Objects are collections of named properties with values
+- The general term for the name of a property is `key`
 
-  - `objectName.propertyName`
-  - `objectName['propertyName']`
-  - `objectName[variableWithPropertyNameValue]`
+  - `objectName.key`
+  - `objectName['key']`
+  - `objectName[variable]`, where `variable` has been assigned the value of the property name or key
 
   ```js
   const student = {
@@ -280,3 +280,114 @@ There are several useful helper functions for working with objects:
   ```
 
 ### [Exercises](exercises/helpers/README.md)
+
+## Prototype Inheritance
+
+- [ ] This section should develop the concept of prototypes. The lack of definition of the term prototype combined with the use of native prototypes will drive confusion in many students.
+
+### Prototype
+
+- Every object has a private reference to a _prototype_
+- A prototype is an object to which property searches can be delegated
+  - Example:
+    - Search for the property `isAwesome` on object `a` using dot notation: `a.isAwesome`
+    - If the `isAwesome` property cannot be found in `a`, then `a`'s prototype `b` can be searched
+    - If the `isAwesome` property cannot be found in `b`, then `b`'s prototype `c` can be searched, and so on, up the _prototype chain_
+
+### Prototype Methods
+
+- A prototype method is a property with a function value that exists in one of the objects in a prototype chain
+- A prototype function is a convenient and _memory efficient_ way to add methods to constructed objects
+- Note that searching for prototype methods can be _time inefficient_, especially when the method does not exist and the entire chain must be searched
+- Caution:
+
+  - Arrow functions have limited use as prototype methods due to the fact that they cannot have their own `this` binding. For this reason, it's usually better to use a regular function expression instead of an arrow function expression for defining prototype methods (or methods in general).
+  - Adding methods to native prototypes (AKA monkey patching) is considered a bad practice since it breaks encapsulation and can cause unexpected behavior.
+
+Example:
+
+```js
+// Create an object
+const bob = {
+  name: 'Bob',
+  age: 400,
+};
+
+/*
+ Observe that bob is an instance of Object. This means that the prototype of
+ the Object function is in the prototype chain of bob
+ */
+// logs true
+console.log(bob instanceof Object);
+
+/*
+ In fact, bob's prototype chain is:
+ bob --> Object.prototype --> null
+ */
+const bobsPrototype = Object.getPrototypeOf(bob);
+// logs true
+console.log(bobsPrototype === Object.prototype);
+// logs true
+console.log(Object.getPrototypeOf(bobsPrototype) === null);
+
+/*
+ So if we add a prototype method to Object (i.e. add a method to the prototype
+ of the the Object constructor, and yes this is bad practice but it helps us
+ illustrate the principle of inheritance), then the method will then be
+ available to bob, since this prototype is somewhere in bob's prototype chain
+ */
+Object.prototype.incrementCount = function () {
+  if (!this.hasOwnProperty(count)) this.count = 0;
+  this.count += 1;
+};
+
+/*
+ Calling the new method on bob causes the JS engine to search bob, and
+ ultimately bob's prototype chain to find the method. When the property is
+ found and called, it adds a property to this (bob)
+ */
+// bob is now { name: "Bob", age: 400, count: 1 }
+bob.incrementCount();
+```
+
+#### The new Operator
+
+- The `new` operator creates an instance of an object type (as defined by a constructor function)
+
+  - Creates an empty object
+  - Assigns a prototype to the empty object. The assigned value is the prototype property of the object type (constructor function).
+  - Calls the constructor function with `this` bound to the newly created empty object
+  - Returns:
+
+    - If the constructor returns a non-null/false/primitive value, then this value is used
+    - Otherwise, the newly created object
+
+Example using `new`:
+
+```js
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+const me = new Person('Joe', 24);
+```
+
+Example without using `new`:
+
+```js
+function Person(name, age) {
+  // create empty object, assign prototype
+  const this = Object.create(Person.prototype);
+
+  this.name = name;
+  this.age = age;
+
+  // return the new object
+  return this;
+}
+
+const me = Person('Joe', 24);
+```
+
+### [Exercises](exercises/prototype/README.md)
