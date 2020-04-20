@@ -1,6 +1,6 @@
 # JS3 - Objects: Prototype Exercises
 
-1. Object For Each
+1. [Object For Each](object-for-each/README.md)
 2. Object Filter
 3. Object Reduce
 4. Array Get Char Count
