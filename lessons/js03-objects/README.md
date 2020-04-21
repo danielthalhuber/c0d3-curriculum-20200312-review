@@ -391,3 +391,9 @@ const me = Person('Joe', 24);
 ```
 
 ### [Exercises](exercises/prototype/README.md)
+
+## Arrays as Objects
+
+Newsflash: arrays (like almost everything else in JavaScript) are objects too. Now back to more exercises...
+
+### Exercises
