@@ -1,5 +1,5 @@
 /**
- * Add the reduce method to Object.prototype
+ * Add the reduce method to Array.prototype
  */
 const monkeyPatchArrayGetMostCommon = () => {
   /**
