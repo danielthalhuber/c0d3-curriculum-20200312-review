@@ -564,3 +564,7 @@ console.log(result);
 2. Create 1 file that imports the files created above and does something with the imported object and function. Make sure to `console.log` your output to make sure your functions are called correctly.
 
 > These are good exercises, but I'm going to skip them since I've been importing and exporting extensively throughout the curriculum.
+
+## Libraries
+
+### [Exercises](exercises/libraries/README.md)
