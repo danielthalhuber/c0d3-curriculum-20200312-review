@@ -396,4 +396,4 @@ const me = Person('Joe', 24);
 
 Newsflash: arrays (like almost everything else in JavaScript) are objects too. Now back to more exercises...
 
-### Exercises
+### [Exercises](exercises/arrays-as-objects/README.md)
