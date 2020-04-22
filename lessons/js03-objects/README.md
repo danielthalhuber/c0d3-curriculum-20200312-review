@@ -568,3 +568,5 @@ console.log(result);
 ## Libraries
 
 ### [Exercises](exercises/libraries/README.md)
+
+- [ ] Write tests for the exercise solutions
