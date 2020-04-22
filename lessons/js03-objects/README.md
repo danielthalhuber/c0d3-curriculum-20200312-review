@@ -397,3 +397,115 @@ const me = Person('Joe', 24);
 Newsflash: arrays (like almost everything else in JavaScript) are objects too. Now back to more exercises...
 
 ### [Exercises](exercises/arrays-as-objects/README.md)
+
+## Function vs. Fat Arrow
+
+Arrow function expressions differ from regular function expressions and function declarations in that they don't have their own bindings to the `this`, `arguments`, `super`, or `new.target` keywords. Without these bindings, they cannot be used as constructors, and they're not always the best choice for methods.
+
+The most significant of these differences is `this`.
+
+For regular functions, `this` is:
+
+- For simple calls:
+
+  - not in strict mode: the global object
+  - in strict mode: `undefined`
+
+- For calls using `call` or `apply`: the value of `this` passed to `call` or `apply`
+- For functions created using using the `bind` method: the value supplied as an argument to `bind`
+- As an object method: the object that the method was called on
+- For constructor calls using `new`: the object being constructed
+- As a DOM event handler or inline event handler: the element on which the listener is placed
+
+For arrow functions, `this` is the context in which it is created.
+
+### Examples
+
+```js
+setTimeout(function () {
+  // What is this?
+  console.log(this);
+});
+
+// answer: this is the global object
+```
+
+```js
+function Person(age) {
+  this.age = age;
+}
+Person.complain = function () {
+  if (this.age >= 100) {
+    return "I'm getting way too old for these JavaScript exercises";
+  }
+  return "I'm not old enough";
+};
+
+const yoda = new Person(419);
+
+// what is logged?
+console.log(yoda.complain());
+
+/*
+  answer:
+
+  - a new person object is constructed with age 419
+  - the complain method is called on the new person object
+  - the person object does not have a complain method, so its value is undefined
+  - recall that complain is a static method of Person
+  - attempting to call undefined throes a type error: not a function
+  - so nothing is logged!
+ */
+```
+
+```js
+function Person(age) {
+  this.age = age;
+}
+Person.prototype.complain = () => {
+  if (this.age >= 100) {
+    return "I'm getting way too old for these JavaScript exercises";
+  }
+  return "I'm not old enough";
+};
+
+const yoda = new Person(419);
+
+// what is logged?
+console.log(yoda.complain());
+
+/*
+  answer:
+
+  - a new person object is constructed with age 419
+  - the complain method is called on the new person object
+  - the object does not have a complain method
+  - so the object's prototype chain is searched
+  - the complain method is located on its prototype and it is called
+  - this is the global object since the method uses an arrow function
+  - the method returns "I'm not old enough" since this.age is probably undefined
+ */
+```
+
+```js
+const arr = [1, 2, 3];
+Array.prototype.delayedLast = function () {
+  setTimeout(() => {
+    console.log(this[this.length - 1]);
+  }, 1000);
+};
+
+// what is logged?
+arr.delayedLast(); // After 1000ms,
+// the browser will print out 3. It works!
+
+/*
+  answer:
+
+  - console.log is called within an arrow function
+  - so the value of this passed to console.log is bound to the context in which is was created (lexical context)
+  - the value of this bound to the regular function
+  - the regular function is called as a method of the arr object, so this is bound to arr
+  - when console.log is called, this is then arr
+ */
+```
