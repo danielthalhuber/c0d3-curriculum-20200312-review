@@ -509,3 +509,58 @@ arr.delayedLast(); // After 1000ms,
   - when console.log is called, this is then arr
  */
 ```
+
+## Import/Export
+
+- Export from a module file by adding a value to `module.exports`
+- Import the exported value(s) in another file using `require` with a path to the module file
+
+Example:
+
+```js
+// dir/helper1.js
+const info = {
+  ironman: 'arrogant',
+  spiderman: 'naive',
+  hulk: 'strong',
+};
+
+module.exports = {
+  data: info,
+  getData: (key) => {
+    return info[key];
+  },
+};
+```
+
+```js
+// dir/helper2.js
+module.exports = ['ironman', 'strange', 'thor', 'spiderman', 'hulk'];
+```
+
+```js
+// dir/solution.js
+// importedObject takes the value of module.exports, which is an object
+const myObj = require('./helper1.js');
+
+// importedArray takes the value of module.exports, which is an array
+const myArr = require('./helper2.js');
+
+// what is result?
+const result = myArr.filter((e) => {
+  return myObj.getData(e);
+});
+
+console.log(result);
+
+// answer:
+// result is ['ironman', 'spiderman', 'hulk']
+```
+
+### Exercises
+
+1. Create 2 files, `./myObj.js`, `./myFun.js`, that export an object and a function respectively.
+
+2. Create 1 file that imports the files created above and does something with the imported object and function. Make sure to `console.log` your output to make sure your functions are called correctly.
+
+> These are good exercises, but I'm going to skip them since I've been importing and exporting extensively throughout the curriculum.
