@@ -574,3 +574,5 @@ console.log(result);
 ## APIs
 
 ### [Exercises](exercises/apis/README.md)
+
+- [ ] Write tests for the exercise solutions
