@@ -42,7 +42,7 @@ writeHtmlLessons();
       - Side-effects:
 
         - Makes HTTP requests
-        - Logs to the console
+        - Writes to file system
 
     - Explanation:
 

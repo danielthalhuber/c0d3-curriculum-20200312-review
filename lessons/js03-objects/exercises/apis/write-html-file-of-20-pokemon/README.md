@@ -42,7 +42,7 @@ writeHtml20Pokemon();
       - Side-effects:
 
         - Makes HTTP requests
-        - Logs to the console
+        - Writes to filesystem
 
     - Explanation:
 
