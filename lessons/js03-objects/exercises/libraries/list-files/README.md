@@ -35,7 +35,7 @@ listFiles();
 
 - Call `fs.readfile` with the following arguments:
 
-  - Path: `__dirname`
+  - Path: `./`
   - Callback: a function that calls creates the HTML string from the `files` parameter and then calls `fs.writeFile` to write the file named `files.html` to the current directory
 
 ## [Code](index.js)

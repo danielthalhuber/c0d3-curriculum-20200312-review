@@ -5,11 +5,13 @@ const { writeFile, readdir } = require('fs');
  * @returns {undefined}
  */
 const listFiles = () => {
-  readdir(__dirname, (err, files) => {
+  readdir('./', (err, files) => {
     if (err) throw new Error(err);
 
     const html = files.reduce((ac, file) => `${ac}<h1>${file}</h1>`, '');
-    writeFile(`${__dirname}/files.html`, html);
+    writeFile('./files.html', html, (err) => {
+      if (err) throw new Error(err);
+    });
   });
 };
 
