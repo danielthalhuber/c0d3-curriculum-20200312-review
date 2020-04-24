@@ -13,7 +13,7 @@ writeHtmlLessons();
 
 ## Signature
 
-- Parameters: `callback`: function to be called when lessons have been logged, used for testing
+- Parameters: `callback`: function to be called after operation is complete, used for testing
 - Returns: `undefined`
 - Side-effects:
 
@@ -29,7 +29,7 @@ writeHtmlLessons();
   - URL: https://c0d3.com/api/lessons
   - Callback:
 
-    - Goal: parse response data and log lesson properties to console
+    - Goal: parse response data and write lesson names to an HTML file
     - Signature:
 
       - Parameters:

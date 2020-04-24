@@ -13,7 +13,7 @@ logCountryWithMostCities();
 
 ## Signature
 
-- Parameters: `callback`: function to be called when lessons have been logged, used for testing
+- Parameters: `callback`: function to be called after operation is complete, used for testing
 - Returns: `undefined`
 - Side-effects:
 
@@ -29,7 +29,7 @@ logCountryWithMostCities();
   - URL: https://api.openaq.org/v1/countries
   - Callback:
 
-    - Goal: parse response data and log lesson properties to console
+    - Goal: parse response data and log name of country with the most cities to the console
     - Signature:
 
       - Parameters:

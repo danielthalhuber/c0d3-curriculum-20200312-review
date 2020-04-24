@@ -13,7 +13,7 @@ writeHtml20Pokemon();
 
 ## Signature
 
-- Parameters: `callback`: function to be called when lessons have been logged, used for testing
+- Parameters: `callback`: function to be called after operation is complete, used for testing
 - Returns: `undefined`
 - Side-effects:
 
@@ -29,7 +29,7 @@ writeHtml20Pokemon();
   - URL: https://pokeapi.co/api/v2/pokemon/
   - Callback:
 
-    - Goal: parse response data and log lesson properties to console
+    - Goal: parse response data and write 20 Pokemon names to an HTML file
     - Signature:
 
       - Parameters:
