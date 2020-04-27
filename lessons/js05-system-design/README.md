@@ -521,11 +521,11 @@ Key points:
 
 3. Write the REST convention for the following resource: Relationship
 
-   | Method | Path        | Action                                                                                                                 | Body Required\  |
-   | ------ | ----------- | ---------------------------------------------------------------------------------------------------------------------- | --------------- |
-   | GET    | /robots     | Get a list of relationships                                                                                            | No              |
-   | GET    | /robots/:id | Get data for the specified relationship                                                                                | No              |
-   | POST   | /robots     | Create a new relationship with the given data                                                                          | Yes             |
-   | PUT    | /robots/:id | Replace the relationship with the given id, or if a relationship with the given id doesn't not exist, create a new one | Yes             |
-   | PATCH  | /robots/:id | Update the specified relationship with the given data                                                                  | Yes             |
-   | DELETE | /robots/:id | Delete the specified relationship                                                                                      | No              |
+   | Method | Path        | Action                                                                                                                 | Body Required |
+   | ------ | ----------- | ---------------------------------------------------------------------------------------------------------------------- | ------------- |
+   | GET    | /robots     | Get a list of relationships                                                                                            | No            |
+   | GET    | /robots/:id | Get data for the specified relationship                                                                                | No            |
+   | POST   | /robots     | Create a new relationship with the given data                                                                          | Yes           |
+   | PUT    | /robots/:id | Replace the relationship with the given id, or if a relationship with the given id doesn't not exist, create a new one | Yes           |
+   | PATCH  | /robots/:id | Update the specified relationship with the given data                                                                  | Yes           |
+   | DELETE | /robots/:id | Delete the specified relationship                                                                                      | No            |
