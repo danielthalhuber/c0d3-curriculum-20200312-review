@@ -569,7 +569,7 @@ console.log(result);
 
 ### [Exercises](exercises/libraries/README.md)
 
-- [ ] Write tests for the exercise solutions
+- [x] Write tests for the exercise solutions
 
 ## APIs
 

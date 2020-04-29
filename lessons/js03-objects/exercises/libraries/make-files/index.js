@@ -6,9 +6,10 @@ const { writeFile } = require('fs');
  * @returns {undefined}
  */
 const makeFiles = (number = -1) => {
-  if (number < 0) return;
+  if (number < 1) return;
 
-  writeFile(`${__dirname}/trainer${number}.txt`, "Gotta catch 'em all", () => {
+  writeFile(`./trainer${number}.txt`, "Gotta catch 'em all", (err) => {
+    if (err) throw new Error(err);
     makeFiles(number - 1);
   });
 };
