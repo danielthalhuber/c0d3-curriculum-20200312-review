@@ -1,7 +1,7 @@
 jest.mock('request');
 console.log = jest.fn();
 
-const { logHeaviestPokemon } = require('./');
+const { logHeaviestPokemon } = require('./index-first-solution');
 const request = require('request');
 
 describe('logHeaviestPokemon', () => {
@@ -22,30 +22,28 @@ describe('logHeaviestPokemon', () => {
 
     test('calls request once for each id with correct URL', () => {
       // execute callback from first call to request to API
-      // triggers calls to API for Pokemon details
-      const responseBody = JSON.stringify({
+      // triggers first call to API for Pokemon details
+      const responseData = JSON.stringify({
         results: pokemon.map(({ name, url }) => ({
           name,
           url,
         })),
       });
-      request.mock.calls[0][1](undefined, undefined, responseBody);
-      expect(request.mock.calls.length).toEqual(pokemon.length + 1);
+      request.mock.calls[0][1](undefined, undefined, responseData);
 
-      // inspect URL argument to request and execute callbacks
-      request.mock.calls.slice(1).forEach(([url, cb], i) => {
-        // check the URL
-        expect(url).toEqual(pokemon[i].url);
+      pokemon.forEach(({ name, weight }, i) => {
+        // check the request arguments from call to API for details
+        expect(request.mock.calls.length).toEqual(i + 2);
+        expect(request.mock.calls[i + 1][0].endsWith(`/${i}/`)).toEqual(true);
 
-        // call callback from requests to API for details
-        // final call will trigger the console.log statement
-        const { name, weight } = pokemon[i];
-        const responseBody = JSON.stringify({ name, weight });
-        cb(undefined, undefined, responseBody);
+        // execute callback from API for details
+        // each callback triggers next request to API
+        const responseData = JSON.stringify({ name, weight });
+        request.mock.calls[i + 1][1](undefined, undefined, responseData);
       });
     });
 
-    test('logs the heaviest to the console', () => {
+    test('logs heaviest Pokemon', () => {
       const heaviestPokemon = pokemon
         .map(({ name, weight }) => ({ name, weight }))
         .reduce((prev, curr) => (curr.weight > prev.weight ? curr : prev));
