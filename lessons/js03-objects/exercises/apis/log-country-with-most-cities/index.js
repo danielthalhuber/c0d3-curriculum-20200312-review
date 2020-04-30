@@ -4,9 +4,9 @@ const request = require('request');
  * Log country with most cities to the console
  * @returns {undefined}
  */
-const logCountryWithMostCities = (callback) => {
+const logCountryWithMostCities = () => {
   request('https://api.openaq.org/v1/countries', (err, _, body) => {
-    if (err) return console.log(err);
+    if (err) throw new Error(err);
 
     // find the name of the country with the most cities
     const countryWithMostCities = JSON.parse(body).results.reduce((max, curr) =>
@@ -15,9 +15,6 @@ const logCountryWithMostCities = (callback) => {
 
     // log the name of the country with the most cities
     console.log(countryWithMostCities.name);
-
-    // for testing
-    if (typeof callback === 'function') callback();
   });
 };
 
