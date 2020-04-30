@@ -4,15 +4,15 @@ const request = require('request');
  * Log the heaviest pokemon the console
  * @returns {undefined}
  */
-const logHeaviestPokemon = (callback) => {
+const logHeaviestPokemon = () => {
   const baseURL = 'https://pokeapi.co/api/v2/pokemon/';
 
   // helper to get Pokemon details
   const getDetails = (ids, cb, details = []) => {
-    if (ids.length < 1) cb(details);
+    if (ids.length < 1) return cb(details);
 
     request(`${baseURL}${ids[0]}/`, (err, _, body) => {
-      if (err) return console.log(err);
+      if (err) throw new Error(err);
 
       details.push(JSON.parse(body));
       return getDetails(ids.slice(1), cb, details);
@@ -29,7 +29,7 @@ const logHeaviestPokemon = (callback) => {
   };
 
   request(baseURL, (err, _, body) => {
-    if (err) return console.log(err);
+    if (err) throw new Error(err);
 
     // get a list of Pokemon ids
     const ids = JSON.parse(body).results.map(({ url }) =>
@@ -40,13 +40,7 @@ const logHeaviestPokemon = (callback) => {
     );
 
     // get details and then log the heaviest
-    const cb = (details) => {
-      logHeaviest(details);
-
-      // for testing
-      if (typeof callback === 'function') callback();
-    };
-    getDetails(ids, cb);
+    getDetails(ids, (details) => logHeaviest(details));
   });
 };
 
