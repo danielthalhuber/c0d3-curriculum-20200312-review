@@ -575,4 +575,204 @@ console.log(result);
 
 ### [Exercises](exercises/apis/README.md)
 
-- [ ] Write tests for the exercise solutions
+- [x] Write tests for the exercise solutions
+
+### Promises
+
+Look out for callback hell:
+
+```js
+request('https://a.com', (aErr, aRes, aData) => {
+  request('https://b.com', (bErr, bRes, bData) => {
+    request('https://c.com', (cErr, cRes, cData) => {
+      request('https://d.com', (dErr, dRes, dData) => {
+        request('https://e.com', (eErr, eRes, eData) => {
+          // In a large codebase, it may be very difficult
+          // to get to the end of the chain (eData)
+          // since the code is in the middle of the page
+          calculateResult(aData, bData, cData, dData, eData);
+        });
+      });
+    });
+  });
+}); // Bad coding pattern
+```
+
+A more legible pattern:
+
+```js
+const onReceiveResponseA = (aErr, aRes, aData) => {
+  // do things with aData
+  request('https://b.com', onReceiveResponseB);
+};
+
+const onReceiveResponseB = (bErr, bRes, bData) => {
+  // do things with bData
+  request('https://c.com', onReceiveResponseC);
+};
+const onReceiveResponseC = (cErr, cRes, cData) => {
+  // do things with cData
+  request('https://d.com', onReceiveResponseC);
+};
+const onReceiveResponseD = (dErr, dRes, dData) => {
+  // do things with dData
+  request('https://e.com', onReceiveResponseE);
+};
+const onReceiveResponseE = (eErr, eRes, eData) => {
+  calculateResult(aData, bData, cData, dData, eData);
+};
+
+request('https://a.com', onReceiveResponseA);
+```
+
+Promises provide an alternative to callbacks. A Promise is an object that represents the eventual result of an asynchronous procedure.
+
+The two most commonly used promise methods are both chainable:
+
+- `then`
+
+  - Parameters:
+
+    - `onFulfilled`: optional function that is called if the Promise is fulfilled. It is called with a single argument: the fulfillment value.
+    - `onRejected`: optional function that is called if the Promise is rejected. It is called with a single argument: the rejection reason.
+
+  - Returns: Promise with value returned by `onFulfilled` or `onRejected`
+
+- `catch`
+
+  - Parameters:
+
+    - `onRejected`: function that is called if the Promise is rejected. It is called with a single argument: the rejection reason.
+
+  - Returns: a Promise with the value returned by `onRejected`
+
+### Axios
+
+Axios is a library similar to Request, except that it uses Promises instead of callbacks to handle responses/results from network requests.
+
+The previous example using Axios instead of Request:
+
+```js
+const axios = require('axios');
+const allData = [];
+const resultOfDataPromise = axios('https://a.com')
+  .then((aData) => {
+    allData.push(aData);
+    return axios('https://b.com');
+  })
+  .then((bData) => {
+    allData.push(bData);
+    return axios('https://c.com');
+  })
+  .then((cData) => {
+    allData.push(cData);
+    return axios('https://d.com');
+  })
+  .then((dData) => {
+    allData.push(dData);
+    return axios('https://e.com');
+  })
+  .then((eData) => {
+    allData.push(eData);
+    // In a large codebase, using returning promise objects can help your
+    // code flow in a logical way (top down) so the last call in the
+    // chain (eData) is towards the end of the page.
+    return calculateResult(allData);
+  })
+  .catch((eErr) => {
+    // Find the eErr variable in the callback hell example
+    // and try to understand how this works!
+  });
+```
+
+### Fetch
+
+Fetch is the current standard for handling network request. The Fetch API is part of the Web API standard, implemented by the browser. The Fetch API is not implemented in Node. The `node-fetch` package is a popular implementation of the Fetch API for Node.
+
+Example using fetch in the browser:
+
+```html
+<h1 class="display"></h1>
+<script>
+  const display = document.querySelector('.display');
+  fetch('https://c0d3.com/api/lessons')
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      display.innerText = `there are ${data.length} lessons`;
+    });
+</script>
+```
+
+#### Exercise
+
+Redo the axios example using fetch:
+
+```js
+const allData = [];
+const resultOfDataPromise = fetch('https://a.com')
+  .then((response) => response.json())
+  .then((aData) => {
+    allData.push(aData);
+    return fetch('https://b.com');
+  })
+  .then((response) => response.json())
+  .then((bData) => {
+    allData.push(bData);
+    return fetch('https://c.com');
+  })
+  .then((response) => response.json())
+  .then((cData) => {
+    allData.push(cData);
+    return fetch('https://d.com');
+  })
+  .then((response) => response.json())
+  .then((dData) => {
+    allData.push(dData);
+    return fetch('https://e.com');
+  })
+  .then((response) => response.json())
+  .then((eData) => {
+    allData.push(eData);
+    return calculateResult(allData);
+  })
+  .catch((eErr) => {
+    // ...
+  });
+```
+
+### Promise.all
+
+Static method that takes an iterable object of values or promises and returns a promise which is fulfilled with an array of the values from the iterable. Promises must fulfill to return values, so the returned promise will be fulfilled when all of the promises in the iterable are fulfilled.
+
+Example:
+
+```js
+const fetch = require('node-fetch');
+
+const pokeNumbers = [
+  37, // vulpix
+  38, // ninetales
+  39, // jigglypuff
+  40, // wigglytuff
+];
+
+const arrayPromises = pokeNumbers.map((num) => {
+  return fetch(`https://pokeapi.co/api/v2/pokemon/${num}`).then((result) => {
+    // result is an array of response objects, one for each request
+    // we need to parse the JSON in each result
+    return result.json();
+  });
+});
+
+Promise.all(arrayPromises).then((results) => {
+  // results is now an array of objects
+  // we can do something with it, like
+  results.forEach((e) => {
+    console.log(`${e.name} weighs ${e.weight}`);
+  });
+});
+```
+
+### [Exercises](exercises/promises/README.md)
