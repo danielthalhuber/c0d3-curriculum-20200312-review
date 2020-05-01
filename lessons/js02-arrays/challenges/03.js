@@ -26,6 +26,10 @@ const solution = (row = 0, col = 0, ar = []) => {
   return solution(row, col, ar);
 };
 
+// If Array.prototype methods were allowed
+const solution2 = (row, col) => Array(row).fill(Array(col).fill(0));
+
 module.exports = {
   solution,
+  solution2,
 };
