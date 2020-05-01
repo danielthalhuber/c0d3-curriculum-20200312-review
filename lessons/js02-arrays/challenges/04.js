@@ -17,7 +17,7 @@
 
 const solution = (arr = [], cb = () => false) => {
   let i = -1;
-  return (val) => {
+  return () => {
     i = (i + 1) % arr.length;
     return cb(arr[i]);
   };
