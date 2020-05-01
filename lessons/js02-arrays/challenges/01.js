@@ -12,6 +12,7 @@
 
 const solution = (length = 0, result = []) => {
   if (length < 1) return result;
+
   result.push(result.length);
   return solution(length - 1, result);
 };
