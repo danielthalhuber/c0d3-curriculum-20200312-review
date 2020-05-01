@@ -5,9 +5,9 @@ const { writeFile } = require('fs');
  * Write the lesson titles to an HTML file in the current directory
  * @returns {undefined}
  */
-const writeHtmlLessons = (callback) => {
+const writeHtmlLessons = () => {
   request('https://c0d3.com/api/lessons', (err, _, body) => {
-    if (err) return console.log(err);
+    if (err) throw new Error(err);
 
     // create an HTML string of h1 elements containing the lesson titles
     const lessons = JSON.parse(body).reduce(
@@ -16,8 +16,7 @@ const writeHtmlLessons = (callback) => {
     );
     // write the HTML string to a file
     writeFile(`${__dirname}/lessons.html`, lessons, () => {
-      // for testing
-      if (typeof callback === 'function') callback();
+      if (err) throw new Error(err);
     });
   });
 };
