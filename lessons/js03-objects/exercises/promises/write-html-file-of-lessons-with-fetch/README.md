@@ -14,13 +14,13 @@ writeHtmlLessons();
 ## Signature
 
 - Parameters: none
-- Returns: `undefined`
+- Returns: Promise
 - Side-effects:
 
   - Makes HTTP requests
   - Writes to the filesystem
 
-- Dependencies: `node-fetch`, `fs.writeFile`
+- Dependencies: `node-fetch`, `fs.promises.writeFile`
 
 ## Explanation
 

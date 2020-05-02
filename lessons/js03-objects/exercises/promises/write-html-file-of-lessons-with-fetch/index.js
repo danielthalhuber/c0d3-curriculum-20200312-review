@@ -11,9 +11,7 @@ const logLessons = () =>
   fetch('https://c0d3.com/api/lessons')
     .then((response) => response.json())
     .then((data) => {
-      const titles = `<h1>${data
-        .map(({ title }) => title)
-        .join('</h1><h1>')}</h1>`;
+      const titles = data.map(({ title }) => `</h1>${title}</h1>`).join('');
 
       return writeFile('./lessons.html', titles);
     })

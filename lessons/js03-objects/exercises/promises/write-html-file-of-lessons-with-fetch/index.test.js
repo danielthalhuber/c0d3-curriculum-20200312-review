@@ -14,11 +14,11 @@ describe('logLessons', () => {
       { title: 'lesson2' },
       { title: 'lesson3' },
     ];
-    const expectedPath = './lessons.html';
-    const expectedData = `<h1>${lessons
-      .map(({ title }) => title)
-      .join('</h1><h1>')}</h1>`;
-    const expectedWriteArgs = [expectedPath, expectedData];
+    const expectedFile = './lessons.html';
+    const expectedData = lessons
+      .map(({ title }) => `</h1>${title}</h1>`)
+      .join('');
+    const expectedWriteArgs = [expectedFile, expectedData];
 
     fetch.mockReturnValue(Promise.resolve({ json: () => lessons }));
     return logLessons().then(() => {
