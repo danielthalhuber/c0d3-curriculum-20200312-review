@@ -1,6 +1,6 @@
 # JS3 - Objects: Promise Exercises
 
-1. [Log Lessons with Fetch](log-lessons-with-fetch/README.md)
+1. [Write HTML File of Lessons with Fetch](write-html-file-of-lessons-with-fetch/README.md)
 2. [Write HTML File of 20 Pokemon with Fetch](write-html-file-of-20-pokemon-with-fetch/README.md)
 3. [Log Country with Most Cites with Fetch](log-country-with-most-cities-with-fetch/README.md)
 4. [Log Heaviest Pokemon with Fetch](log-heaviest-pokemon-with-fetch/README.md)
