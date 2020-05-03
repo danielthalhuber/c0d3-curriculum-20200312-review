@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display Countries in a Web Page: Demo</title>
+  </head>
+  <body>
+    <div class="content"></div>
+    <script>
+      const content = document.querySelector('.content');
+      fetch('https://country.register.gov.uk/records.json')
+        .then((r) => {
+          return r.json();
+        })
+        .then((countryMap) => {
+          const data = Object.values(countryMap);
+          content.innerHTML = data.reduce((acc, country) => {
+            return (
+              acc +
+              `
+        <h1 class="title">${country.item[0].name}</h1>
+        `
+            );
+          }, '');
+          const titleElements = content.querySelectorAll('.title');
+          titleElements.forEach((e, i) => {
+            e.onclick = () => {
+              alert(data[i].item[0]['citizen-names']);
+            };
+          });
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display Countries in a Web Page</title>
+  </head>
+  <body>
+    <div class="country-list"></div>
+    <script>
+      // state
+
+      const countryList = document.querySelector('.country-list');
+      const countries = [];
+
+      // actions
+
+      const showMore = (i = -1) => {
+        const country = countries[i];
+        if (!country || !country.hasOwnProperty('citizen-names')) return;
+        alert(country['citizen-names']);
+      };
+
+      const updateCountries = () =>
+        fetch('https://country.register.gov.uk/records.json?page-size=500')
+          .then((response) => response.json())
+          .then((data) => {
+            // remove existing countries
+            [...countries].forEach(() => countries.pop());
+
+            // add new countries and update UI
+            Object.values(data)
+              .map(({ item: { 0: details } }) => details)
+              .forEach((country, i) => {
+                countries.push(country);
+                const name = document.createElement('h1');
+                name.textContent = country['official-name'];
+                name.addEventListener('click', () => showMore(i));
+                countryList.append(name);
+              });
+          })
+          .catch(console.log);
+
+      // initialization
+
+      updateCountries();
+    </script>
+  </body>
+</html>
