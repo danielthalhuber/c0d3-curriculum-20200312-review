@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display Lessons in a Web Page: Demo</title>
+  </head>
+  <body>
+    <div class="content"></div>
+    <script>
+      const content = document.querySelector('.content');
+      fetch('https://c0d3.com/api/lessons')
+        .then((r) => {
+          return r.json();
+        })
+        .then((data) => {
+          content.innerHTML = data.reduce((acc, lesson) => {
+            return (
+              acc +
+              `
+    <h1 class="title">${lesson.title}</h1>
+    `
+            );
+          }, '');
+          const titleElements = content.querySelectorAll('.title');
+          titleElements.forEach((e, i) => {
+            e.onclick = () => {
+              alert(data[i].description);
+            };
+          });
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display Lessons in a Web Page</title>
+  </head>
+  <body>
+    <div class="lesson-list"></div>
+    <script>
+      // state
+
+      const lessonList = document.querySelector('.lesson-list');
+      const lessons = [];
+
+      // actions
+
+      const showDescription = (i = -1) => {
+        const lesson = lessons[i];
+        if (!lesson || !lesson.hasOwnProperty('description')) return;
+        alert(lesson.description);
+      };
+
+      const updateLessons = () =>
+        fetch('https://c0d3.com/api/lessons')
+          .then((response) => response.json())
+          .then((lessonData) => {
+            // remove existing lessons
+            [...lessons].forEach(() => lesson.pop());
+
+            // add new lessons and update UI
+            lessonData.forEach((lesson, i) => {
+              lessons.push(lesson);
+              const title = document.createElement('h1');
+              title.textContent = lesson.title;
+              title.addEventListener('click', () => showDescription(i));
+              lessonList.append(title);
+            });
+          })
+          .catch(console.log);
+
+      // initialization
+
+      updateLessons();
+    </script>
+  </body>
+</html>
