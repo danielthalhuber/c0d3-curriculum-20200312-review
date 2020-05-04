@@ -1,6 +1,6 @@
 # JS3 - Objects: Challenges
 
-1. Return Array of Values
+1. [Return Array of Values](01-return-array-of-values/README.md)
 2. Create 2D Array of Objects
 3. Return Function from Array of Strings
 4. 2 Sum
