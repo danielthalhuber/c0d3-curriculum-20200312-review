@@ -577,7 +577,7 @@ console.log(result);
 
 - [x] Write tests for the exercise solutions
 
-### Promises
+## Promises
 
 Look out for callback hell:
 
@@ -776,3 +776,5 @@ Promise.all(arrayPromises).then((results) => {
 ```
 
 ### [Exercises](exercises/promises/README.md)
+
+## [Challenges](challenges/README.md)
