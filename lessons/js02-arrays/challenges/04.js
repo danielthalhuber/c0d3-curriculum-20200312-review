@@ -10,17 +10,14 @@
  * When the returned function is called for the third time,
  *     the input function will be called with the third element of the array.
  * ... loop back to first element when it reaches the end
- * @param {array} arr - array of argument values for cb
- * @param {function} cb - called with each value of arr
+ * @param {array} arr
+ * @param {function} cb
  * @returns {function}
  */
 
-const solution = (arr = [], cb = () => false) => {
-  let i = -1;
-  return () => {
-    i = (i + 1) % arr.length;
-    return cb(arr[i]);
-  };
+const solution = (arr, cb) => {
+  let i = 0;
+  return () => cb(arr[i++ % arr.length]);
 };
 
 module.exports = {
