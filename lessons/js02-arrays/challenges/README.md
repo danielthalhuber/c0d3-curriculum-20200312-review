@@ -71,11 +71,12 @@
      - Explanation:
 
        - Start with `result = []`
-       - Base: if `fun(result.length)` is `false`, then return `result`
-       - Recursive:
+       - Recursive: if `fun(result.length)` is `false`, then:
 
          - `result.push(result.length)`
          - Return a call to `solution`
+
+       - Base: return `result`
 
      - [Code](02.js)
      - [Test](02.test.js)

@@ -10,10 +10,12 @@
  */
 
 const solution = (fun = () => true, result = []) => {
-  if (fun(result.length)) return result;
+  if (fun(result.length) === false) {
+    result.push(result.length);
+    return solution(fun, result);
+  }
 
-  result.push(result.length);
-  return solution(fun, result);
+  return result;
 };
 
 module.exports = {
