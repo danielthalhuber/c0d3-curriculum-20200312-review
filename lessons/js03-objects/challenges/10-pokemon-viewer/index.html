@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Viewer</title>
+  </head>
+  <body>
+    <div class="pager">
+      <button class="prev">Previous</button>
+      <button class="next">Next</button>
+    </div>
+    <div class="display"></div>
+    <script>
+      // state
+
+      const buttonPrev = document.querySelector('button.prev');
+      const buttonNext = document.querySelector('button.next');
+      const display = document.querySelector('div.display');
+      const api = {
+        prev: null,
+        next: 'https://pokeapi.co/api/v2/pokemon/',
+      };
+
+      // actions
+
+      const getPokemonHTML = (url) =>
+        fetch(url)
+          .then((response) => response.json())
+          .then(
+            ({ name, sprites: { front_default: src } }) =>
+              `<h1>${name}</h1>\n<img src="${src}" />`
+          )
+          .catch((err) => {
+            throw new Error(err);
+          });
+
+      const render = (url = api.next) =>
+        fetch(url)
+          .then((response) => response.json())
+          .then(({ next, previous, results }) => {
+            api.next = next;
+            api.prev = previous;
+
+            buttonNext.disabled = !next;
+            buttonPrev.disabled = !previous;
+
+            return Promise.all(results.map(({ url }) => getPokemonHTML(url)));
+          })
+          .then((pokemonHTML) => {
+            display.innerHTML = pokemonHTML.join('');
+          })
+          .catch(console.log);
+
+      const pagerButtonClick = (button, api) => {
+        if (button.disabled) return;
+        render(api);
+      };
+
+      // events
+
+      buttonPrev.addEventListener('click', (e) =>
+        pagerButtonClick(e.target, api.prev)
+      );
+      buttonNext.addEventListener('click', (e) =>
+        pagerButtonClick(e.target, api.next)
+      );
+
+      // initialization
+
+      render();
+    </script>
+  </body>
+</html>

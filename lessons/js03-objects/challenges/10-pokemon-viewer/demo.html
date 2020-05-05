@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Viewer: Demo</title>
+  </head>
+  <body>
+    <div>
+      <button class="leftButton">Previous</button>
+      <button class="rightButton">Next</button>
+    </div>
+    <div class="mainDisplay"></div>
+    <script>
+      let previousUrl = null;
+      document.querySelector('.leftButton').onclick = () => {
+        if (!previousUrl) return;
+        fetch(previousUrl)
+          .then((r) => r.json())
+          .then(render);
+      };
+
+      let nextUrl = null;
+      document.querySelector('.rightButton').onclick = () => {
+        if (!nextUrl) return;
+        fetch(nextUrl)
+          .then((r) => r.json())
+          .then(render);
+      };
+
+      const mainDisplay = document.querySelector('.mainDisplay');
+      const render = (data) => {
+        const pokeArr = data.results;
+        previousUrl = data.previous;
+        nextUrl = data.next;
+        mainDisplay.innerHTML = pokeArr.reduce((acc, e) => {
+          return (
+            acc +
+            `
+        <div class="pokeContainer">
+        <h1 class="pokeName">${e.name}</h1>
+        <div class="pokeContainerImage">
+        </div>
+        </div>
+        `
+          );
+        }, '');
+
+        const allImageContainers = document.querySelectorAll(
+          '.pokeContainerImage'
+        );
+        allImageContainers.forEach((container, i) => {
+          fetch(pokeArr[i].url)
+            .then((r) => r.json())
+            .then((d) => {
+              console.log(d);
+              container.innerHTML = `<img src=${d.sprites.front_default} />`;
+            });
+        });
+      };
+
+      fetch('https://pokeapi.co/api/v2/pokemon/')
+        .then((r) => r.json())
+        .then(render);
+    </script>
+  </body>
+</html>

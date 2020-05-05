@@ -9,4 +9,4 @@
 7. [Map Objects](07-map-objects/README.md)
 8. [Call Function Values of an Object](08-call-function-values-of-object/README.md)
 9. [Send a Request](09-send-a-request/README.md)
-10. Build this Pokemon Viewer
+10. [Pokemon Viewer](10-pokemon-viewer/README.md)
